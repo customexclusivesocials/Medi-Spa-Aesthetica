@@ -90,6 +90,7 @@
             border-radius: 0;
             transition: all 0.4s ease;
             cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
@@ -150,7 +151,7 @@
         nav ul {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: 2rem;
         }
 
         nav ul a {
@@ -339,11 +340,147 @@
             text-align: justify;
         }
 
-        /* --- Location & Hours Grid --- */
-        .contact-section {
-            background-color: #FDFBFAF;
+        .service-actions {
+            margin-top: auto;
         }
 
+        /* --- Client Gallery Section --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .gallery-item {
+            background-color: var(--white);
+            border: 1px solid rgba(90, 82, 76, 0.08);
+            overflow: hidden;
+        }
+
+        .gallery-image-wrapper {
+            position: relative;
+            background-color: var(--sand);
+            aspect-ratio: 1 / 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .gallery-label {
+            padding: 1.5rem;
+            background: var(--white);
+        }
+
+        .gallery-label h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.2rem;
+        }
+
+        .gallery-label p {
+            font-size: 0.8rem;
+            color: var(--taupe);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* --- Promotions Section --- */
+        .promo-section {
+            background-color: var(--sand);
+        }
+
+        .promo-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .promo-card {
+            background-color: var(--white);
+            border: 1px solid rgba(90, 82, 76, 0.1);
+            padding: 3rem;
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .promo-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            background-color: var(--charcoal);
+            color: var(--ivory);
+            padding: 0.3rem 0.8rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .promo-value {
+            font-family: var(--serif);
+            font-size: 2.5rem;
+            color: var(--gold);
+            text-align: right;
+            line-height: 1.1;
+        }
+
+        /* --- Newsletter Sign Up Matrix --- */
+        .newsletter-section {
+            background-color: var(--charcoal);
+            color: var(--ivory);
+            border-bottom: 1px solid rgba(250, 247, 242, 0.1);
+        }
+
+        .newsletter-wrapper {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            margin-top: 2rem;
+            border-bottom: 1px solid rgba(250, 247, 242, 0.3);
+        }
+
+        .newsletter-input {
+            background: transparent;
+            border: none;
+            padding: 1rem;
+            color: var(--ivory);
+            font-family: var(--sans);
+            font-size: 0.9rem;
+            flex-grow: 1;
+            outline: none;
+        }
+
+        .newsletter-input::placeholder {
+            color: rgba(250, 247, 242, 0.4);
+        }
+
+        .newsletter-submit {
+            background: transparent;
+            border: none;
+            color: var(--gold-soft);
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.15em;
+            cursor: pointer;
+            padding: 0 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .newsletter-submit:hover {
+            color: var(--white);
+        }
+
+        /* --- Location & Contact Grid --- */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -395,7 +532,20 @@
             justify-content: center;
             align-items: center;
             padding: 2rem;
-            text-center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-bottom: 1px solid var(--charcoal);
+            padding-bottom: 2px;
         }
 
         /* --- Footer Layout --- */
@@ -404,7 +554,6 @@
             color: var(--ivory);
             padding: 4rem 0;
             font-size: 0.85rem;
-            border-top: 1px solid rgba(250, 247, 242, 0.1);
         }
 
         .footer-wrapper {
@@ -421,15 +570,18 @@
 
         /* --- Responsive Viewport Overrides --- */
         @media (max-width: 992px) {
-            .about-grid, .contact-grid {
+            .about-grid, .contact-grid, .promo-card {
                 grid-template-columns: 1fr;
                 gap: 3rem;
+            }
+            .promo-value {
+                text-align: left;
             }
             .hero h1 {
                 font-size: 3rem;
             }
             nav ul {
-                display: none; /* Add dynamic mobile menu icon logic if scaling further */
+                display: none;
             }
         }
     </style>
@@ -446,12 +598,13 @@
             <nav>
                 <ul>
                     <li><a href="#about">The Practitioner</a></li>
-                    <li><a href="#alumier">AlumierMD</a></li>
                     <li><a href="#services">Treatments</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#promotions">Promotions</a></li>
                     <li><a href="#contact">Location</a></li>
                 </ul>
             </nav>
-            <a href="#contact" class="btn btn-outline" style="padding: 0.7rem 1.5rem; font-size: 0.75rem;">Book</a>
+            <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.5rem; font-size: 0.75rem;">Book Online</a>
         </div>
     </header>
 
@@ -462,7 +615,8 @@
                 <span class="hero-badge">Clinical Precision & Quiet Luxury</span>
                 <h1>Natural Beauty Enhancement</h1>
                 <p>Medical-grade aesthetic care directed by experienced Registered Nurse Rose Wheeler. We combine clinical safety with tailored, luxury transformations to reveal your radiant skin.</p>
-                <a href="#services" class="btn btn-primary">View Treatments</a>
+                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="margin-right: 1rem;">Book Appointment</a>
+                <a href="#services" class="btn btn-outline">Explore Treatments</a>
             </div>
         </div>
     </section>
@@ -478,7 +632,10 @@
                 <h2 class="section-title">Meet Nurse Rose Wheeler</h2>
                 <p>At the intersection of medical science and artistic refinement sits the clinical philosophy of Rose Wheeler, RN. With over 25 years of extensive medical experience, Rose has committed her life's work to safe, evidence-based, and impactful medical aesthetics.</p>
                 <p>Every procedure performed within Medi Spa Aesthetica is built upon deep anatomical knowledge, uncompromising clinical safety infrastructure, and a personalized passion for elevating each patient's natural beauty profile.</p>
-                <a href="#contact" class="btn btn-outline" style="margin-top: 1rem;">Schedule Private Consultation</a>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/medispa_aesthetica?fbclid=IwY2xjawTIvOxleHRuA2FlbQIxMABzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeMc1QagvwTPI7Hyjmul3GaDo4uVXTLHRKpkeqdkVFtQdBFkdqdItB7aaMxJA_aem_-sNwTWaFoPfcoo658zqGow" target="_blank">Instagram</a>
+                    <a href="https://www.facebook.com/roseanne.wheeler.2025/directory_personal_details" target="_blank">Facebook</a>
+                </div>
             </div>
         </div>
     </section>
@@ -524,6 +681,9 @@
                         <div class="service-meta">15 Minutes</div>
                         <p class="service-description">A comprehensive 15-minute diagnostic assessment to analyze your unique skin profile, review aesthetic goals, and outline a custom treatment framework designed specifically for you.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Microneedling -->
@@ -531,10 +691,13 @@
                     <div>
                         <div class="service-header">
                             <h3 class="service-title">Microneedling Collagen Induction</h3>
-                            <span class="service-price">Varies</span>
+                            <span class="service-price">Price Varies</span>
                         </div>
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">Minimally invasive therapy utilizing precise clinical micro-needles to stimulate cellular turnover and amplify collagen production by 400%. Dramatically improves wrinkles, fine lines, acne scars, hyperpigmentation, and pore structure using customized target serums.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -543,10 +706,13 @@
                     <div>
                         <div class="service-header">
                             <h3 class="service-title">Microneedling with Salmon DNA & Exosomes</h3>
-                            <span class="service-price">Varies</span>
+                            <span class="service-price">Price Varies</span>
                         </div>
                         <div class="service-meta">30+ Minutes</div>
                         <p class="service-description">An elite, avant-garde skin regeneration solution merging structural microneedling with therapeutic salmon DNA polynucleotides and concentrated exosomes. Rapidly accelerates cellular recovery, deeply increases hydration, and reverses long-term aging biomarkers.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -560,6 +726,9 @@
                         <div class="service-meta">15 Minutes</div>
                         <p class="service-description">A precise micro-application of neuromodulator targeted to gently relax and lift the upper lip line, exposing an elegant, fuller, and beautifully volumized display without adding extra dermal mass.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Botox/Dysport -->
@@ -571,6 +740,9 @@
                         </div>
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">Advanced anti-wrinkle neuromodulator design engineered to smooth fine expression lines and creases. Expertly applied to treat facial lines, masseter teeth grinding, therapeutic migraines, and severe axillary hyperhidrosis (excessive sweating).</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -584,6 +756,9 @@
                         <div class="service-meta">45 Minutes</div>
                         <p class="service-description">Complete spatial design using premium hyaluronic acid to restore volume, contour borders, and produce natural-looking plumpness. Tailored to match individual facial harmony parameters seamlessly.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Sculptra -->
@@ -591,10 +766,13 @@
                     <div>
                         <div class="service-header">
                             <h3 class="service-title">Sculptra Bio-Stimulating Treatment</h3>
-                            <span class="service-price">Varies</span>
+                            <span class="service-price">Price Varies</span>
                         </div>
                         <div class="service-meta">45 Minutes</div>
                         <p class="service-description">Premium poly-L-lactic acid injectable designed to rebuild deep extracellular matrix collagen layers. Gradually restores natural volume, corrects deep structural folds, and increases elasticity over a three-month phase with results spanning up to 2 years.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -603,10 +781,13 @@
                     <div>
                         <div class="service-header">
                             <h3 class="service-title">Collagen Building Meso Threads</h3>
-                            <span class="service-price">Varies</span>
+                            <span class="service-price">Price Varies</span>
                         </div>
                         <div class="service-meta">20+ Minutes</div>
                         <p class="service-description">Subdermal application of bio-stimulating suture threads. Tightens and plumps skin matrices along the neck, jawline, and peri-oral lines. Ideal for crisping the lip vermillion border to completely eliminate risk of future filler migration.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -620,6 +801,9 @@
                         <div class="service-meta">45 Minutes</div>
                         <p class="service-description">A luxurious micro-infusion delivery format providing deep, structural hydration and rapid skin rejuvenation. Imparts tailored compounds directly below the epidermis layer for an instantly luminous, refined complexion.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Vampire Facial -->
@@ -631,6 +815,9 @@
                         </div>
                         <div class="service-meta">45 Minutes</div>
                         <p class="service-description">Advanced combination therapy integrating precision mechanical microneedling with Platelet-Rich Plasma (PRP) processing. Utilizes your body's rich natural growth factors to dramatically stimulate elastin development and restore radiant texture tone.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -644,6 +831,9 @@
                         <div class="service-meta">1 Hour</div>
                         <p class="service-description">Autologous plasma treatment targeting deep tear troughs, persistent dark circles, and crepey tissue beneath the lower lids. Can also be utilized as a biological holistic volume lift for the chin, temples, and jawline contours.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Hair Restoration Plasma -->
@@ -656,6 +846,9 @@
                         <div class="service-meta">45 Minutes</div>
                         <p class="service-description">Targeted follicular activation treatment applying highly concentrated auto-plasma matrix components directly into the scalp along thinning sections. Awakens dormant follicles and naturally thickens shaft caliber. (Minimum of 3 treatments required).</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Laser Hair Removal -->
@@ -663,10 +856,13 @@
                     <div>
                         <div class="service-header">
                             <h3 class="service-title">IPL Painless Hair Removal</h3>
-                            <span class="service-price">Varies</span>
+                            <span class="service-price">Price Varies</span>
                         </div>
                         <div class="service-meta">30+ Minutes</div>
                         <p class="service-description">Advanced broad-spectrum Intense Pulsed Light technology developed to permanently reduce hair across body and facial regions gently, smoothly, and without discomfort. Zero down-time compared to wax regimens.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -675,10 +871,13 @@
                     <div>
                         <div class="service-header">
                             <h3 class="service-title">IPL Photorejuvenation</h3>
-                            <span class="service-price">Varies</span>
+                            <span class="service-price">Price Varies</span>
                         </div>
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">Non-invasive vascular and pigment corrective light therapies targeting environmental sun degradation, age spots, and fine broken capillaries while simultaneously signaling natural dermal firming behaviors.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -692,6 +891,9 @@
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">Premium Italian-formulated biostimulating and revitalizing professional medical peel without classic peeling downtime. Repairs active acne, texture irregularities, and pigment marks. <br><strong>Packages:</strong> 4 Sessions for $450 | 6 Sessions for $600.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Vitamin Injections -->
@@ -699,10 +901,13 @@
                     <div>
                         <div class="service-header">
                             <h3 class="service-title">Intramuscular Vitamin Boosters</h3>
-                            <span class="service-price">Varies</span>
+                            <span class="service-price">Price Varies</span>
                         </div>
                         <div class="service-meta">10 Minutes</div>
                         <p class="service-description">Direct wellness formulations designed to build cellular energy, clear dermal opacity, and assist metabolic performance. Includes pure Vitamin C and customized Vitamin B12 coupled with lipotropic MIC compounds.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -716,6 +921,9 @@
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">Localized adipose tissue cytolytic compound applications engineered to accurately eliminate targeted, stubborn fat cells safely and encourage clean processing contours.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- 1/2 Syringe -->
@@ -727,6 +935,9 @@
                         </div>
                         <div class="service-meta">45 Minutes</div>
                         <p class="service-description">Subtle volume integration perfect for minor adjustments, soft top-ups, or minor asymmetric leveling along localized treatment zones.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -740,6 +951,9 @@
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">Delicate cosmetic detailing option ideal for localized adjustments, minor touch-ups, or micro-definition corrections.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Skinvive -->
@@ -751,6 +965,9 @@
                         </div>
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">Approved micro-droplet hyaluronic gel treatment designed to increase cheek smoothness and restore internal hydration values for a deeply clear skin glow.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -764,6 +981,9 @@
                         <div class="service-meta">1 Hr 15 Min</div>
                         <p class="service-description">Advanced structural alignment therapy using mechanical anchoring threads. Lifts dropping mid-face vectors to naturally define structures and reduce heavy nasolabial shadowing.</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Neck and Jawline Thread Lift -->
@@ -773,8 +993,11 @@
                             <h3 class="service-title">Neck & Jawline Precizion Lift</h3>
                             <span class="service-price">CA$750.00</span>
                         </div>
-                        <div class="service-meta">1... Hr 15 Min</div>
+                        <div class="service-meta">1 Hr 15 Min</div>
                         <p class="service-description">Advanced non-surgical vector lifting designed to re-contour a lax submental profile, sharpen jawline lines, and tighten skin sagging along the neck structure.</p>
+                    </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
                     </div>
                 </div>
 
@@ -788,6 +1011,9 @@
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">A structured series of four custom chemical dermal peels calibrated for progressive, multi-layer corrective management of hyperpigmentation, texture irregularities, and skin tone. (Includes a built-in $50 package savings benefit).</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
                 <!-- Chemical Peel 6 Pack -->
@@ -800,47 +1026,127 @@
                         <div class="service-meta">30 Minutes</div>
                         <p class="service-description">An elite series of six customized corrective peels engineered for deep cellular recovery and premium dermal re-surfacing. Recommended for serious structural correction pathways. (Includes a built-in $100 package savings benefit).</p>
                     </div>
+                    <div class="service-actions">
+                        <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center; padding: 0.7rem;">Book Treatment</a>
+                    </div>
                 </div>
 
             </div>
         </div>
     </section>
 
-    <!-- --- Location & Contact Grid --- -->
-    <section id="contact" class="section-padding contact-section">
-        <div class="container">
-            <div class="contact-grid">
-                
-                <div class="info-panel">
-                    <span class="section-subtitle">Private Clinic Access</span>
-                    <h2 class="section-title">Schedule Your Arrival</h2>
-                    
-                    <div class="info-group">
-                        <h4>Clinic Residency</h4>
-                        <p>3700 Hershey St<br>Fort Erie, ON L0S 1N0</p>
-                    </div>
-
-                    <div class="info-group">
-                        <h4>Telephone Communications</h4>
-                        <p><a href="tel:+12899680922" style="font-weight: 400; text-decoration: underline;">+1 (289) 968-0922</a></p>
-                    </div>
-
-                    <div class="info-group">
-                        <h4>Clinical Operating Hours</h4>
-                        <ul class="hours-list">
-                            <li><span>Monday – Saturday</span> <span style="color: var(--gold-soft); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Private Appointment Only</span></li>
-                            <li class="highlight"><span>Sunday</span> <span>9:00 AM – Close</span></li>
-                        </ul>
-                    </div>
+    <!-- --- Client Gallery Section --- -->
+    <section id="gallery" class="section-padding container">
+        <div class="text-center" style="margin-bottom: 3rem;">
+            <span class="section-subtitle">Real Results</span>
+            <h2 class="section-title">The Client Gallery</h2>
+            <p style="color: var(--taupe); max-width: 600px; margin: 0 auto;">Explore clinical precision transformations showcasing natural beauty enhancement and tissue rejuvenation.</p>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <div class="gallery-image-wrapper">
+                    <span style="color: var(--taupe); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Dermal Filler Profile Overview</span>
                 </div>
-
-                <div class="map-panel">
-                    <p style="font-family: var(--serif); font-size: 1.6rem; margin-bottom: 1rem;">Medi Spa Aesthetica</p>
-                    <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--taupe); margin-bottom: 2rem;">Fort Erie, Ontario</p>
-                    <a href="https://maps.google.com/?q=3700+Hershey+St+Fort+Erie+ON+L0S+1N0" target="_blank" class="btn btn-outline">Open in Google Maps</a>
+                <div class="gallery-label">
+                    <h4>Lip Volume Symmetry</h4>
+                    <p>1 Syringe Treatment</p>
                 </div>
-
             </div>
+            <div class="gallery-item">
+                <div class="gallery-image-wrapper">
+                    <span style="color: var(--taupe); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Collagen Restoration Map</span>
+                </div>
+                <div class="gallery-label">
+                    <h4>Microneedling & Exosomes</h4>
+                    <p>3 Sessions Progressive</p>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="gallery-image-wrapper">
+                    <span style="color: var(--taupe); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;">Neuromodulator Fine Line Smoothing</span>
+                </div>
+                <div class="gallery-label">
+                    <h4>Anti-Wrinkle Micro Therapy</h4>
+                    <p>Botox Correction</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Promotions Section --- -->
+    <section id="promotions" class="section-padding promo-section text-center">
+        <div class="container promo-container">
+            <span class="section-subtitle">Bespoke Adjustments</span>
+            <h2 class="section-title">Current Seasonal Packages</h2>
+            
+            <div class="promo-card">
+                <div>
+                    <span class="promo-badge">Chemical Renewal Bundle</span>
+                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">Progressive Peel Integration</h3>
+                    <p style="color: var(--taupe); font-size: 0.95rem; margin: 0;">Save $50 on our comprehensive 4-treatment customized chemical peel package, or upgrade to our optimal 6-treatment suit for complete matrix correction and an instant $100 value reduction.</p>
+                </div>
+                <div class="promo-value">
+                    Save up to<br><span style="color: var(--charcoal); font-weight: 500;">$100</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Email Newsletter Sign Up Matrix --- -->
+    <section class="section-padding newsletter-section text-center">
+        <div class="container newsletter-wrapper">
+            <span class="section-subtitle" style="color: var(--gold-soft);">The Skincare Club</span>
+            <h2 class="section-title" style="color: var(--white); font-size: 2.5rem; margin-bottom: 1rem;">Bespoke Clinical Updates</h2>
+            <p style="color: rgba(250, 247, 242, 0.7); font-size: 0.95rem;">Subscribe to receive exclusive luxury treatment offerings, updates on AlumierMD skincare allocations, and seasonal skin health guides straight from Nurse Rose.</p>
+            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Medi Spa Aesthetica clinical updates.');">
+                <input type="email" class="newsletter-input" placeholder="Enter your private email address" required>
+                <button type="submit" class="newsletter-submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- --- Location & Contact Grid --- -->
+    <section id="contact" class="section-padding container">
+        <div class="contact-grid">
+            
+            <div class="info-panel">
+                <span class="section-subtitle">Private Clinic Access</span>
+                <h2 class="section-title">Schedule Your Arrival</h2>
+                
+                <div class="info-group">
+                    <h4>Clinic Location</h4>
+                    <p>3700 Hershey St<br>Fort Erie, ON L0S 1N0</p>
+                </div>
+
+                <div class="info-group">
+                    <h4>Direct Line</h4>
+                    <p><a href="tel:+12899680922" style="font-weight: 400; text-decoration: underline;">+1 (289) 968-0922</a></p>
+                </div>
+
+                <div class="info-group">
+                    <h4>Clinical Operating Hours</h4>
+                    <ul class="hours-list">
+                        <li><span>Monday – Saturday</span> <span style="color: var(--gold-soft); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Private Appointment Only</span></li>
+                        <li class="highlight"><span>Sunday</span> <span>9:00 AM – Close</span></li>
+                    </ul>
+                </div>
+
+                <div class="info-group">
+                    <h4>Social Journeys</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/medispa_aesthetica?fbclid=IwY2xjawTIvOxleHRuA2FlbQIxMABzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeMc1QagvwTPI7Hyjmul3GaDo4uVXTLHRKpkeqdkVFtQdBFkdqdItB7aaMxJA_aem_-sNwTWaFoPfcoo658zqGow" target="_blank">Instagram</a>
+                        <a href="https://www.facebook.com/roseanne.wheeler.2025/directory_personal_details" target="_blank">Facebook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-panel">
+                <p style="font-family: var(--serif); font-size: 1.6rem; margin-bottom: 1rem;">Medi Spa Aesthetica</p>
+                <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--taupe); margin-bottom: 2rem;">Fort Erie, Ontario</p>
+                <a href="https://maps.google.com/?q=3700+Hershey+St+Fort+Erie+ON+L0S+1N0" target="_blank" class="btn btn-outline" style="margin-bottom: 1rem; width: 80%; text-align: center;">Open Google Maps</a>
+                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="width: 80%; text-align: center;">Book on Square</a>
+            </div>
+
         </div>
     </section>
 
@@ -860,12 +1166,10 @@
     <!-- --- Category Filtering Engine JavaScript --- -->
     <script>
         function filterServices(category) {
-            // Update Active Classes inside Tab Links
             const buttons = document.querySelectorAll('.tab-btn');
             buttons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
-            // Toggle Card Displays
             const cards = document.querySelectorAll('.service-card');
             cards.forEach(card => {
                 if (category === 'all') {
