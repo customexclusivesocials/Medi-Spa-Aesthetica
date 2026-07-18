@@ -1,1 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medi Spa Aesthetica | Medical-Grade Aesthetic Care by RN Rose Wheeler</title>
+    <meta name="description" content="Elevated medical-grade aesthetic treatments in Fort Erie, ON. Directed by RN Rose Wheeler with over 25 years of experience. Official AlumierMD partner.">
+    
+    <!-- Premium Typography: Editorial Serif & Minimalist Sans-Serif -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Quiet Luxury Design Variables --- */
+        :root {
+            --ivory: #FAF7F2;
+            --sand: #F3ECE2;
+            --gold: #D4AF37;
+            --gold-soft: #DFC980;
+            --taupe: #5A524C;
+            --charcoal: #1C1A19;
+            --white: #FFFFFF;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Montserrat', sans-serif;
+        }
 
+        /* --- Global Reset & Base Styling --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--ivory);
+            color: var(--charcoal);
+            font-family: var(--sans);
+            font-weight: 300;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--serif);
+            font-weight: 400;
+            color: var(--charcoal);
+            letter-spacing: 0.02em;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        /* --- Layout Containers --- */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-padding {
+            padding: 6rem 0;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* --- Custom UI Buttons --- */
+        .btn {
+            display: inline-block;
+            font-family: var(--sans);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 1.1rem 2.5rem;
+            border-radius: 0;
+            transition: all 0.4s ease;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--charcoal);
+            color: var(--ivory);
+            border: 1px solid var(--charcoal);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--charcoal);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--charcoal);
+            border: 1px solid var(--charcoal);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--charcoal);
+            color: var(--white);
+        }
+
+        /* --- Header Navigation --- */
+        header {
+            background-color: rgba(250, 247, 242, 0.95);
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(90, 82, 76, 0.1);
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 90px;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .logo-text span {
+            font-family: var(--sans);
+            font-size: 0.65rem;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 0.3em;
+            color: var(--taupe);
+            margin-top: -2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        nav ul a {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--taupe);
+        }
+
+        nav ul a:hover {
+            color: var(--charcoal);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(250, 247, 242, 0.8), rgba(243, 236, 226, 0.7)), 
+                        url('https://images.unsplash.com/photo-1519699047748-de8e457a634e?q=80&w=1800') no-repeat center center/cover;
+            padding-top: 90px;
+        }
+
+        .hero-content {
+            max-width: 650px;
+        }
+
+        .hero-badge {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--taupe);
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--taupe);
+            margin-bottom: 2.5rem;
+        }
+
+        /* --- Practitioner Profile Section --- */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            background: var(--sand);
+            padding: 2rem;
+            border: 1px solid rgba(90, 82, 76, 0.15);
+        }
+
+        .section-subtitle {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--taupe);
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            line-height: 1.2;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: var(--taupe);
+        }
+
+        /* --- AlumierMD Brand Showcase --- */
+        .partner-section {
+            background-color: var(--sand);
+            border-top: 1px solid rgba(90, 82, 76, 0.1);
+            border-bottom: 1px solid rgba(90, 82, 76, 0.1);
+        }
+
+        .partner-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .partner-badge {
+            border: 1px solid var(--charcoal);
+            padding: 0.5rem 1.5rem;
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+        }
+
+        /* --- Treatment Collection Menu --- */
+        .menu-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-family: var(--sans);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            padding: 0.5rem 1rem;
+            color: var(--taupe);
+            cursor: pointer;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-btn.active, .tab-btn:hover {
+            color: var(--charcoal);
+            border-bottom: 2px solid var(--gold-soft);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .service-card {
+            background-color: var(--white);
+            border: 1px solid rgba(90, 82, 76, 0.08);
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(90, 82, 76, 0.05);
+        }
+
+        .service-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .service-title {
+            font-size: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .service-price {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            color: var(--taupe);
+            white-space: nowrap;
+        }
+
+        .service-meta {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+
+        .service-description {
+            font-size: 0.9rem;
+            color: var(--taupe);
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        /* --- Location & Hours Grid --- */
+        .contact-section {
+            background-color: #FDFBFAF;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .info-panel {
+            padding-right: 2rem;
+        }
+
+        .info-group {
+            margin-bottom: 2.5rem;
+        }
+
+        .info-group h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-group p {
+            color: var(--taupe);
+            font-size: 0.95rem;
+        }
+
+        .hours-list {
+            list-style: none;
+        }
+
+        .hours-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(90, 82, 76, 0.1);
+            font-size: 0.95rem;
+            color: var(--taupe);
+        }
+
+        .hours-list li.highlight {
+            color: var(--charcoal);
+            font-weight: 400;
+        }
+
+        .map-panel {
+            background: var(--sand);
+            border: 1px solid rgba(90, 82, 76, 0.15);
+            min-height: 350px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            text-center;
+        }
+
+        /* --- Footer Layout --- */
+        footer {
+            background-color: var(--charcoal);
+            color: var(--ivory);
+            padding: 4rem 0;
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(250, 247, 242, 0.1);
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-copyright {
+            color: rgba(250, 247, 242, 0.6);
+        }
+
+        /* --- Responsive Viewport Overrides --- */
+        @media (max-width: 992px) {
+            .about-grid, .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            nav ul {
+                display: none; /* Add dynamic mobile menu icon logic if scaling further */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- --- Header Navigation --- -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo-text">
+                MEDI SPA AESTHETICA
+                <span>Fort Erie, Ontario</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#about">The Practitioner</a></li>
+                    <li><a href="#alumier">AlumierMD</a></li>
+                    <li><a href="#services">Treatments</a></li>
+                    <li><a href="#contact">Location</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="btn btn-outline" style="padding: 0.7rem 1.5rem; font-size: 0.75rem;">Book</a>
+        </div>
+    </header>
+
+    <!-- --- Hero Section --- -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Clinical Precision & Quiet Luxury</span>
+                <h1>Natural Beauty Enhancement</h1>
+                <p>Medical-grade aesthetic care directed by experienced Registered Nurse Rose Wheeler. We combine clinical safety with tailored, luxury transformations to reveal your radiant skin.</p>
+                <a href="#services" class="btn btn-primary">View Treatments</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Practitioner Profile Section --- -->
+    <section id="about" class="section-padding container">
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800" alt="RN Rose Wheeler Clinical Practice">
+            </div>
+            <div class="about-text">
+                <span class="section-subtitle">25+ Years Clinical Experience</span>
+                <h2 class="section-title">Meet Nurse Rose Wheeler</h2>
+                <p>At the intersection of medical science and artistic refinement sits the clinical philosophy of Rose Wheeler, RN. With over 25 years of extensive medical experience, Rose has committed her life's work to safe, evidence-based, and impactful medical aesthetics.</p>
+                <p>Every procedure performed within Medi Spa Aesthetica is built upon deep anatomical knowledge, uncompromising clinical safety infrastructure, and a personalized passion for elevating each patient's natural beauty profile.</p>
+                <a href="#contact" class="btn btn-outline" style="margin-top: 1rem;">Schedule Private Consultation</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- --- AlumierMD Brand Showcase --- -->
+    <section id="alumier" class="section-padding partner-section text-center">
+        <div class="container partner-wrapper">
+            <span class="partner-badge">Official Supplier Partner</span>
+            <h2 class="section-title" style="font-size: 2.5rem; margin-bottom: 1.5rem;">Alumier.MD Canada Skincare</h2>
+            <p style="color: var(--taupe); max-width: 650px; margin: 0 auto 2.5rem auto; font-size: 1.05rem;">
+                We are proud to stand as an authorized clinical integration partner for AlumierMD. Through clean, medical-grade science, these advanced formulations seamlessly extend your clinical treatment outcomes directly into your bespoke home care routine.
+            </p>
+            <a href="https://www.alumiermd.ca" target="_blank" class="btn btn-primary">Explore Formulations</a>
+        </div>
+    </section>
+
+    <!-- --- Treatment Collection Menu --- -->
+    <section id="services" class="section-padding">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 4rem;">
+                <span class="section-subtitle">The Treatment Collection</span>
+                <h2 class="section-title">Clinical Medical Services</h2>
+            </div>
+
+            <!-- Functional Filtering Category Tabs -->
+            <div class="menu-tabs">
+                <button class="tab-btn active" onclick="filterServices('all')">All Offerings</button>
+                <button class="tab-btn" onclick="filterServices('injectables')">Injectables & Fillers</button>
+                <button class="tab-btn" onclick="filterServices('rejuvenation')">Skin Rejuvenation</button>
+                <button class="tab-btn" onclick="filterServices('plasma')">Regenerative Plasma</button>
+                <button class="tab-btn" onclick="filterServices('peels')">Advanced Peels & Body</button>
+            </div>
+
+            <div class="services-grid" id="servicesContainer">
+                
+                <!-- Consultation -->
+                <div class="service-card" data-cat="rejuvenation">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Clinical Consultation</h3>
+                            <span class="service-price">Complimentary</span>
+                        </div>
+                        <div class="service-meta">15 Minutes</div>
+                        <p class="service-description">A comprehensive 15-minute diagnostic assessment to analyze your unique skin profile, review aesthetic goals, and outline a custom treatment framework designed specifically for you.</p>
+                    </div>
+                </div>
+
+                <!-- Microneedling -->
+                <div class="service-card" data-cat="rejuvenation">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Microneedling Collagen Induction</h3>
+                            <span class="service-price">Varies</span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">Minimally invasive therapy utilizing precise clinical micro-needles to stimulate cellular turnover and amplify collagen production by 400%. Dramatically improves wrinkles, fine lines, acne scars, hyperpigmentation, and pore structure using customized target serums.</p>
+                    </div>
+                </div>
+
+                <!-- Microneedling with Salmon DNA -->
+                <div class="service-card" data-cat="rejuvenation">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Microneedling with Salmon DNA & Exosomes</h3>
+                            <span class="service-price">Varies</span>
+                        </div>
+                        <div class="service-meta">30+ Minutes</div>
+                        <p class="service-description">An elite, avant-garde skin regeneration solution merging structural microneedling with therapeutic salmon DNA polynucleotides and concentrated exosomes. Rapidly accelerates cellular recovery, deeply increases hydration, and reverses long-term aging biomarkers.</p>
+                    </div>
+                </div>
+
+                <!-- Botox Lip Flip -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Neuromodulator Lip Flip</h3>
+                            <span class="service-price">CA$75.00</span>
+                        </div>
+                        <div class="service-meta">15 Minutes</div>
+                        <p class="service-description">A precise micro-application of neuromodulator targeted to gently relax and lift the upper lip line, exposing an elegant, fuller, and beautifully volumized display without adding extra dermal mass.</p>
+                    </div>
+                </div>
+
+                <!-- Botox/Dysport -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Botox & Dysport Anti-Wrinkle</h3>
+                            <span class="service-price">CA$9.00 <span style="font-size:0.8rem; font-weight:300;">/ unit</span></span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">Advanced anti-wrinkle neuromodulator design engineered to smooth fine expression lines and creases. Expertly applied to treat facial lines, masseter teeth grinding, therapeutic migraines, and severe axillary hyperhidrosis (excessive sweating).</p>
+                    </div>
+                </div>
+
+                <!-- 1 Syringe Dermal Filler -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Premium Dermal Filler <span style="font-size:1.1rem; display:block; color:var(--taupe);">Full 1 Syringe</span></h3>
+                            <span class="service-price">CA$475.00</span>
+                        </div>
+                        <div class="service-meta">45 Minutes</div>
+                        <p class="service-description">Complete spatial design using premium hyaluronic acid to restore volume, contour borders, and produce natural-looking plumpness. Tailored to match individual facial harmony parameters seamlessly.</p>
+                    </div>
+                </div>
+
+                <!-- Sculptra -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Sculptra Bio-Stimulating Treatment</h3>
+                            <span class="service-price">Varies</span>
+                        </div>
+                        <div class="service-meta">45 Minutes</div>
+                        <p class="service-description">Premium poly-L-lactic acid injectable designed to rebuild deep extracellular matrix collagen layers. Gradually restores natural volume, corrects deep structural folds, and increases elasticity over a three-month phase with results spanning up to 2 years.</p>
+                    </div>
+                </div>
+
+                <!-- Collagen Building Threads -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Collagen Building Meso Threads</h3>
+                            <span class="service-price">Varies</span>
+                        </div>
+                        <div class="service-meta">20+ Minutes</div>
+                        <p class="service-description">Subdermal application of bio-stimulating suture threads. Tightens and plumps skin matrices along the neck, jawline, and peri-oral lines. Ideal for crisping the lip vermillion border to completely eliminate risk of future filler migration.</p>
+                    </div>
+                </div>
+
+                <!-- Aqua Gold Facial Treatment -->
+                <div class="service-card" data-cat="rejuvenation">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Aqua Gold Luxury Facial</h3>
+                            <span class="service-price">CA$350.00</span>
+                        </div>
+                        <div class="service-meta">45 Minutes</div>
+                        <p class="service-description">A luxurious micro-infusion delivery format providing deep, structural hydration and rapid skin rejuvenation. Imparts tailored compounds directly below the epidermis layer for an instantly luminous, refined complexion.</p>
+                    </div>
+                </div>
+
+                <!-- Vampire Facial -->
+                <div class="service-card" data-cat="plasma">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">The Autologous Vampire Facial</h3>
+                            <span class="service-price">CA$450.00</span>
+                        </div>
+                        <div class="service-meta">45 Minutes</div>
+                        <p class="service-description">Advanced combination therapy integrating precision mechanical microneedling with Platelet-Rich Plasma (PRP) processing. Utilizes your body's rich natural growth factors to dramatically stimulate elastin development and restore radiant texture tone.</p>
+                    </div>
+                </div>
+
+                <!-- Under Eye Plasma -->
+                <div class="service-card" data-cat="plasma">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Regenerative Under-Eye Plasma</h3>
+                            <span class="service-price">CA$399.00</span>
+                        </div>
+                        <div class="service-meta">1 Hour</div>
+                        <p class="service-description">Autologous plasma treatment targeting deep tear troughs, persistent dark circles, and crepey tissue beneath the lower lids. Can also be utilized as a biological holistic volume lift for the chin, temples, and jawline contours.</p>
+                    </div>
+                </div>
+
+                <!-- Hair Restoration Plasma -->
+                <div class="service-card" data-cat="plasma">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">PRP Hair Restoration Therapy</h3>
+                            <span class="service-price">CA$1,350.00</span>
+                        </div>
+                        <div class="service-meta">45 Minutes</div>
+                        <p class="service-description">Targeted follicular activation treatment applying highly concentrated auto-plasma matrix components directly into the scalp along thinning sections. Awakens dormant follicles and naturally thickens shaft caliber. (Minimum of 3 treatments required).</p>
+                    </div>
+                </div>
+
+                <!-- Laser Hair Removal -->
+                <div class="service-card" data-cat="peels">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">IPL Painless Hair Removal</h3>
+                            <span class="service-price">Varies</span>
+                        </div>
+                        <div class="service-meta">30+ Minutes</div>
+                        <p class="service-description">Advanced broad-spectrum Intense Pulsed Light technology developed to permanently reduce hair across body and facial regions gently, smoothly, and without discomfort. Zero down-time compared to wax regimens.</p>
+                    </div>
+                </div>
+
+                <!-- IPL Skin Rejuvenation -->
+                <div class="service-card" data-cat="rejuvenation">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">IPL Photorejuvenation</h3>
+                            <span class="service-price">Varies</span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">Non-invasive vascular and pigment corrective light therapies targeting environmental sun degradation, age spots, and fine broken capillaries while simultaneously signaling natural dermal firming behaviors.</p>
+                    </div>
+                </div>
+
+                <!-- BioRePeel -->
+                <div class="service-card" data-cat="peels">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">BioRePeel Biphasic Peel</h3>
+                            <span class="service-price">From CA$125.00</span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">Premium Italian-formulated biostimulating and revitalizing professional medical peel without classic peeling downtime. Repairs active acne, texture irregularities, and pigment marks. <br><strong>Packages:</strong> 4 Sessions for $450 | 6 Sessions for $600.</p>
+                    </div>
+                </div>
+
+                <!-- Vitamin Injections -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Intramuscular Vitamin Boosters</h3>
+                            <span class="service-price">Varies</span>
+                        </div>
+                        <div class="service-meta">10 Minutes</div>
+                        <p class="service-description">Direct wellness formulations designed to build cellular energy, clear dermal opacity, and assist metabolic performance. Includes pure Vitamin C and customized Vitamin B12 coupled with lipotropic MIC compounds.</p>
+                    </div>
+                </div>
+
+                <!-- Fat Dissolving -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Targeted Fat Dissolving</h3>
+                            <span class="service-price">CA$99.00</span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">Localized adipose tissue cytolytic compound applications engineered to accurately eliminate targeted, stubborn fat cells safely and encourage clean processing contours.</p>
+                    </div>
+                </div>
+
+                <!-- 1/2 Syringe -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Hyaluronic Dermal Filler <span style="font-size:1.1rem; display:block; color:var(--taupe);">Partial 1/2 Syringe</span></h3>
+                            <span class="service-price">CA$250.00</span>
+                        </div>
+                        <div class="service-meta">45 Minutes</div>
+                        <p class="service-description">Subtle volume integration perfect for minor adjustments, soft top-ups, or minor asymmetric leveling along localized treatment zones.</p>
+                    </div>
+                </div>
+
+                <!-- 1/4 Syringe -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Micro-Volume Filler <span style="font-size:1.1rem; display:block; color:var(--taupe);">Micro 1/4 Syringe</span></h3>
+                            <span class="service-price">CA$199.00</span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">Delicate cosmetic detailing option ideal for localized adjustments, minor touch-ups, or micro-definition corrections.</p>
+                    </div>
+                </div>
+
+                <!-- Skinvive -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Skinvive Intradermal Hydration</h3>
+                            <span class="service-price">CA$399.00</span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">Approved micro-droplet hyaluronic gel treatment designed to increase cheek smoothness and restore internal hydration values for a deeply clear skin glow.</p>
+                    </div>
+                </div>
+
+                <!-- Mid Face Thread Lift -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Mid-Face Precizion Thread Lift</h3>
+                            <span class="service-price">CA$950.00</span>
+                        </div>
+                        <div class="service-meta">1 Hr 15 Min</div>
+                        <p class="service-description">Advanced structural alignment therapy using mechanical anchoring threads. Lifts dropping mid-face vectors to naturally define structures and reduce heavy nasolabial shadowing.</p>
+                    </div>
+                </div>
+
+                <!-- Neck and Jawline Thread Lift -->
+                <div class="service-card" data-cat="injectables">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Neck & Jawline Precizion Lift</h3>
+                            <span class="service-price">CA$750.00</span>
+                        </div>
+                        <div class="service-meta">1... Hr 15 Min</div>
+                        <p class="service-description">Advanced non-surgical vector lifting designed to re-contour a lax submental profile, sharpen jawline lines, and tighten skin sagging along the neck structure.</p>
+                    </div>
+                </div>
+
+                <!-- Chemical Peel 4 Pack -->
+                <div class="service-card" data-cat="peels">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Custom Chemical Peel <span style="font-size:1.1rem; display:block; color:var(--taupe);">Progressive 4-Peel Pack</span></h3>
+                            <span class="service-price">CA$550.00</span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">A structured series of four custom chemical dermal peels calibrated for progressive, multi-layer corrective management of hyperpigmentation, texture irregularities, and skin tone. (Includes a built-in $50 package savings benefit).</p>
+                    </div>
+                </div>
+
+                <!-- Chemical Peel 6 Pack -->
+                <div class="service-card" data-cat="peels">
+                    <div>
+                        <div class="service-header">
+                            <h3 class="service-title">Custom Chemical Peel <span style="font-size:1.1rem; display:block; color:var(--taupe);">Optimal 6-Peel Clinical Suit</span></h3>
+                            <span class="service-price">CA$800.00</span>
+                        </div>
+                        <div class="service-meta">30 Minutes</div>
+                        <p class="service-description">An elite series of six customized corrective peels engineered for deep cellular recovery and premium dermal re-surfacing. Recommended for serious structural correction pathways. (Includes a built-in $100 package savings benefit).</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Location & Contact Grid --- -->
+    <section id="contact" class="section-padding contact-section">
+        <div class="container">
+            <div class="contact-grid">
+                
+                <div class="info-panel">
+                    <span class="section-subtitle">Private Clinic Access</span>
+                    <h2 class="section-title">Schedule Your Arrival</h2>
+                    
+                    <div class="info-group">
+                        <h4>Clinic Residency</h4>
+                        <p>3700 Hershey St<br>Fort Erie, ON L0S 1N0</p>
+                    </div>
+
+                    <div class="info-group">
+                        <h4>Telephone Communications</h4>
+                        <p><a href="tel:+12899680922" style="font-weight: 400; text-decoration: underline;">+1 (289) 968-0922</a></p>
+                    </div>
+
+                    <div class="info-group">
+                        <h4>Clinical Operating Hours</h4>
+                        <ul class="hours-list">
+                            <li><span>Monday – Saturday</span> <span style="color: var(--gold-soft); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em;">Private Appointment Only</span></li>
+                            <li class="highlight"><span>Sunday</span> <span>9:00 AM – Close</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="map-panel">
+                    <p style="font-family: var(--serif); font-size: 1.6rem; margin-bottom: 1rem;">Medi Spa Aesthetica</p>
+                    <p style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--taupe); margin-bottom: 2rem;">Fort Erie, Ontario</p>
+                    <a href="https://maps.google.com/?q=3700+Hershey+St+Fort+Erie+ON+L0S+1N0" target="_blank" class="btn btn-outline">Open in Google Maps</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- --- Footer Layout --- -->
+    <footer>
+        <div class="container footer-wrapper">
+            <div>
+                <p style="font-family: var(--serif); font-size: 1.4rem; letter-spacing: 0.05em; margin-bottom: 0.3rem;">MEDI SPA AESTHETICA</p>
+                <p style="font-size: 0.75rem; color: rgba(250,247,242,0.4); text-transform: uppercase; letter-spacing: 0.2em;">Medical Grade Precision</p>
+            </div>
+            <div class="footer-copyright">
+                &copy; 2026 Medi Spa Aesthetica. All Rights Reserved. Crafted by Custom Exclusive Socials.
+            </div>
+        </div>
+    </footer>
+
+    <!-- --- Category Filtering Engine JavaScript --- -->
+    <script>
+        function filterServices(category) {
+            // Update Active Classes inside Tab Links
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // Toggle Card Displays
+            const cards = document.querySelectorAll('.service-card');
+            cards.forEach(card => {
+                if (category === 'all') {
+                    card.style.display = 'flex';
+                } else {
+                    if (card.getAttribute('data-cat') === category) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
