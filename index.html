@@ -776,12 +776,107 @@
 .wellness-banner-item:hover img {
     transform: scale(1.04);
 }
+        /* --- Header & Navigation Refinement --- */
+header {
+    background-color: rgba(250, 247, 242, 0.98);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(90, 82, 76, 0.1);
+}
+
+/* Scaled-down, elegant logo size */
+.logo-text {
+    font-size: 1.35rem; 
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+}
+
+.logo-text span {
+    font-family: var(--sans);
+    font-size: 0.55rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: var(--taupe);
+    margin-top: 2px;
+}
+
+/* Refined, smaller menu links */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav ul a {
+    font-size: 0.72rem; /* Reduced for better balance */
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--taupe);
+    padding: 0.5rem 0;
+    display: inline-block;
+}
+
+nav ul a:hover {
+    color: var(--charcoal);
+}
+
+/* Sub-menu Dropdown Styling */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--ivory);
+    min-width: 180px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    border: 1px solid rgba(90, 82, 76, 0.1);
+    list-style: none;
+    padding: 0.5rem 0;
+    z-index: 1010;
+    flex-direction: column;
+    gap: 0;
+}
+
+.dropdown-menu li {
+    width: 100%;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.68rem;
+    color: var(--taupe);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+}
+
+.dropdown-menu a:hover {
+    background-color: var(--sand);
+    color: var(--charcoal);
+}
+
+/* Desktop Hover Trigger */
+@media (min-width: 993px) {
+    .nav-dropdown:hover .dropdown-menu {
+        display: flex;
+    }
+}
     </style>
 </head>
 <body>
 
-    <!-- --- Header Navigation --- -->
-   <header>
+   <!-- --- Header Navigation --- -->
+<header>
     <div class="container nav-wrapper">
         <a href="#" class="logo-text">
             MEDI SPA AESTHETICA
@@ -791,13 +886,22 @@
             <ul>
                 <li><a href="#about" onclick="closeNav()">The Practitioner</a></li>
                 <li><a href="#services" onclick="closeNav()">Treatments</a></li>
+                <li><a href="#wellness-injections" onclick="closeNav()">Wellness Injections</a></li>
                 <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
                 <li><a href="#promotions" onclick="closeNav()">Promotions</a></li>
-                <li><a href="#contact" onclick="closeNav()">Location</a></li>
+                
+                <!-- Contact Dropdown -->
+                <li class="nav-dropdown">
+                    <a href="#contact" onclick="closeNav()">Location &amp; Contact &#9662;</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://www.facebook.com/profile.php?id=61592237860463" target="_blank" onclick="closeNav()">Facebook Business</a></li>
+                        <li><a href="https://share.google/Ji73FGYlWl1Ar8UeB" target="_blank" onclick="closeNav()">Google Business Page</a></li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <div style="display:flex; align-items:center; gap:1rem;">
-            <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.5rem; font-size: 0.75rem;">Book Online</a>
+            <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">Book Online</a>
             <button class="hamburger" id="hamburgerBtn" onclick="toggleNav()" aria-label="Toggle menu">
                 <span></span><span></span><span></span>
             </button>
