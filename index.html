@@ -14,12 +14,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Medi Spa Aesthetica | Medical-Grade Aesthetic Care by RN Rose Wheeler</title>
-    <meta name="description" content="Elevated medical-grade aesthetic treatments in Fort Erie, ON. Directed by RN Rose Wheeler with over 25 years of experience. Official AlumierMD partner.">
+    <meta name="description" content="Elevated medical-grade aesthetic treatments & XERF™ non-surgical RF lifting in Fort Erie, ON. Directed by RN Rose Wheeler with over 25 years of experience.">
     
     <!-- Typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,400&family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -108,6 +108,18 @@
         .btn-primary:hover {
             background-color: transparent;
             color: var(--charcoal);
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--charcoal);
+            border: 1px solid var(--gold);
+            font-weight: 500;
+        }
+
+        .btn-gold:hover {
+            background-color: transparent;
+            color: var(--gold);
         }
 
         .btn-outline {
@@ -275,6 +287,7 @@
             letter-spacing: 0.2em;
             color: var(--taupe);
             margin-bottom: 0.5rem;
+            display: block;
         }
 
         .section-title {
@@ -286,6 +299,161 @@
         .about-text p {
             margin-bottom: 1.5rem;
             color: var(--taupe);
+        }
+
+        /* XERF SECTION STYLES */
+        .xerf-stats-bar {
+            background-color: #121110;
+            color: var(--ivory);
+            padding: 3rem 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .xerf-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+
+        .xerf-stat-number {
+            font-family: var(--serif);
+            font-size: 4rem;
+            line-height: 1;
+            color: var(--gold-soft);
+            margin-bottom: 0.5rem;
+        }
+
+        .xerf-stat-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: rgba(250, 247, 242, 0.8);
+        }
+
+        .xerf-pricing-section {
+            background-color: #161514;
+            color: var(--ivory);
+            padding: 6rem 0;
+            border-bottom: 1px solid rgba(90, 82, 76, 0.2);
+        }
+
+        .xerf-promo-card {
+            background: #1C1A19;
+            border: 1px solid var(--gold-soft);
+            padding: 2.5rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .xerf-promo-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .xerf-promo-card.featured {
+            border: 2px solid var(--gold);
+            background: #221F1D;
+            position: relative;
+        }
+
+        .xerf-badge {
+            position: absolute;
+            top: -12px;
+            left: 2.5rem;
+            background: var(--gold);
+            color: #121110;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            padding: 0.2rem 0.8rem;
+        }
+
+        .xerf-price-value {
+            font-family: var(--serif);
+            font-size: 3.2rem;
+            color: var(--gold-soft);
+            line-height: 1;
+            text-align: right;
+        }
+
+        .xerf-price-was {
+            font-size: 1.1rem;
+            text-decoration: line-through;
+            color: rgba(250, 247, 242, 0.4);
+            margin-bottom: 0.2rem;
+        }
+
+        .xerf-save-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--gold);
+            font-weight: 500;
+            display: block;
+            margin-top: 0.3rem;
+        }
+
+        .body-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+            justify-content: center;
+            margin: 2rem 0 1.5rem 0;
+        }
+
+        .body-tag {
+            background: var(--white);
+            border: 1px solid rgba(90, 82, 76, 0.2);
+            padding: 0.8rem 1.8rem;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--charcoal);
+        }
+
+        .body-tag.highlight {
+            background: var(--gold-soft);
+            color: var(--charcoal);
+            border-color: var(--gold-soft);
+            font-weight: 500;
+        }
+
+        .xerf-steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3.5rem;
+        }
+
+        .xerf-step-card {
+            background-color: var(--white);
+            border: 1px solid rgba(90, 82, 76, 0.1);
+            padding: 2.5rem 2rem;
+            text-align: left;
+        }
+
+        .xerf-step-num {
+            font-family: var(--serif);
+            font-size: 2.8rem;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .xerf-step-title {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--charcoal);
+            margin-bottom: 0.8rem;
+            font-weight: 500;
         }
 
         /* Services Grid & Filters */
@@ -684,11 +852,11 @@
         }
 
         @media (max-width: 992px) {
-            .about-grid, .contact-grid, .promo-card {
+            .about-grid, .contact-grid, .promo-card, .xerf-promo-card {
                 grid-template-columns: 1fr;
-                gap: 3rem;
+                gap: 2rem;
             }
-            .promo-value {
+            .promo-value, .xerf-price-value {
                 text-align: left;
             }
             .hamburger {
@@ -781,7 +949,7 @@
 </head>
 <body>
 
-<!-- Header Navigation -->
+    <!-- Header Navigation -->
     <header>
         <div class="container nav-wrapper">
             <a href="#" class="logo-text">
@@ -796,6 +964,7 @@
                             Shop ↗
                         </a>
                     </li>
+                    <li><a href="#xerf" onclick="closeNav()" style="color: var(--gold); font-weight: 500;">XERF™ Lift</a></li>
                     <li><a href="#about" onclick="closeNav()">The Practitioner</a></li>
                     <li><a href="#services" onclick="closeNav()">Treatments</a></li>
                     <li><a href="#new-treatments" onclick="closeNav()">Vitamin Shots</a></li>
@@ -819,16 +988,201 @@
             </div>
         </div>
     </header>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <span class="hero-badge">Clinical Precision &amp; Quiet Luxury</span>
                 <h1>Natural Beauty Enhancement</h1>
-                <p>Medical-grade aesthetic care directed by experienced Registered Nurse Rose Wheeler. We combine clinical safety with tailored, luxury transformations to reveal your radiant skin.</p>
+                <p>Medical-grade aesthetic care directed by experienced Registered Nurse Rose Wheeler. Featuring XERF™ Dual-Frequency Monopolar RF skin tightening alongside bespoke clinical care.</p>
                 <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="margin-right: 1rem; margin-bottom: 0.5rem;">Book Appointment</a>
-                <a href="#services" class="btn btn-outline">Explore Treatments</a>
+                <a href="#xerf" class="btn btn-outline">Explore XERF™ Lift</a>
             </div>
+        </div>
+    </section>
+
+    <!-- XERF™ FEATURE LANDING SECTION -->
+    <section id="xerf" class="section-padding" style="background-color: var(--ivory); padding-bottom: 0;">
+        <div class="container text-center" style="max-width: 900px;">
+            <span class="section-subtitle" style="color: var(--gold); letter-spacing: 0.25em;">The Technology</span>
+            <h2 class="section-title" style="font-size: 3.2rem; margin-bottom: 1rem;">Two Depths. One Treatment. Visible Lift.</h2>
+            <p style="color: var(--taupe); font-size: 1.15rem; line-height: 1.8; margin-bottom: 3rem;">
+                <strong>XERF™</strong> is a non-invasive, FDA-cleared aesthetic device by Cynosure Lutronic using <strong>Dual-Frequency Monopolar Radiofrequency</strong> to lift and tighten while reducing sagging skin and wrinkles. It stimulates new collagen and elastin at two distinct tissue depths simultaneously — completely without damaging the skin surface.
+            </p>
+        </div>
+
+        <!-- XERF Stat Bar -->
+        <div class="xerf-stats-bar">
+            <div class="container xerf-stats-grid">
+                <div>
+                    <div class="xerf-stat-number">2</div>
+                    <div class="xerf-stat-label">Tissue Depths Treated at Once</div>
+                </div>
+                <div>
+                    <div class="xerf-stat-number">0</div>
+                    <div class="xerf-stat-label">Needles Required</div>
+                </div>
+                <div>
+                    <div class="xerf-stat-number">0</div>
+                    <div class="xerf-stat-label">Days of Downtime</div>
+                </div>
+                <div>
+                    <div class="xerf-stat-number">1</div>
+                    <div class="xerf-stat-label">Session for an Instant Lift</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- XERF 3-Step Process & Celebrity Spotlight -->
+        <div class="container section-padding">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; align-items: center; margin-bottom: 5rem;">
+                <div>
+                    <span class="section-subtitle">Red Carpet Ready</span>
+                    <h3 style="font-size: 2.4rem; margin-bottom: 1.2rem; line-height: 1.2;">Celebrity-Favored Non-Invasive Rejuvenation</h3>
+                    <p style="color: var(--taupe); margin-bottom: 1.5rem; line-height: 1.7;">
+                        Celebrated by Hollywood A-listers (including Kim Kardashian) for delivering instant skin firming and contouring without surgery, needles, or downtime before major appearances.
+                    </p>
+                    <ul style="list-style: none; padding: 0; color: var(--taupe); font-size: 0.95rem; line-height: 2.2;">
+                        <li>✓ <strong>Stimulates natural collagen production</strong></li>
+                        <li>✓ <strong>Helps tighten and firm loose, lax skin</strong></li>
+                        <li>✓ <strong>Improves the appearance of fine lines &amp; wrinkles</strong></li>
+                        <li>✓ <strong>Enhances skin texture, smoothness, and elasticity</strong></li>
+                        <li>✓ <strong>Creates a defined jawline and facial contours</strong></li>
+                        <li>✓ <strong>Instant lift plus gradual, long-term results</strong></li>
+                    </ul>
+                </div>
+                <div style="text-align: center;">
+                    <img src="202602270537-main.cropped_1772145453.jpg" alt="XERF Radiofrequency Treatment Celebrity Endorsement" style="width: 100%; border-radius: 4px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
+                </div>
+            </div>
+
+            <!-- How It Works Steps -->
+            <div class="text-center" style="max-width: 700px; margin: 0 auto 2rem auto;">
+                <span class="section-subtitle">Simple, Comfortable Experience</span>
+                <h3 style="font-size: 2.2rem;">How XERF™ Works</h3>
+            </div>
+
+            <div class="xerf-steps-grid">
+                <div class="xerf-step-card">
+                    <div class="xerf-step-num">01</div>
+                    <div class="xerf-step-title">Consult</div>
+                    <p style="color: var(--taupe); font-size: 0.9rem;">Nurse Rose assesses your aesthetic goals and builds a customized treatment plan tailored for your face or body.</p>
+                </div>
+                <div class="xerf-step-card">
+                    <div class="xerf-step-num">02</div>
+                    <div class="xerf-step-title">Treat</div>
+                    <p style="color: var(--taupe); font-size: 0.9rem;">Dual-frequency RF energy delivers targeted heat to two anatomical depths at once. No needles, no numbing, no surgery.</p>
+                </div>
+                <div class="xerf-step-card">
+                    <div class="xerf-step-num">03</div>
+                    <div class="xerf-step-title">Glow</div>
+                    <p style="color: var(--taupe); font-size: 0.9rem;">Enjoy an immediate, visible lift, then watch collagen-driven structural tightness continue building over time.</p>
+                </div>
+            </div>
+
+            <!-- Treatable Areas -->
+            <div class="text-center" style="margin-top: 5rem;">
+                <span class="section-subtitle">Not Just Your Face</span>
+                <h3 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Treat the Entire Body</h3>
+                <p style="color: var(--taupe); max-width: 650px; margin: 0 auto 2rem auto;">From the jawline to the arms and abdomen, XERF™ tightens and firms lax skin wherever you want to feel more confident.</p>
+                
+                <div class="body-grid">
+                    <div class="body-tag">Face</div>
+                    <div class="body-tag">Jawline</div>
+                    <div class="body-tag">Under Chin</div>
+                    <div class="body-tag">Neck</div>
+                    <div class="body-tag">Arms</div>
+                    <div class="body-tag">Abdomen</div>
+                    <div class="body-tag">Thighs</div>
+                    <div class="body-tag">Knees</div>
+                    <div class="body-tag highlight">+ More</div>
+                </div>
+                <p style="font-size: 0.8rem; color: var(--taupe); italic;">*Body treatments are individually quoted during your personal consultation.</p>
+            </div>
+        </div>
+
+        <!-- XERF October - November 2026 Promotional Pricing -->
+        <div class="xerf-pricing-section">
+            <div class="container" style="max-width: 900px;">
+                <div class="text-center" style="margin-bottom: 3.5rem;">
+                    <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--gold-soft); display: block; margin-bottom: 0.5rem;">
+                        Promotional Pricing • October – November 2026
+                    </span>
+                    <h2 style="font-family: var(--serif); font-size: 3.5rem; color: var(--ivory); margin-bottom: 0.5rem; line-height: 1.1;">
+                        Lift for Less. For a Limited Time.
+                    </h2>
+                    <p style="color: rgba(250, 247, 242, 0.7); font-size: 1.05rem;">No needles. No numbing. No downtime.</p>
+                </div>
+
+                <!-- Card 1: Full Face & Neck -->
+                <div class="xerf-promo-card featured">
+                    <span class="xerf-badge">Biggest Savings</span>
+                    <div>
+                        <h3 style="font-size: 2rem; color: var(--ivory); margin-bottom: 0.3rem;">Full Face &amp; Neck</h3>
+                        <p style="color: var(--gold-soft); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;">2 Treatments</p>
+                    </div>
+                    <div>
+                        <div class="xerf-price-was">$4,000</div>
+                        <div class="xerf-price-value">$3,000</div>
+                        <span class="xerf-save-tag">Save $1,000</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Lower Face & Neck -->
+                <div class="xerf-promo-card">
+                    <div>
+                        <h3 style="font-size: 1.8rem; color: var(--ivory); margin-bottom: 0.3rem;">Lower Face &amp; Neck</h3>
+                        <p style="color: var(--gold-soft); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;">2 Treatments</p>
+                    </div>
+                    <div>
+                        <div class="xerf-price-was">$3,000</div>
+                        <div class="xerf-price-value">$2,250</div>
+                        <span class="xerf-save-tag">Save $750</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Brow Lift -->
+                <div class="xerf-promo-card">
+                    <div>
+                        <h3 style="font-size: 1.8rem; color: var(--ivory); margin-bottom: 0.3rem;">Brow Lift</h3>
+                        <p style="color: var(--gold-soft); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;">2 Treatments</p>
+                    </div>
+                    <div>
+                        <div class="xerf-price-was">$2,000</div>
+                        <div class="xerf-price-value">$1,500</div>
+                        <span class="xerf-save-tag">Save $500</span>
+                    </div>
+                </div>
+
+                <div class="text-center" style="margin-top: 2.5rem;">
+                    <p style="color: rgba(250, 247, 242, 0.6); font-size: 0.85rem; margin-bottom: 1.5rem;">
+                        ⏱ Limited discounted appointments remaining for October &amp; November. Book yours before they're gone.
+                    </p>
+                    <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-gold" style="padding: 1.1rem 3rem;">
+                        Reserve Promotional XERF Package
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- XERF Results Showcase -->
+        <div class="container section-padding text-center">
+            <span class="section-subtitle">Real Clients. Real Results.</span>
+            <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">Look at That Jawline</h3>
+            <p style="color: var(--taupe); max-width: 650px; margin: 0 auto 3rem auto;">Photographed at Medi Spa Aesthetica clinic. Immediate lifting visible directly after one XERF™ session.</p>
+
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center;">
+                <div style="background: var(--sand); padding: 1rem; border: 1px solid rgba(90, 82, 76, 0.1);">
+                    <img src="Screenshot 2026-10-06 at 10.44.09 AM.png" alt="XERF Jawline Before and After Result" style="width: 100%; height: auto;" onerror="this.src='medispalogo3.png'">
+                    <p style="font-size: 0.75rem; color: var(--taupe); margin-top: 0.8rem;">Immediate Jawline &amp; Submental Tightening</p>
+                </div>
+                <div style="background: var(--sand); padding: 1rem; border: 1px solid rgba(90, 82, 76, 0.1);">
+                    <img src="Screenshot 2026-10-06 at 10.43.53 AM.png" alt="XERF Full Face, Brow and Body Results Grid" style="width: 100%; height: auto;" onerror="this.src='medispalogo3.png'">
+                    <p style="font-size: 0.75rem; color: var(--taupe); margin-top: 0.8rem;">Cheek, Eye/Brow, Abdomen &amp; Arm Skin Refinement</p>
+                </div>
+            </div>
+            <p style="font-size: 0.75rem; color: var(--taupe); margin-top: 2rem;">*Shared with client consent. Individual results vary. Collagen-building results continue to develop gradually after treatment.</p>
         </div>
     </section>
 
@@ -948,12 +1302,26 @@
 
         <div class="menu-tabs">
             <button class="tab-btn active" onclick="filterServices('all')">All Services</button>
+            <button class="tab-btn" onclick="filterServices('xerf')">XERF™ Lifting</button>
             <button class="tab-btn" onclick="filterServices('injectables')">Injectables</button>
             <button class="tab-btn" onclick="filterServices('skin')">Advanced Skin</button>
             <button class="tab-btn" onclick="filterServices('paramedical')">Paramedical Tattooing</button>
         </div>
 
         <div class="services-grid" id="servicesGrid">
+            <!-- XERF Monopolar RF -->
+            <div class="service-card" data-category="xerf skin">
+                <div>
+                    <div class="service-header">
+                        <h3 class="service-title">XERF™ Monopolar RF Lifting</h3>
+                        <span class="service-price">From $1,500</span>
+                    </div>
+                    <div class="service-meta">Dual-Frequency RF • 45 - 60 Min</div>
+                    <p class="service-description">FDA-cleared skin tightening technology using dual-frequency monopolar radiofrequency to treat two tissue depths at once. Zero needles, zero downtime.</p>
+                </div>
+                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
+            </div>
+
             <!-- Injectables -->
             <div class="service-card" data-category="injectables">
                 <div>
@@ -1032,237 +1400,4 @@
             <div class="service-card" data-category="paramedical">
                 <div>
                     <div class="service-header">
-                        <h3 class="service-title">LI-FT Pigment Removal</h3>
-                        <span class="service-price">From $150</span>
-                    </div>
-                    <div class="service-meta">Saline Pigment Lightening • 60 Min</div>
-                    <p class="service-description">Safe, non-laser saline pigment removal and lightening technique formulated to lift unwanted permanent makeup and small cosmetic tattoos gently.</p>
-                </div>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Wellness Injections Section -->
-    <section id="new-treatments" class="section-padding wellness-section">
-        <div class="container text-center">
-            <span class="section-subtitle">Inner Vitality &amp; Wellness</span>
-            <h2 class="section-title">Vitamin Injections &amp; Boosters</h2>
-            <p style="color: var(--taupe); max-width: 650px; margin: 0 auto;">Direct nutrient absorption protocols formulated to elevate energy, boost cellular immunity, and enhance systemic skin health.</p>
-
-            <div class="wellness-grid">
-                <div class="wellness-card">
-                    <div>
-                        <h3>Vitamin B12 Boost</h3>
-                        <ul class="wellness-benefits">
-                            <li>Increases cellular energy levels</li>
-                            <li>Supports metabolic function &amp; focus</li>
-                            <li>Improves mood and sleep cycles</li>
-                        </ul>
-                    </div>
-                    <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.2rem; font-size: 0.75rem; width: 100%; text-align: center;">Book B12 Shot</a>
-                </div>
-
-                <div class="wellness-card">
-                    <div>
-                        <h3>Glutathione Glow</h3>
-                        <ul class="wellness-benefits">
-                            <li>Master antioxidant defense</li>
-                            <li>Promotes bright, luminous skin</li>
-                            <li>Supports liver detoxification</li>
-                        </ul>
-                    </div>
-                    <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.2rem; font-size: 0.75rem; width: 100%; text-align: center;">Book Glutathione</a>
-                </div>
-
-                <div class="wellness-card">
-                    <div>
-                        <h3>Tri-Immune Boost</h3>
-                        <ul class="wellness-benefits">
-                            <li>Glutathione, Vitamin C &amp; MIC B12 blend</li>
-                            <li>Fortifies immune system resilience</li>
-                            <li>Accelerates wound healing &amp; recovery</li>
-                        </ul>
-                    </div>
-                    <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.2rem; font-size: 0.75rem; width: 100%; text-align: center;">Book Immunity Booster</a>
-                </div>
-
-                <div class="wellness-card">
-                    <div>
-                        <h3>Lipo-Mino Burn</h3>
-                        <ul class="wellness-benefits">
-                            <li>Lipotropic amino acid blend</li>
-                            <li>Helps body turn fat into energy</li>
-                            <li>Supports active fitness routines</li>
-                        </ul>
-                    </div>
-                    <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="padding: 0.7rem 1.2rem; font-size: 0.75rem; width: 100%; text-align: center;">Book Lipo Shot</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Client Results Gallery -->
-    <section id="gallery" class="section-padding container">
-        <div class="text-center" style="max-width: 700px; margin: 0 auto 2rem auto;">
-            <span class="section-subtitle">Real Results</span>
-            <h2 class="section-title">Clinical Gallery</h2>
-            <p style="color: var(--taupe);">Natural transformations showcasing precision technique and understated aesthetic elegance.</p>
-        </div>
-
-        <div class="gallery-grid">
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="lip filler 1 syringe.jpg" alt="Lip Enhancement Result" onerror="this.src='medispalogo3.png'">
-                </div>
-                <div class="gallery-label">
-                    <h4>Subtle Lip Volumization</h4>
-                    <p>Dermal Filler Protocol</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="pdothreadlift2.jpg" alt="Skin Resurfacing Result" onerror="this.src='medispalogo3.png'">
-                </div>
-                <div class="gallery-label">
-                    <h4>PDO Thread Treatment</h4>
-                    <p>Nonsurgical Face Lift</p>
-                </div>
-            </div>
-
-            <div class="gallery-item">
-                <div class="gallery-image-wrapper">
-                    <img src="malepdothreadlift2.jpg" alt="PDO Thread Lift" onerror="this.src='medispalogo3.png'">
-                </div>
-                <div class="gallery-label">
-                    <h4>Non-surgical Pdo thread lift</h4>
-                    <p>Medical Aesthetic Treatment</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Special Promotions Section -->
-    <section class="section-padding promo-section">
-        <div class="container text-center" style="max-width: 900px;">
-            <span class="section-subtitle">Seasonal Offers</span>
-            <h2 class="section-title">Exclusive Treatment Packages</h2>
-            
-            <div class="promo-card">
-                <div>
-                    <span class="promo-badge">Featured Package</span>
-                    <h3 style="font-size: 1.8rem; margin-bottom: 0.5rem;">The Ultimate Glow Combination</h3>
-                    <p style="color: var(--taupe); font-size: 0.95rem;">Combine an AlumierMD Clinical Chemical Peel with a targeted Vitamin B12 injection for immediate skin radiance and internal energy renewal.</p>
-                </div>
-                <div class="promo-value">
-                    $220
-                    <div style="font-size: 0.8rem; font-family: var(--sans); color: var(--taupe); text-transform: uppercase;">Valued at $250</div>
-                    <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="margin-top: 1rem; padding: 0.7rem 1.5rem; font-size: 0.75rem;">Reserve Package</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Section -->
-    <section class="section-padding newsletter-section">
-        <div class="container text-center newsletter-wrapper">
-            <span class="section-subtitle" style="color: var(--gold-soft);">Stay Connected</span>
-            <h2 class="section-title" style="color: var(--ivory); margin-bottom: 1rem;">Join the VIP Aesthetic List</h2>
-            <p style="color: rgba(250, 247, 242, 0.7); font-size: 0.95rem;">Receive private invitations to promotional event days, new clinical skincare product launches, and exclusive member savings.</p>
-
-            <form class="newsletter-form" action="#" method="post">
-                <input type="email" placeholder="Enter your email address..." class="newsletter-input" required>
-                <button type="submit" class="newsletter-submit">Subscribe</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Location & Contact Section -->
-    <section id="contact" class="section-padding container">
-        <div class="contact-grid">
-            <div class="info-panel">
-                <span class="section-subtitle">Visit Us</span>
-                <h2 class="section-title">Clinical Location</h2>
-                
-                <div class="info-group">
-                    <h4>Medi Spa Aesthetica</h4>
-                    <p>Fort Erie, Ontario, Canada</p>
-                    <p>Phone: (289) 686-2581</p>
-                    <p>Email: info@medispaaesthetica.ca</p>
-                </div>
-
-                <div class="info-group">
-                    <h4>Practice Hours</h4>
-                    <ul class="hours-list">
-                        <li><span>Monday - Tuesday</span> <span>By Appointment</span></li>
-                        <li class="highlight"><span>Wednesday - Friday</span> <span>10:00 AM - 6:00 PM</span></li>
-                        <li class="highlight"><span>Saturday</span> <span>10:00 AM - 3:00 PM</span></li>
-                        <li><span>Sunday</span> <span>Closed</span></li>
-                    </ul>
-                </div>
-
-                <div class="social-links">
-                    <a href="https://www.instagram.com/medispa_aesthetica" target="_blank">Instagram</a>
-                    <a href="https://www.facebook.com/profile.php?id=61592237860463" target="_blank">Facebook Page</a>
-                </div>
-            </div>
-
-            <div class="map-panel">
-                <h3 style="font-size: 1.8rem; margin-bottom: 1rem; text-align: center;">By Appointment Only</h3>
-                <p style="text-align: center; color: var(--taupe); max-width: 320px; margin-bottom: 2rem;">Private clinical consultations are scheduled in advance to ensure dedicated, confidential patient care.</p>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary">Schedule Consultation</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="container footer-wrapper">
-            <div>
-                <p style="font-size: 1.1rem; font-family: var(--serif);">Medi Spa Aesthetica</p>
-                <p class="footer-copyright">© 2026 Medi Spa Aesthetica. Directed by Rose Wheeler, RN. All rights reserved.</p>
-            </div>
-            <div>
-                <a href="#services" style="margin-right: 1.5rem; text-transform: uppercase; font-size: 0.75rem;">Treatments</a>
-                <a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" style="text-transform: uppercase; font-size: 0.75rem;">AlumierMD</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Interactive Navigation & Functionality Scripts -->
-    <script>
-        function toggleNav() {
-            const nav = document.getElementById('mainNav');
-            const hamburger = document.getElementById('hamburgerBtn');
-            nav.classList.toggle('open');
-            hamburger.classList.toggle('active');
-        }
-
-        function closeNav() {
-            const nav = document.getElementById('mainNav');
-            const hamburger = document.getElementById('hamburgerBtn');
-            if (nav) nav.classList.remove('open');
-            if (hamburger) hamburger.classList.remove('active');
-        }
-
-        function filterServices(category) {
-            const cards = document.querySelectorAll('.service-card');
-            const buttons = document.querySelectorAll('.tab-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            if (window.event && window.event.target) {
-                window.event.target.classList.add('active');
-            }
-
-            cards.forEach(card => {
-                if (category === 'all' || card.getAttribute('data-category') === category) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-    </script>
-</body>
-</html>
+                        <h3 class="service-
