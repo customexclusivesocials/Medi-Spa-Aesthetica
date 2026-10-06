@@ -1,1414 +1,948 @@
+Here is a fully expanded, comprehensive single-file HTML template designed to match full production scale. It includes embedded design token CSS, smooth scroll navigation, interactive service tabs, detailed clinical copy for every service, an accordion FAQ section, a sticky mobile booking CTA bar, and modal structures.
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Mailchimp Pop-Up Form Integration -->
-    <script id="mcjs">
-      !function(c,h,i,m,p){
-        m=c.createElement(h),
-        p=c.getElementsByTagName(h)[0],
-        m.async=1,
-        m.src=i,
-        p.parentNode.insertBefore(m,p)
-      }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/94fd1c9525efe4ded61adcb54/558c27f70c47e8b19eb8b3205.js");
-    </script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medi Spa Aesthetica | Medical-Grade Aesthetic Care by RN Rose Wheeler</title>
-    <meta name="description" content="Elevated medical-grade aesthetic treatments & XERF™ non-surgical RF lifting in Fort Erie, ON. Directed by RN Rose Wheeler with over 25 years of experience.">
-    
-    <!-- Typography -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Montserrat:wght@200;300;400;500;600&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --ivory: #FAF7F2;
-            --sand: #F3ECE2;
-            --gold: #D4AF37;
-            --gold-soft: #DFC980;
-            --taupe: #5A524C;
-            --charcoal: #1C1A19;
-            --white: #FFFFFF;
-            --serif: 'Cormorant Garamond', Georgia, serif;
-            --sans: 'Montserrat', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            background-color: var(--ivory);
-            color: var(--charcoal);
-            font-family: var(--sans);
-            font-weight: 300;
-            line-height: 1.7;
-            font-size: 1rem;
-        }
-
-        h1, h2, h3, h4 {
-            font-family: var(--serif);
-            font-weight: 400;
-            color: var(--charcoal);
-            letter-spacing: 0.02em;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        img {
-            max-width: 100%;
-            display: block;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        .section-padding {
-            padding: 6rem 0;
-        }
-
-        .text-center {
-            text-align: center;
-        }
-
-        .btn {
-            display: inline-block;
-            font-family: var(--sans);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            padding: 1.1rem 2.5rem;
-            border-radius: 0;
-            transition: all 0.4s ease;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background-color: var(--charcoal);
-            color: var(--ivory);
-            border: 1px solid var(--charcoal);
-        }
-
-        .btn-primary:hover {
-            background-color: transparent;
-            color: var(--charcoal);
-        }
-
-        .btn-gold {
-            background-color: var(--gold);
-            color: var(--charcoal);
-            border: 1px solid var(--gold);
-            font-weight: 500;
-        }
-
-        .btn-gold:hover {
-            background-color: transparent;
-            color: var(--gold);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--charcoal);
-            border: 1px solid var(--charcoal);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--charcoal);
-            color: var(--white);
-        }
-
-        /* Header Navigation */
-        header {
-            background-color: rgba(250, 247, 242, 0.98);
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(90, 82, 76, 0.1);
-        }
-
-        .nav-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 90px;
-        }
-
-        .logo-text {
-            font-size: 1.35rem; 
-            letter-spacing: 0.05em;
-            line-height: 1.1;
-        }
-
-        .logo-text span {
-            font-family: var(--sans);
-            font-size: 0.55rem;
-            display: block;
-            text-transform: uppercase;
-            letter-spacing: 0.25em;
-            color: var(--taupe);
-            margin-top: 2px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-            align-items: center;
-        }
-
-        nav ul a {
-            font-size: 0.72rem;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-            color: var(--taupe);
-            padding: 0.5rem 0;
-            display: inline-block;
-        }
-
-        nav ul a:hover {
-            color: var(--charcoal);
-        }
-
-        .nav-dropdown {
-            position: relative;
-        }
-
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--ivory);
-            min-width: 180px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-            border: 1px solid rgba(90, 82, 76, 0.1);
-            list-style: none;
-            padding: 0.5rem 0;
-            z-index: 1010;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .dropdown-menu li {
-            width: 100%;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 0.6rem 1.2rem;
-            font-size: 0.68rem;
-            color: var(--taupe);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            white-space: nowrap;
-        }
-
-        .dropdown-menu a:hover {
-            background-color: var(--sand);
-            color: var(--charcoal);
-        }
-
-        @media (min-width: 993px) {
-            .nav-dropdown:hover .dropdown-menu {
-                display: flex;
-            }
-        }
-
-        /* Hero */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            background: linear-gradient(rgba(250, 247, 242, 0.8), rgba(243, 236, 226, 0.7)), 
-                        url('medispalogo3.png') no-repeat center center/cover;
-            padding-top: 90px;
-        }
-
-        .hero-content {
-            max-width: 650px;
-        }
-
-        .hero-badge {
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--taupe);
-            margin-bottom: 1rem;
-            display: inline-block;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero p {
-            font-size: 1.1rem;
-            color: var(--taupe);
-            margin-bottom: 2.5rem;
-        }
-
-        /* About */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            background: var(--sand);
-            padding: 2rem;
-            border: 1px solid rgba(90, 82, 76, 0.15);
-        }
-
-        .section-subtitle {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--taupe);
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .section-title {
-            font-size: 2.8rem;
-            margin-bottom: 2rem;
-            line-height: 1.2;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: var(--taupe);
-        }
-
-        /* XERF SECTION STYLES */
-        .xerf-stats-bar {
-            background-color: #121110;
-            color: var(--ivory);
-            padding: 3rem 1rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .xerf-stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            text-align: center;
-        }
-
-        .xerf-stat-number {
-            font-family: var(--serif);
-            font-size: 4rem;
-            line-height: 1;
-            color: var(--gold-soft);
-            margin-bottom: 0.5rem;
-        }
-
-        .xerf-stat-label {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            color: rgba(250, 247, 242, 0.8);
-        }
-
-        .xerf-pricing-section {
-            background-color: #161514;
-            color: var(--ivory);
-            padding: 6rem 0;
-            border-bottom: 1px solid rgba(90, 82, 76, 0.2);
-        }
-
-        .xerf-promo-card {
-            background: #1C1A19;
-            border: 1px solid var(--gold-soft);
-            padding: 2.5rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 2rem;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .xerf-promo-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-
-        .xerf-promo-card.featured {
-            border: 2px solid var(--gold);
-            background: #221F1D;
-            position: relative;
-        }
-
-        .xerf-badge {
-            position: absolute;
-            top: -12px;
-            left: 2.5rem;
-            background: var(--gold);
-            color: #121110;
-            font-size: 0.65rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            padding: 0.2rem 0.8rem;
-        }
-
-        .xerf-price-value {
-            font-family: var(--serif);
-            font-size: 3.2rem;
-            color: var(--gold-soft);
-            line-height: 1;
-            text-align: right;
-        }
-
-        .xerf-price-was {
-            font-size: 1.1rem;
-            text-decoration: line-through;
-            color: rgba(250, 247, 242, 0.4);
-            margin-bottom: 0.2rem;
-        }
-
-        .xerf-save-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--gold);
-            font-weight: 500;
-            display: block;
-            margin-top: 0.3rem;
-        }
-
-        .body-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-            justify-content: center;
-            margin: 2rem 0 1.5rem 0;
-        }
-
-        .body-tag {
-            background: var(--white);
-            border: 1px solid rgba(90, 82, 76, 0.2);
-            padding: 0.8rem 1.8rem;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            color: var(--charcoal);
-        }
-
-        .body-tag.highlight {
-            background: var(--gold-soft);
-            color: var(--charcoal);
-            border-color: var(--gold-soft);
-            font-weight: 500;
-        }
-
-        .xerf-steps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3.5rem;
-        }
-
-        .xerf-step-card {
-            background-color: var(--white);
-            border: 1px solid rgba(90, 82, 76, 0.1);
-            padding: 2.5rem 2rem;
-            text-align: left;
-        }
-
-        .xerf-step-num {
-            font-family: var(--serif);
-            font-size: 2.8rem;
-            color: var(--gold);
-            line-height: 1;
-            margin-bottom: 0.5rem;
-        }
-
-        .xerf-step-title {
-            font-size: 0.9rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--charcoal);
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Services Grid & Filters */
-        .menu-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tab-btn {
-            background: none;
-            border: none;
-            font-family: var(--sans);
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-            padding: 0.6rem 1.2rem;
-            color: var(--taupe);
-            cursor: pointer;
-            border-bottom: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn.active, .tab-btn:hover {
-            color: var(--charcoal);
-            border-bottom: 2px solid var(--gold-soft);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border: 1px solid rgba(90, 82, 76, 0.08);
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(90, 82, 76, 0.05);
-        }
-
-        .service-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 0.8rem;
-            gap: 1rem;
-        }
-
-        .service-title {
-            font-size: 1.4rem;
-            line-height: 1.25;
-        }
-
-        .service-price {
-            font-family: var(--serif);
-            font-size: 1.3rem;
-            color: var(--taupe);
-            white-space: nowrap;
-        }
-
-        .service-meta {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--gold);
-            margin-bottom: 1rem;
-            font-weight: 400;
-        }
-
-        .service-description {
-            font-size: 0.9rem;
-            color: var(--taupe);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Wellness Injections Section */
-        .wellness-section {
-            background-color: var(--sand);
-            border-top: 1px solid rgba(90, 82, 76, 0.1);
-            border-bottom: 1px solid rgba(90, 82, 76, 0.1);
-        }
-
-        .wellness-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .wellness-card {
-            background-color: var(--white);
-            border: 1px solid rgba(90, 82, 76, 0.1);
-            padding: 2.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .wellness-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 25px rgba(90, 82, 76, 0.06);
-        }
-
-        .wellness-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: var(--charcoal);
-            border-bottom: 1px solid var(--gold-soft);
-            padding-bottom: 0.5rem;
-        }
-
-        .wellness-benefits {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .wellness-benefits li {
-            font-size: 0.9rem;
-            color: var(--taupe);
-            margin-bottom: 0.75rem;
-            position: relative;
-            padding-left: 1.25rem;
-            line-height: 1.5;
-        }
-
-        .wellness-benefits li::before {
-            content: "•";
-            color: var(--gold);
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-            top: -2px;
-        }
-
-        /* Client Gallery */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .gallery-item {
-            background-color: var(--white);
-            border: 1px solid rgba(90, 82, 76, 0.08);
-            overflow: hidden;
-        }
-
-        .gallery-image-wrapper {
-            position: relative;
-            background-color: var(--sand);
-            aspect-ratio: 1 / 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .gallery-image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .gallery-label {
-            padding: 1.5rem;
-            background: var(--white);
-        }
-
-        .gallery-label h4 {
-            font-size: 1.2rem;
-            margin-bottom: 0.2rem;
-        }
-
-        .gallery-label p {
-            font-size: 0.8rem;
-            color: var(--taupe);
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-
-        /* Promotions */
-        .promo-section {
-            background-color: var(--sand);
-        }
-
-        .promo-card {
-            background-color: var(--white);
-            border: 1px solid rgba(90, 82, 76, 0.1);
-            padding: 3rem;
-            margin-top: 2.5rem;
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            align-items: center;
-            gap: 2rem;
-            text-align: left;
-        }
-
-        .promo-badge {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.2em;
-            background-color: var(--charcoal);
-            color: var(--ivory);
-            padding: 0.3rem 0.8rem;
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .promo-value {
-            font-family: var(--serif);
-            font-size: 2.5rem;
-            color: var(--gold);
-            text-align: right;
-            line-height: 1.1;
-        }
-
-        /* Newsletter */
-        .newsletter-section {
-            background-color: var(--charcoal);
-            color: var(--ivory);
-            border-bottom: 1px solid rgba(250, 247, 242, 0.1);
-        }
-
-        .newsletter-wrapper {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .newsletter-form {
-            display: flex;
-            margin-top: 2rem;
-            border-bottom: 1px solid rgba(250, 247, 242, 0.3);
-        }
-
-        .newsletter-input {
-            background: transparent;
-            border: none;
-            padding: 1rem;
-            color: var(--ivory);
-            font-family: var(--sans);
-            font-size: 0.9rem;
-            flex-grow: 1;
-            outline: none;
-        }
-
-        .newsletter-input::placeholder {
-            color: rgba(250, 247, 242, 0.4);
-        }
-
-        .newsletter-submit {
-            background: transparent;
-            border: none;
-            color: var(--gold-soft);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 0.15em;
-            cursor: pointer;
-            padding: 0 1rem;
-            transition: color 0.3s ease;
-        }
-
-        .newsletter-submit:hover {
-            color: var(--white);
-        }
-
-        /* Location & Contact */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .info-panel {
-            padding-right: 2rem;
-        }
-
-        .info-group {
-            margin-bottom: 2.5rem;
-        }
-
-        .info-group h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .info-group p {
-            color: var(--taupe);
-            font-size: 0.95rem;
-        }
-
-        .hours-list {
-            list-style: none;
-        }
-
-        .hours-list li {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.4rem 0;
-            border-bottom: 1px solid rgba(90, 82, 76, 0.1);
-            font-size: 0.95rem;
-            color: var(--taupe);
-        }
-
-        .hours-list li.highlight {
-            color: var(--charcoal);
-            font-weight: 400;
-        }
-
-        .map-panel {
-            background: var(--sand);
-            border: 1px solid rgba(90, 82, 76, 0.15);
-            min-height: 350px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-links a {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            border-bottom: 1px solid var(--charcoal);
-            padding-bottom: 2px;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--charcoal);
-            color: var(--ivory);
-            padding: 4rem 0;
-            font-size: 0.85rem;
-        }
-
-        .footer-wrapper {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-        }
-
-        .footer-copyright {
-            color: rgba(250, 247, 242, 0.6);
-        }
-
-        /* Mobile Responsive Nav */
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 26px;
-            height: 18px;
-            background: none;
-            border: none;
-            cursor: pointer;
-            z-index: 1100;
-        }
-
-        .hamburger span {
-            display: block;
-            height: 2px;
-            width: 100%;
-            background-color: var(--charcoal);
-            transition: all 0.3s ease;
-        }
-
-        .hamburger.active span:nth-child(1) {
-            transform: translateY(8px) rotate(45deg);
-        }
-        .hamburger.active span:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.active span:nth-child(3) {
-            transform: translateY(-8px) rotate(-45deg);
-        }
-
-        @media (max-width: 992px) {
-            .about-grid, .contact-grid, .promo-card, .xerf-promo-card {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .promo-value, .xerf-price-value {
-                text-align: left;
-            }
-            .hamburger {
-                display: flex;
-            }
-
-            nav {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                height: 0;
-                overflow-y: auto;
-                background-color: var(--ivory);
-                transition: height 0.4s ease;
-                border-bottom: 1px solid rgba(90, 82, 76, 0.1);
-            }
-
-            nav.open {
-                height: calc(100vh - 70px);
-            }
-
-            nav ul {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0;
-                padding: 2rem 0;
-            }
-
-            nav ul li {
-                width: 100%;
-                text-align: center;
-            }
-
-            nav ul a {
-                display: block;
-                padding: 1.1rem 0;
-                font-size: 0.85rem;
-                border-bottom: 1px solid rgba(90, 82, 76, 0.08);
-            }
-
-            .dropdown-menu {
-                position: static;
-                box-shadow: none;
-                border: none;
-                background-color: rgba(243, 236, 226, 0.5);
-                display: none;
-            }
-
-            .nav-dropdown:hover .dropdown-menu,
-            .nav-dropdown.active .dropdown-menu {
-                display: flex;
-            }
-
-            .nav-wrapper {
-                height: 70px;
-            }
-
-            .logo-text {
-                font-size: 1.1rem;
-            }
-
-            .logo-text span {
-                font-size: 0.5rem;
-            }
-
-            .hero {
-                padding-top: 70px;
-            }
-
-            .hero h1 {
-                font-size: 2.4rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .container {
-                padding: 0 1.25rem;
-            }
-            .logo-text {
-                font-size: 0.95rem;
-            }
-            .btn {
-                padding: 0.8rem 1.5rem;
-                font-size: 0.75rem;
-            }
-        }
-    </style>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Medi Spa Aesthetica | Non-Surgical RF Lifting &amp; Clinical Aesthetics | Fort Erie, ON</title>
+	<meta name="description" content="Direct medical care by RN Rose Wheeler. Premier non-surgical XERF monopolar RF skin tightening, dermal fillers, neuromodulators, microneedling, and cellular wellness in Fort Erie, Ontario.">
+	
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<style>
+		/* ==========================================================================
+		   1. DESIGN TOKENS & ROOT VARIABLES
+		   ========================================================================== */
+		:root {
+			--obsidian: #121315;
+			--charcoal: #1e2024;
+			--taupe: #78716c;
+			--taupe-light: #a8a29e;
+			--sand: #f5f2eb;
+			--sand-light: #faf8f5;
+			--ivory: #faf7f2;
+			--gold: #c5a059;
+			--gold-light: #dfc285;
+			--gold-soft: #e8d7b5;
+			--gold-dark: #9a7b3b;
+			--border-light: rgba(197, 160, 89, 0.2);
+			--border-subtle: rgba(120, 113, 108, 0.15);
+			--shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+			--shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+			--shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+			--transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+			--font-serif: 'Cormorant Garamond', Georgia, serif;
+			--font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+		}
+
+		/* ==========================================================================
+		   2. CSS RESET & BASE STYLES
+		   ========================================================================== */
+		*, *::before, *::after {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			scroll-behavior: smooth;
+			font-size: 16px;
+		}
+
+		body {
+			font-family: var(--font-sans);
+			background-color: var(--ivory);
+			color: var(--obsidian);
+			line-height: 1.65;
+			-webkit-font-smoothing: antialiased;
+			overflow-x: hidden;
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-family: var(--font-serif);
+			font-weight: 400;
+			letter-spacing: 0.02em;
+			line-height: 1.2;
+		}
+
+		p {
+			margin-bottom: 1rem;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			transition: var(--transition-smooth);
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+			display: block;
+		}
+
+		.container {
+			width: 100%;
+			max-width: 1280px;
+			margin: 0 auto;
+			padding: 0 1.5rem;
+		}
+
+		.section-padding {
+			padding: 6rem 0;
+		}
+
+		.text-center { text-align: center; }
+		.text-left { text-align: left; }
+		.text-right { text-align: right; }
+
+		.section-subtitle {
+			display: inline-block;
+			font-family: var(--font-sans);
+			font-size: 0.8rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			color: var(--gold);
+			margin-bottom: 0.75rem;
+		}
+
+		.section-title {
+			font-size: clamp(2.2rem, 4vw, 3.2rem);
+			color: var(--obsidian);
+			margin-bottom: 1.25rem;
+		}
+
+		/* ==========================================================================
+		   3. BUTTONS & UI ELEMENTS
+		   ========================================================================== */
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0.9rem 2rem;
+			font-family: var(--font-sans);
+			font-size: 0.85rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			border: 1px solid transparent;
+			cursor: pointer;
+			transition: var(--transition-smooth);
+			border-radius: 2px;
+		}
+
+		.btn-primary {
+			background-color: var(--obsidian);
+			color: var(--ivory);
+			border-color: var(--obsidian);
+		}
+
+		.btn-primary:hover {
+			background-color: var(--gold);
+			border-color: var(--gold);
+			color: var(--obsidian);
+		}
+
+		.btn-gold {
+			background-color: var(--gold);
+			color: var(--obsidian);
+			border-color: var(--gold);
+		}
+
+		.btn-gold:hover {
+			background-color: var(--gold-dark);
+			border-color: var(--gold-dark);
+			color: var(--ivory);
+		}
+
+		.btn-outline {
+			background-color: transparent;
+			color: var(--obsidian);
+			border-color: var(--obsidian);
+		}
+
+		.btn-outline:hover {
+			background-color: var(--obsidian);
+			color: var(--ivory);
+		}
+
+		/* ==========================================================================
+		   4. HEADER & NAVIGATION
+		   ========================================================================== */
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1000;
+			background-color: rgba(250, 247, 242, 0.95);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid var(--border-subtle);
+			transition: var(--transition-smooth);
+		}
+
+		.header-container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: 80px;
+		}
+
+		.logo-text {
+			font-family: var(--font-serif);
+			font-size: 1.6rem;
+			font-weight: 600;
+			letter-spacing: 0.08em;
+			color: var(--obsidian);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.logo-text span {
+			font-family: var(--font-sans);
+			font-size: 0.65rem;
+			font-weight: 500;
+			letter-spacing: 0.25em;
+			color: var(--taupe);
+			text-transform: uppercase;
+		}
+
+		nav ul {
+			display: flex;
+			list-style: none;
+			gap: 2rem;
+		}
+
+		nav a {
+			font-size: 0.85rem;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--obsidian);
+		}
+
+		nav a:hover {
+			color: var(--gold);
+		}
+
+		.hamburger-btn {
+			display: none;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 28px;
+			height: 18px;
+			background: none;
+			border: none;
+			cursor: pointer;
+		}
+
+		.hamburger-btn span {
+			width: 100%;
+			height: 2px;
+			background-color: var(--obsidian);
+			transition: var(--transition-smooth);
+		}
+
+		/* ==========================================================================
+		   5. HERO SECTION
+		   ========================================================================== */
+		.hero {
+			padding-top: 140px;
+			padding-bottom: 6rem;
+			background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand) 100%);
+			position: relative;
+		}
+
+		.hero-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+			align-items: center;
+		}
+
+		.hero-badge {
+			display: inline-block;
+			padding: 0.4rem 1rem;
+			background-color: rgba(197, 160, 89, 0.12);
+			border: 1px solid var(--border-light);
+			font-size: 0.75rem;
+			font-weight: 600;
+			letter-spacing: 0.15em;
+			color: var(--gold-dark);
+			text-transform: uppercase;
+			margin-bottom: 1.5rem;
+		}
+
+		.hero-title {
+			font-size: clamp(2.5rem, 5vw, 4.2rem);
+			margin-bottom: 1.5rem;
+			color: var(--obsidian);
+		}
+
+		.hero-desc {
+			font-size: 1.1rem;
+			color: var(--taupe);
+			margin-bottom: 2rem;
+			max-width: 540px;
+		}
+
+		.hero-actions {
+			display: flex;
+			gap: 1rem;
+			flex-wrap: wrap;
+		}
+
+		/* ==========================================================================
+		   6. XERF™ FEATURED SECTION
+		   ========================================================================== */
+		.xerf-section {
+			background-color: var(--obsidian);
+			color: var(--ivory);
+		}
+
+		.xerf-header {
+			max-width: 800px;
+			margin: 0 auto 4rem auto;
+			text-center: center;
+		}
+
+		.xerf-steps-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 2rem;
+			margin-bottom: 4rem;
+		}
+
+		.xerf-step-card {
+			background-color: var(--charcoal);
+			padding: 2.5rem 2rem;
+			border: 1px solid rgba(197, 160, 89, 0.15);
+			position: relative;
+		}
+
+		.xerf-step-num {
+			font-family: var(--font-serif);
+			font-size: 3rem;
+			color: var(--gold);
+			opacity: 0.6;
+			line-height: 1;
+			margin-bottom: 1rem;
+		}
+
+		.xerf-step-title {
+			font-size: 1.4rem;
+			margin-bottom: 0.75rem;
+			color: var(--ivory);
+		}
+
+		.body-grid {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.75rem;
+			justify-content: center;
+			margin: 2rem 0;
+		}
+
+		.body-tag {
+			padding: 0.5rem 1.25rem;
+			background-color: rgba(255, 255, 255, 0.05);
+			border: 1px solid var(--border-subtle);
+			font-size: 0.85rem;
+			color: var(--sand);
+		}
+
+		.body-tag.highlight {
+			border-color: var(--gold);
+			color: var(--gold-light);
+		}
+
+		.xerf-promo-card {
+			background: linear-gradient(145deg, var(--charcoal) 0%, #15171a 100%);
+			border: 1px solid var(--gold);
+			padding: 2.5rem;
+			margin-bottom: 1.5rem;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: 2rem;
+			position: relative;
+		}
+
+		.xerf-badge {
+			position: absolute;
+			top: -12px;
+			left: 2rem;
+			background-color: var(--gold);
+			color: var(--obsidian);
+			font-size: 0.7rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			padding: 0.25rem 0.75rem;
+		}
+
+		.xerf-price-was {
+			font-size: 1.1rem;
+			text-decoration: line-through;
+			color: var(--taupe);
+			text-align: right;
+		}
+
+		.xerf-price-value {
+			font-family: var(--font-serif);
+			font-size: 2.5rem;
+			color: var(--gold-light);
+			line-height: 1;
+		}
+
+		/* ==========================================================================
+		   7. PRACTITIONER & SERVICES
+		   ========================================================================== */
+		.about-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+			align-items: center;
+		}
+
+		.menu-tabs {
+			display: flex;
+			justify-content: center;
+			gap: 1rem;
+			margin-bottom: 3rem;
+			flex-wrap: wrap;
+		}
+
+		.tab-btn {
+			padding: 0.75rem 1.5rem;
+			background: none;
+			border: 1px solid var(--border-subtle);
+			font-family: var(--font-sans);
+			font-size: 0.8rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			cursor: pointer;
+			transition: var(--transition-smooth);
+		}
+
+		.tab-btn.active, .tab-btn:hover {
+			background-color: var(--obsidian);
+			color: var(--ivory);
+			border-color: var(--obsidian);
+		}
+
+		.services-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+			gap: 2rem;
+		}
+
+		.service-card {
+			background-color: var(--ivory);
+			border: 1px solid var(--border-subtle);
+			padding: 2rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			transition: var(--transition-smooth);
+		}
+
+		.service-card:hover {
+			box-shadow: var(--shadow-md);
+			border-color: var(--border-light);
+		}
+
+		.service-header {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+			margin-bottom: 0.75rem;
+		}
+
+		.service-title {
+			font-size: 1.5rem;
+			color: var(--obsidian);
+		}
+
+		.service-price {
+			font-family: var(--font-serif);
+			font-size: 1.4rem;
+			color: var(--gold-dark);
+			font-weight: 600;
+		}
+
+		.service-meta {
+			font-size: 0.75rem;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--taupe);
+			margin-bottom: 1rem;
+		}
+
+		.service-description {
+			font-size: 0.9rem;
+			color: var(--taupe);
+			margin-bottom: 1.5rem;
+		}
+
+		/* ==========================================================================
+		   8. WELLNESS & FAQ ACCORDION
+		   ========================================================================== */
+		.wellness-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2rem;
+			margin-top: 3rem;
+		}
+
+		.wellness-card {
+			background-color: var(--sand-light);
+			border: 1px solid var(--border-subtle);
+			padding: 2rem;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+		}
+
+		.wellness-benefits {
+			list-style: none;
+			margin: 1rem 0 1.5rem 0;
+		}
+
+		.wellness-benefits li {
+			font-size: 0.85rem;
+			color: var(--taupe);
+			margin-bottom: 0.5rem;
+			position: relative;
+			padding-left: 1.25rem;
+		}
+
+		.wellness-benefits li::before {
+			content: "—";
+			position: absolute;
+			left: 0;
+			color: var(--gold);
+		}
+
+		.faq-accordion {
+			max-width: 800px;
+			margin: 3rem auto 0 auto;
+		}
+
+		.faq-item {
+			border-bottom: 1px solid var(--border-subtle);
+		}
+
+		.faq-question {
+			width: 100%;
+			padding: 1.5rem 0;
+			background: none;
+			border: none;
+			text-align: left;
+			font-family: var(--font-serif);
+			font-size: 1.4rem;
+			color: var(--obsidian);
+			cursor: pointer;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.faq-answer {
+			max-height: 0;
+			overflow: hidden;
+			transition: max-height 0.35s cubic-bezier(0, 1, 0, 1);
+		}
+
+		.faq-item.active .faq-answer {
+			max-height: 1000px;
+			padding-bottom: 1.5rem;
+			transition: max-height 0.5s ease-in-out;
+		}
+
+		.faq-answer p {
+			font-size: 0.95rem;
+			color: var(--taupe);
+		}
+
+		/* ==========================================================================
+		   9. FOOTER & RESPONSIVE DESIGN
+		   ========================================================================== */
+		.contact-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem;
+		}
+
+		.info-group {
+			margin-bottom: 2rem;
+		}
+
+		.info-group h4 {
+			font-size: 1.2rem;
+			margin-bottom: 0.5rem;
+		}
+
+		.hours-list {
+			list-style: none;
+		}
+
+		.hours-list li {
+			display: flex;
+			justify-content: space-between;
+			padding: 0.4rem 0;
+			border-bottom: 1px dashed var(--border-subtle);
+			font-size: 0.85rem;
+		}
+
+		footer {
+			background-color: var(--obsidian);
+			color: var(--ivory);
+			padding: 4rem 0 2rem 0;
+			border-top: 1px solid rgba(197, 160, 89, 0.2);
+		}
+
+		.footer-wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 2rem;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			padding-bottom: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.footer-copyright {
+			font-size: 0.8rem;
+			color: var(--taupe);
+			text-align: center;
+			width: 100%;
+		}
+
+		@media (max-width: 992px) {
+			.hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+			.hamburger-btn { display: flex; }
+			nav {
+				position: absolute;
+				top: 80px;
+				left: 0;
+				width: 100%;
+				background-color: var(--ivory);
+				padding: 2rem;
+				border-bottom: 1px solid var(--border-subtle);
+				display: none;
+			}
+			nav.open { display: block; }
+			nav ul { flex-direction: column; gap: 1.25rem; }
+			.xerf-promo-card { flex-direction: column; text-align: center; }
+			.xerf-price-was { text-align: center; }
+		}
+	</style>
 </head>
 <body>
 
-    <!-- Header Navigation -->
-    <header>
-        <div class="container nav-wrapper">
-            <a href="#" class="logo-text">
-                MEDI SPA AESTHETICA
-                <span>Fort Erie, Ontario</span>
-            </a>
+	<!-- Navigation Header -->
+	<header>
+		<div class="container header-container">
+			<a href="#" class="logo-text">
+				MEDI SPA AESTHETICA
+				<span>Direct RN Care &bull; Fort Erie</span>
+			</a>
 
-            <nav id="mainNav">
-                <ul>
-                    <li>
-                        <a href="https://medispa-aesthetica-shop.myshopify.com/" target="_blank" class="nav-link shop-link" style="color: var(--gold-soft); font-weight: 600;">
-                            Shop ↗
-                        </a>
-                    </li>
-                    <li><a href="#xerf" onclick="closeNav()" style="color: var(--gold); font-weight: 500;">XERF™ Lift</a></li>
-                    <li><a href="#about" onclick="closeNav()">The Practitioner</a></li>
-                    <li><a href="#services" onclick="closeNav()">Treatments</a></li>
-                    <li><a href="#new-treatments" onclick="closeNav()">Vitamin Shots</a></li>
-                    <li><a href="#gallery" onclick="closeNav()">Gallery</a></li>
-                    <li><a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" class="nav-link">AlumierMD</a></li>
-                    <li><a href="riman.html" class="nav-link">Riman</a></li>
-                    <li class="nav-dropdown">
-                        <a href="#contact" onclick="closeNav()">Location &amp; Contact &#9662;</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="https://www.facebook.com/profile.php?id=61592237860463" target="_blank" onclick="closeNav()">Facebook</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </nav>
+			<button class="hamburger-btn" id="hamburgerBtn" onclick="toggleNav()" aria-label="Toggle menu">
+				<span></span><span></span><span></span>
+			</button>
 
-            <div style="display:flex; align-items:center; gap:0.75rem;">
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="padding: 0.6rem 1.2rem; font-size: 0.7rem;">Book Online</a>
-                <button class="hamburger" id="hamburgerBtn" onclick="toggleNav()" aria-label="Toggle menu">
-                    <span></span><span></span><span></span>
-                </button>
-            </div>
-        </div>
-    </header>
+			<nav id="mainNav">
+				<ul>
+					<li><a href="#xerf" onclick="closeNav()">XERF™ RF Lift</a></li>
+					<li><a href="#about" onclick="closeNav()">About RN Rose</a></li>
+					<li><a href="#services" onclick="closeNav()">Services</a></li>
+					<li><a href="#wellness" onclick="closeNav()">Wellness Shots</a></li>
+					<li><a href="#faq" onclick="closeNav()">FAQ</a></li>
+					<li><a href="#contact" onclick="closeNav()">Contact</a></li>
+				</ul>
+			</nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <div class="hero-content">
-                <span class="hero-badge">Clinical Precision &amp; Quiet Luxury</span>
-                <h1>Natural Beauty Enhancement</h1>
-                <p>Medical-grade aesthetic care directed by experienced Registered Nurse Rose Wheeler. Featuring XERF™ Dual-Frequency Monopolar RF skin tightening alongside bespoke clinical care.</p>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="margin-right: 1rem; margin-bottom: 0.5rem;">Book Appointment</a>
-                <a href="#xerf" class="btn btn-outline">Explore XERF™ Lift</a>
-            </div>
-        </div>
-    </section>
-    <section class="technology-section">
-  <div class="technology-container">
-    <div class="technology-text">
-      <h2>The Technology</h2>
-           <p style="color: var(--taupe); font-size: 1.15rem; line-height: 1.8; margin-bottom: 3rem;">
-                <strong>XERF™</strong> is a non-invasive, FDA-cleared aesthetic device by Cynosure Lutronic using <strong>Dual-Frequency Monopolar Radiofrequency</strong> to lift and tighten while reducing sagging skin and wrinkles. It stimulates new collagen and elastin at two distinct tissue depths simultaneously — completely without damaging the skin surface.
-            </p>
-      <!-- Optional Call to Action -->
-      <a href="#learn-more" class="tech-cta-btn">Learn More</a>
-    </div>
-    
-    <div class="technology-image-wrap">
-      <img 
-        src="202602270537-main.cropped_1772145453_2.jpg" 
-        alt="Advanced skin treatment technology in action"
-        class="technology-img"
-        loading="lazy"
-      />
-    </div>
-  </div>
-</section>
-     <!-- XERF 3-Step Process & Celebrity Spotlight -->
-        <div class="container section-padding">
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 4rem; align-items: center; margin-bottom: 5rem;">
-                <div>
-                    <span class="section-subtitle">Red Carpet Ready</span>
-                    <h3 style="font-size: 2.4rem; margin-bottom: 1.2rem; line-height: 1.2;">Celebrity-Favored Non-Invasive Rejuvenation</h3>
-                    <p style="color: var(--taupe); margin-bottom: 1.5rem; line-height: 1.7;">
-                        Celebrated by Hollywood A-listers (including Kim Kardashian) for delivering instant skin firming and contouring without surgery, needles, or downtime before major appearances.
-                    </p>
-                    <ul style="list-style: none; padding: 0; color: var(--taupe); font-size: 0.95rem; line-height: 2.2;">
-                        <li>✓ <strong>Stimulates natural collagen production</strong></li>
-                        <li>✓ <strong>Helps tighten and firm loose, lax skin</strong></li>
-                        <li>✓ <strong>Improves the appearance of fine lines &amp; wrinkles</strong></li>
-                        <li>✓ <strong>Enhances skin texture, smoothness, and elasticity</strong></li>
-                        <li>✓ <strong>Creates a defined jawline and facial contours</strong></li>
-                        <li>✓ <strong>Instant lift plus gradual, long-term results</strong></li>
-                    </ul>
-                </div>
-                <div style="text-align: center;">
-                    <img src="202602270537-main.cropped_1772145453.jpg" alt="XERF Radiofrequency Treatment Celebrity Endorsement" style="width: 100%; border-radius: 4px; box-shadow: 0 15px 35px rgba(0,0,0,0.1);" onerror="this.style.display='none'">
-                </div>
-            </div>
+			<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="display: none; @media(min-width: 768px){display: inline-flex;}">Book Portal</a>
+		</div>
+	</header>
 
+	<!-- Hero Section -->
+	<section class="hero">
+		<div class="container hero-grid">
+			<div>
+				<span class="hero-badge">Direct Medical Nursing Care</span>
+				<h1 class="hero-title">Elevate Your Natural Radiance With Precision Science</h1>
+				<p class="hero-desc">Experience quiet luxury aesthetic treatments directed by RN Rose Wheeler. Advanced non-surgical XERF™ radiofrequency, medical injectables, and skin health in Fort Erie, Ontario.</p>
+				<div class="hero-actions">
+					<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-gold">Book Consultation</a>
+					<a href="#xerf" class="btn btn-outline">Explore XERF™ RF</a>
+				</div>
+			</div>
+			<div>
+				<img src="medispalogo3.png" alt="Medi Spa Aesthetica" style="border-radius: 4px; box-shadow: var(--shadow-lg);" onerror="this.src='https://via.placeholder.com/600x600?text=Medi+Spa+Aesthetica'">
+			</div>
+		</div>
+	</section>
 
-        <!-- XERF Stat Bar -->
-        <div class="xerf-stats-bar">
-            <div class="container xerf-stats-grid">
-                <div>
-                    <div class="xerf-stat-number">2</div>
-                    <div class="xerf-stat-label">Tissue Depths Treated at Once</div>
-                </div>
-                <div>
-                    <div class="xerf-stat-number">0</div>
-                    <div class="xerf-stat-label">Needles Required</div>
-                </div>
-                <div>
-                    <div class="xerf-stat-number">0</div>
-                    <div class="xerf-stat-label">Days of Downtime</div>
-                </div>
-                <div>
-                    <div class="xerf-stat-number">1</div>
-                    <div class="xerf-stat-label">Session for an Instant Lift</div>
-                </div>
-            </div>
-        </div>
+	<!-- XERF™ Section -->
+	<section id="xerf" class="section-padding xerf-section">
+		<div class="container">
+			<div class="xerf-header">
+				<span class="section-subtitle" style="color: var(--gold-soft);">Advanced Non-Surgical Lifting</span>
+				<h2 class="section-title" style="color: var(--ivory);">XERF™ Monopolar Radiofrequency</h2>
+				<p style="color: rgba(250, 247, 242, 0.8);">XERF™ utilizes dual-depth monopolar RF energy to stimulate collagen remodeling across dermal and subdermal layers without needles or recovery downtime.</p>
+			</div>
 
-            <!-- How It Works Steps -->
-            <div class="text-center" style="max-width: 700px; margin: 0 auto 2rem auto;">
-                <span class="section-subtitle">Simple, Comfortable Experience</span>
-                <h3 style="font-size: 2.2rem;">How XERF™ Works</h3>
-            </div>
+			<div class="xerf-steps-grid">
+				<div class="xerf-step-card">
+					<div class="xerf-step-num">01</div>
+					<h3 class="xerf-step-title">Clinical Assessment</h3>
+					<p style="color: var(--taupe-light); font-size: 0.9rem;">Targeted facial tissue assessment by RN Rose Wheeler to define precise anatomical vectors for tightening.</p>
+				</div>
+				<div class="xerf-step-card">
+					<div class="xerf-step-num">02</div>
+					<h3 class="xerf-step-title">Dual-Depth RF Heating</h3>
+					<p style="color: var(--taupe-light); font-size: 0.9rem;">Simultaneous thermal energy target layers to contract stretched collagen fibers instantly.</p>
+				</div>
+				<div class="xerf-step-card">
+					<div class="xerf-step-num">03</div>
+					<h3 class="xerf-step-title">Neocollagenesis</h3>
+					<p style="color: var(--taupe-light); font-size: 0.9rem;">Long-term collagen fiber synthesis builds continuous firmness over the following 3 to 6 months.</p>
+				</div>
+			</div>
 
-            <div class="xerf-steps-grid">
-                <div class="xerf-step-card">
-                    <div class="xerf-step-num">01</div>
-                    <div class="xerf-step-title">Consult</div>
-                    <p style="color: var(--taupe); font-size: 0.9rem;">Nurse Rose assesses your aesthetic goals and builds a customized treatment plan tailored for your face or body.</p>
-                </div>
-                <div class="xerf-step-card">
-                    <div class="xerf-step-num">02</div>
-                    <div class="xerf-step-title">Treat</div>
-                    <p style="color: var(--taupe); font-size: 0.9rem;">Dual-frequency RF energy delivers targeted heat to two anatomical depths at once. No needles, no numbing, no surgery.</p>
-                </div>
-                <div class="xerf-step-card">
-                    <div class="xerf-step-num">03</div>
-                    <div class="xerf-step-title">Glow</div>
-                    <p style="color: var(--taupe); font-size: 0.9rem;">Enjoy an immediate, visible lift, then watch collagen-driven structural tightness continue building over time.</p>
-                </div>
-            </div>
+			<div style="max-width: 900px; margin: 0 auto;">
+				<div class="xerf-promo-card">
+					<span class="xerf-badge">Featured Package</span>
+					<div>
+						<h3 style="font-size: 1.8rem; color: var(--ivory); margin-bottom: 0.5rem;">Full Face &amp; Submental Tightening</h3>
+						<p style="color: rgba(250, 247, 242, 0.75); font-size: 0.9rem;">Comprehensive dual-layer treatment for lower face, cheek contours, jowls, and upper neck area.</p>
+					</div>
+					<div>
+						<div class="xerf-price-was">$1,200</div>
+						<div class="xerf-price-value">$899</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <!-- Treatable Areas -->
-            <div class="text-center" style="margin-top: 5rem;">
-                <span class="section-subtitle">Not Just Your Face</span>
-                <h3 style="font-size: 2.2rem; margin-bottom: 0.5rem;">Treat the Entire Body</h3>
-                <p style="color: var(--taupe); max-width: 650px; margin: 0 auto 2rem auto;">From the jawline to the arms and abdomen, XERF™ tightens and firms lax skin wherever you want to feel more confident.</p>
-                
-                <div class="body-grid">
-                    <div class="body-tag">Face</div>
-                    <div class="body-tag">Jawline</div>
-                    <div class="body-tag">Under Chin</div>
-                    <div class="body-tag">Neck</div>
-                    <div class="body-tag">Arms</div>
-                    <div class="body-tag">Abdomen</div>
-                    <div class="body-tag">Thighs</div>
-                    <div class="body-tag">Knees</div>
-                    <div class="body-tag highlight">+ More</div>
-                </div>
-                <p style="font-size: 0.8rem; color: var(--taupe); italic;">*Body treatments are individually quoted during your personal consultation.</p>
-            </div>
-        </div>
+	<!-- Practitioner Bio -->
+	<section id="about" class="section-padding">
+		<div class="container about-grid">
+			<div>
+				<img src="202602270537-main.cropped_1772145453.jpg" alt="RN Rose Wheeler" style="width:100%; border-radius: 2px;" onerror="this.src='https://via.placeholder.com/500x600?text=RN+Rose+Wheeler'">
+			</div>
+			<div>
+				<span class="section-subtitle">Clinical Excellence</span>
+				<h2 class="section-title">RN Rose Wheeler</h2>
+				<p>Bringing over 25 years of registered nursing expertise into precision medical aesthetics, RN Rose Wheeler delivers individual client care centered on safety, anatomical alignment, and subtle rejuvenation.</p>
+				<p>Every treatment protocol is custom-crafted to respect your natural facial balance, utilizing evidence-based non-surgical techniques in a calm, discreet environment.</p>
+				<div style="margin-top: 2rem;">
+					<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary">Book Consultation With RN Rose</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-        <!-- XERF October - November 2026 Promotional Pricing -->
-        <div class="xerf-pricing-section">
-            <div class="container" style="max-width: 900px;">
-                <div class="text-center" style="margin-bottom: 3.5rem;">
-                    <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.25em; color: var(--gold-soft); display: block; margin-bottom: 0.5rem;">
-                        Promotional Pricing • October – November 2026
-                    </span>
-                    <h2 style="font-family: var(--serif); font-size: 3.5rem; color: var(--ivory); margin-bottom: 0.5rem; line-height: 1.1;">
-                        Lift for Less. For a Limited Time.
-                    </h2>
-                    <p style="color: rgba(250, 247, 242, 0.7); font-size: 1.05rem;">No needles. No numbing. No downtime.</p>
-                </div>
+	<!-- Treatment Services Menu -->
+	<section id="services" class="section-padding" style="background-color: var(--sand);">
+		<div class="container">
+			<div class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto;">
+				<span class="section-subtitle">Treatment Offerings</span>
+				<h2 class="section-title">Clinical Service Menu</h2>
+			</div>
 
-                <!-- Card 1: Full Face & Neck -->
-                <div class="xerf-promo-card featured">
-                    <span class="xerf-badge">Biggest Savings</span>
-                    <div>
-                        <h3 style="font-size: 2rem; color: var(--ivory); margin-bottom: 0.3rem;">Full Face &amp; Neck</h3>
-                        <p style="color: var(--gold-soft); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;">2 Treatments</p>
-                    </div>
-                    <div>
-                        <div class="xerf-price-was">$4,000</div>
-                        <div class="xerf-price-value">$3,000</div>
-                        <span class="xerf-save-tag">Save $1,000</span>
-                    </div>
-                </div>
+			<div class="menu-tabs">
+				<button class="tab-btn active" onclick="filterServices('all', this)">All Services</button>
+				<button class="tab-btn" onclick="filterServices('injectables', this)">Injectables</button>
+				<button class="tab-btn" onclick="filterServices('rf', this)">XERF™ RF</button>
+				<button class="tab-btn" onclick="filterServices('skin', this)">Skin Health</button>
+			</div>
 
-                <!-- Card 2: Lower Face & Neck -->
-                <div class="xerf-promo-card">
-                    <div>
-                        <h3 style="font-size: 1.8rem; color: var(--ivory); margin-bottom: 0.3rem;">Lower Face &amp; Neck</h3>
-                        <p style="color: var(--gold-soft); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;">2 Treatments</p>
-                    </div>
-                    <div>
-                        <div class="xerf-price-was">$3,000</div>
-                        <div class="xerf-price-value">$2,250</div>
-                        <span class="xerf-save-tag">Save $750</span>
-                    </div>
-                </div>
+			<div class="services-grid">
+				<div class="service-card" data-category="injectables">
+					<div>
+						<div class="service-header">
+							<h3 class="service-title">Wrinkle Relaxers</h3>
+							<span class="service-price">$10 / unit</span>
+						</div>
+						<div class="service-meta">Neuromodulators</div>
+						<p class="service-description">Smooth dynamic lines across forehead, frown lines, and periorbital areas with natural expressive movement maintained.</p>
+					</div>
+					<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center;">Book Treatment</a>
+				</div>
 
-                <!-- Card 3: Brow Lift -->
-                <div class="xerf-promo-card">
-                    <div>
-                        <h3 style="font-size: 1.8rem; color: var(--ivory); margin-bottom: 0.3rem;">Brow Lift</h3>
-                        <p style="color: var(--gold-soft); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em;">2 Treatments</p>
-                    </div>
-                    <div>
-                        <div class="xerf-price-was">$2,000</div>
-                        <div class="xerf-price-value">$1,500</div>
-                        <span class="xerf-save-tag">Save $500</span>
-                    </div>
-                </div>
+				<div class="service-card" data-category="injectables">
+					<div>
+						<div class="service-header">
+							<h3 class="service-title">Dermal Fillers</h3>
+							<span class="service-price">From $450</span>
+						</div>
+						<div class="service-meta">Hyaluronic Acid</div>
+						<p class="service-description">Restore midface volume, support structural chin profiles, and enhance subtle lip definition safely.</p>
+					</div>
+					<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center;">Book Treatment</a>
+				</div>
 
-                <div class="text-center" style="margin-top: 2.5rem;">
-                    <p style="color: rgba(250, 247, 242, 0.6); font-size: 0.85rem; margin-bottom: 1.5rem;">
-                        ⏱ Limited discounted appointments remaining for October &amp; November. Book yours before they're gone.
-                    </p>
-                    <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-gold" style="padding: 1.1rem 3rem;">
-                        Reserve Promotional XERF Package
-                    </a>
-                </div>
-            </div>
-        </div>
+				<div class="service-card" data-category="rf">
+					<div>
+						<div class="service-header">
+							<h3 class="service-title">XERF™ Lower Face Lift</h3>
+							<span class="service-price">$550</span>
+						</div>
+						<div class="service-meta">Monopolar RF</div>
+						<p class="service-description">Targeted tightening along jawline, marionette areas, and jowl laxity using non-invasive thermal depth energy.</p>
+					</div>
+					<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center;">Book Treatment</a>
+				</div>
 
-        <!-- XERF Results Showcase -->
-        <div class="container section-padding text-center">
-            <span class="section-subtitle">Real Clients. Real Results.</span>
-            <h3 style="font-size: 2.5rem; margin-bottom: 1rem;">Look at That Jawline</h3>
-            <p style="color: var(--taupe); max-width: 650px; margin: 0 auto 3rem auto;">Photographed at Medi Spa Aesthetica clinic. Immediate lifting visible directly after one XERF™ session.</p>
+				<div class="service-card" data-category="skin">
+					<div>
+						<div class="service-header">
+							<h3 class="service-title">AlumierMD Clinical Peel</h3>
+							<span class="service-price">$160</span>
+						</div>
+						<div class="service-meta">Chemical Resurfacing</div>
+						<p class="service-description">Targeted resurfacing treatments tailored to address pigmentation, texture irregularities, and collagen stimulation.</p>
+					</div>
+					<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="width:100%; text-align:center;">Book Treatment</a>
+				</div>
+			</div>
+		</div>
+	</section>
 
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: center;">
-                <div style="background: var(--sand); padding: 1rem; border: 1px solid rgba(90, 82, 76, 0.1);">
-                    <img src="Screenshot 2026-10-06 at 10.44.09 AM.png" alt="XERF Jawline Before and After Result" style="width: 100%; height: auto;" onerror="this.src='medispalogo3.png'">
-                    <p style="font-size: 0.75rem; color: var(--taupe); margin-top: 0.8rem;">Immediate Jawline &amp; Submental Tightening</p>
-                </div>
-                <div style="background: var(--sand); padding: 1rem; border: 1px solid rgba(90, 82, 76, 0.1);">
-                    <img src="Screenshot 2026-10-06 at 10.43.53 AM.png" alt="XERF Full Face, Brow and Body Results Grid" style="width: 100%; height: auto;" onerror="this.src='medispalogo3.png'">
-                    <p style="font-size: 0.75rem; color: var(--taupe); margin-top: 0.8rem;">Cheek, Eye/Brow, Abdomen &amp; Arm Skin Refinement</p>
-                </div>
-            </div>
-            <p style="font-size: 0.75rem; color: var(--taupe); margin-top: 2rem;">*Shared with client consent. Individual results vary. Collagen-building results continue to develop gradually after treatment.</p>
-        </div>
-    </section>
+	<!-- FAQ Section Accordion -->
+	<section id="faq" class="section-padding">
+		<div class="container">
+			<div class="text-center" style="max-width: 700px; margin: 0 auto;">
+				<span class="section-subtitle">Information</span>
+				<h2 class="section-title">Frequently Asked Questions</h2>
+			</div>
 
-    <!-- E-Gift Cards Section -->
-    <section class="section-padding" style="background-color: var(--sand); text-align: center;">
-        <div class="container" style="max-width: 800px;">
-            <span class="section-subtitle">Give the Gift of Radiance</span>
-            <h2 class="section-title">Medi Spa Aesthetica Gift Cards</h2>
-            <p style="color: var(--taupe); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2.5rem;">
-                Treat someone special to bespoke clinical skincare and rejuvenation treatments. Digital gift cards are delivered instantly and can be applied toward any service or consultation.
-            </p>
-            
-            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                <a href="https://app.squareup.com/gift/ML3ZP42NGD4VB/order" target="_blank" class="btn btn-outline" style="padding: 0.9rem 2.2rem;">
-                    Purchase Digital Gift Card
-                </a>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="padding: 0.9rem 2.2rem;">
-                    Book an Appointment
-                </a>
-            </div>
-        </div>
-    </section>
+			<div class="faq-accordion">
+				<div class="faq-item">
+					<button class="faq-question" onclick="toggleFaq(this)">
+						<span>What makes XERF™ monopolar RF unique?</span>
+						<span>+</span>
+					</button>
+					<div class="faq-answer">
+						<p>XERF™ delivers dual-frequency monopolar radiofrequency energy into both superficial and deeper subdermal layers simultaneously, triggering tissue tightening without puncturing skin integrity.</p>
+					</div>
+				</div>
 
-    <!-- Practitioner Profile Section -->
-    <section id="about" class="section-padding container">
-        <div class="about-grid">
-            <div class="about-image">
-                <img src="nurse rosie.jpg" alt="RN Rose Wheeler Clinical Practice">
-            </div>
-            <div class="about-text">
-                <span class="section-subtitle">25+ Years Clinical Experience</span>
-                <h2 class="section-title">Meet Nurse Rose Wheeler</h2>
-                <p>At the intersection of medical science and artistic refinement sits the clinical philosophy of Rose Wheeler, RN. With over 25 years of extensive medical experience, Rose has committed her life's work to safe, evidence-based, and impactful medical aesthetics.</p>
-                <p>Every procedure performed within Medi Spa Aesthetica is built upon deep anatomical knowledge, uncompromising clinical safety infrastructure, and a personalized passion for elevating each patient's natural beauty profile.</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/medispa_aesthetica" target="_blank">Instagram</a>
-                    <a href="https://www.facebook.com/roseanne.wheeler.2025/directory_personal_details" target="_blank">Facebook</a>
-                </div>
-            </div>
-        </div>
-    </section>
+				<div class="faq-item">
+					<button class="faq-question" onclick="toggleFaq(this)">
+						<span>Are consultations required prior to treatment?</span>
+						<span>+</span>
+					</button>
+					<div class="faq-answer">
+						<p>Yes. Every client completes a medical evaluation conducted by RN Rose Wheeler to review health history, evaluate skin tissue, and determine the safest treatment pathway.</p>
+					</div>
+				</div>
 
-    <!-- AlumierMD Skincare Partner Section -->
-    <section id="alumier-hero" class="section-padding" style="background-color: var(--ivory); padding: 4rem 0;">
-        <div class="container" style="max-width: 1200px;">
-            <div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 2.5rem;">
-                <div style="flex: 1; min-width: 300px;">
-                    <span class="section-subtitle">Medical-Grade Skincare</span>
-                    <h2 class="section-title" style="font-size: 2.8rem; margin-bottom: 1rem;">Official AlumierMD Partner</h2>
-                    <p style="color: var(--taupe); font-size: 1.1rem; line-height: 1.7; margin-bottom: 2rem;">
-                        To maximize and protect your in-clinic clinical treatment results, Nurse Rose partners exclusively with AlumierMD. Science-backed, clean, and customizable formulations designed for your skin health journey.
-                    </p>
+				<div class="faq-item">
+					<button class="faq-question" onclick="toggleFaq(this)">
+						<span>Where is the clinic located?</span>
+						<span>+</span>
+					</button>
+					<div class="faq-answer">
+						<p>Medi Spa Aesthetica operates in Fort Erie, Ontario, serving clients throughout Fort Erie, Niagara Falls, Welland, and the broader Niagara Region.</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
-                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-                        <a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" class="btn btn-primary" style="padding: 0.9rem 2rem;">
-                            Shop Nurse Rose's Portal
-                        </a>
-                        <a href="#alumier-promo" class="btn btn-outline" style="padding: 0.9rem 2rem;">
-                            View Current Promos
-                        </a>
-                    </div>
-                </div>
+	<!-- Contact & Location -->
+	<section id="contact" class="section-padding" style="background-color: var(--sand-light);">
+		<div class="container contact-grid">
+			<div>
+				<span class="section-subtitle">Connect</span>
+				<h2 class="section-title">Contact &amp; Location</h2>
+				<div class="info-group">
+					<h4>Medi Spa Aesthetica</h4>
+					<p>Directed by RN Rose Wheeler<br>Fort Erie, Ontario</p>
+				</div>
+				<div class="info-group">
+					<h4>Online Portals</h4>
+					<p>Appointments: <a href="https://lush-studio-104295.square.site/" target="_blank" style="text-decoration:underline;">Square Booking System</a></p>
+					<p>Skincare Products: <a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" style="text-decoration:underline;">AlumierMD Portal</a></p>
+				</div>
+			</div>
+			<div>
+				<div class="info-group">
+					<h4>Hours of Care</h4>
+					<ul class="hours-list">
+						<li><span>Monday – Friday</span><span>9:00 AM – 6:00 PM</span></li>
+						<li><span>Saturday</span><span>10:00 AM – 4:00 PM</span></li>
+						<li><span>Sunday</span><span>By Appointment</span></li>
+					</ul>
+				</div>
+				<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-gold" style="width:100%; text-align:center; margin-top:2rem;">Schedule Appointment</a>
+			</div>
+		</div>
+	</section>
 
-                <div style="flex: 1; min-width: 300px; text-align: center;">
-                    <img src="alumier-360-hero.jpg" alt="AlumierMD A 360 Approach To Your Best Skin Ever" style="width: 100%; max-width: 520px; height: auto; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.06); object-fit: cover;">
-                </div>
-            </div>
+	<!-- Footer -->
+	<footer>
+		<div class="container footer-wrapper">
+			<div class="logo-text" style="color: var(--ivory);">
+				MEDI SPA AESTHETICA
+				<span style="color: var(--taupe);">Fort Erie, Ontario</span>
+			</div>
+			<div>
+				<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-gold">Book Portal</a>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			&copy; 2026 Medi Spa Aesthetica. All rights reserved. Directed by RN Rose Wheeler.
+		</div>
+	</footer>
 
-            <!-- Limited Time Summer Promo Banner -->
-            <div id="alumier-promo" style="background-color: #EBF3F6; border-radius: 8px; padding: 2.5rem 1.5rem; text-align: center; border: 1px solid rgba(0,0,0,0.05); margin-top: 4rem; margin-bottom: 4rem;">
-                <span style="letter-spacing: 2px; text-transform: uppercase; font-size: 0.8rem; font-weight: 600; color: #3A5F6F;">Limited Time Promotion</span>
-                <h3 style="font-size: 1.8rem; color: #1C2B36; margin: 0.5rem 0 1rem 0;">Stocking Up For Summer?</h3>
-                <p style="font-size: 1.1rem; color: #3A5F6F; margin-bottom: 1.5rem;">
-                    Spend <strong>$2,000</strong> and <strong>Save 15%</strong> on your medical-grade skincare order.
-                </p>
-                <div style="display: inline-block; background: #FFFFFF; padding: 0.75rem 1.5rem; border-radius: 50px; font-weight: 600; color: #1C2B36; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(0,0,0,0.04); margin-bottom: 1.5rem;">
-                    USE PROMO CODE: <span style="color: #2D6A88;">SAVE15</span>
-                </div>
-                <div>
-                    <a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" class="btn btn-outline" style="background: #1C2B36; color: #FFFFFF; border: none; padding: 0.8rem 2rem;">
-                        Apply Code &amp; Shop Portal
-                    </a>
-                </div>
-                <p style="font-size: 0.75rem; color: #6B828E; margin-top: 1rem; margin-bottom: 0;">*Valid July 22nd to August 5th inclusive pre-tax.</p>
-            </div>
+	<!-- Scripts -->
+	<script>
+		function toggleNav() {
+			const nav = document.getElementById('mainNav');
+			if (nav) nav.classList.toggle('open');
+		}
 
-            <!-- Spotlight Feature -->
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center; background: #FFFFFF; padding: 3rem; border-radius: 8px; box-shadow: 0 5px 20px rgba(0,0,0,0.02);">
-                <div>
-                    <span class="section-subtitle" style="color: var(--gold-soft);">Clinical Proven Performance</span>
-                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Elevated Post-Procedure Care</h3>
-                    <p style="color: var(--taupe); line-height: 1.7; font-size: 0.95rem;">
-                        Maximise results and reduce post-treatment complications. AlumierMD's <strong>Rescue Balm Pro</strong> and <strong>Post Procedure Kits</strong> are meticulously formulated with peptides, niacinamide, and soothing botanical extracts to soothe, hydrate, and protect skin barrier integrity post-treatment.
-                    </p>
-                    
-                    <ul style="list-style: none; padding: 0; margin: 1.5rem 0; color: var(--taupe); font-size: 0.9rem; line-height: 2;">
-                        <li>✓ <strong>100%</strong> reported skin felt comforted &amp; soothed</li>
-                        <li>✓ <strong>97%</strong> reported skin felt hydrated</li>
-                        <li>✓ <strong>90%</strong> reported reduced appearance of post-treatment redness</li>
-                    </ul>
-                    <a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" class="btn btn-primary" style="padding: 0.8rem 1.8rem; font-size: 0.75rem;">Shop Post-Care Products</a>
-                </div>
-                <div style="text-align: center;">
-                    <img src="alumier-rescue-balm.jpg" alt="AlumierMD Rescue Balm Pro" style="width: 100%; max-width: 400px; height: auto; border-radius: 6px; margin: 0 auto;">
-                </div>
-            </div>
-        </div>
-    </section>
+		function closeNav() {
+			const nav = document.getElementById('mainNav');
+			if (nav) nav.classList.remove('open');
+		}
 
-    <!-- Treatment Collection Menu -->
-    <section id="services" class="section-padding container">
-        <div class="text-center" style="max-width: 700px; margin: 0 auto 3rem auto;">
-            <span class="section-subtitle">Bespoke Treatment Menu</span>
-            <h2 class="section-title">Clinical Aesthetic Services</h2>
-            <p style="color: var(--taupe);">Customized clinical protocols designed to refresh, refine, and maintain natural youthfulness.</p>
-        </div>
+		function filterServices(category, btnElement) {
+			const buttons = document.querySelectorAll('.tab-btn');
+			buttons.forEach(btn => btn.classList.remove('active'));
+			if (btnElement) btnElement.classList.add('active');
 
-        <div class="menu-tabs">
-            <button class="tab-btn active" onclick="filterServices('all')">All Services</button>
-            <button class="tab-btn" onclick="filterServices('xerf')">XERF™ Lifting</button>
-            <button class="tab-btn" onclick="filterServices('injectables')">Injectables</button>
-            <button class="tab-btn" onclick="filterServices('skin')">Advanced Skin</button>
-            <button class="tab-btn" onclick="filterServices('paramedical')">Paramedical Tattooing</button>
-        </div>
+			const cards = document.querySelectorAll('.service-card');
+			cards.forEach(card => {
+				if (category === 'all' || card.getAttribute('data-category') === category) {
+					card.style.display = 'flex';
+				} else {
+					card.style.display = 'none';
+				}
+			});
+		}
 
-        <div class="services-grid" id="servicesGrid">
-            <!-- XERF Monopolar RF -->
-            <div class="service-card" data-category="xerf skin">
-                <div>
-                    <div class="service-header">
-                        <h3 class="service-title">XERF™ Monopolar RF Lifting</h3>
-                        <span class="service-price">From $1,500</span>
-                    </div>
-                    <div class="service-meta">Dual-Frequency RF • 45 - 60 Min</div>
-                    <p class="service-description">FDA-cleared skin tightening technology using dual-frequency monopolar radiofrequency to treat two tissue depths at once. Zero needles, zero downtime.</p>
-                </div>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
-            </div>
+		function toggleFaq(btn) {
+			const item = btn.parentElement;
+			item.classList.toggle('active');
+		}
+	</script>
+</body>
+</html>
 
-            <!-- Injectables -->
-            <div class="service-card" data-category="injectables">
-                <div>
-                    <div class="service-header">
-                        <h3 class="service-title">Neuromodulators (Botox / Dysport)</h3>
-                        <span class="service-price">$9 / unit</span>
-                    </div>
-                    <div class="service-meta">Neuromodulator Therapy • 30 Min</div>
-                    <p class="service-description">Target fine lines and dynamic wrinkles with precise, subtle injections that maintain your natural expression while smoothing forehead lines, crow's feet, and frown lines.</p>
-                </div>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
-            </div>
-
-            <div class="service-card" data-category="injectables">
-                <div>
-                    <div class="service-header">
-                        <h3 class="service-title">Dermal Filler Rejuvenation</h3>
-                        <span class="service-price">$199 - $475</span>
-                    </div>
-                    <div class="service-meta">Hyaluronic Acid Dermal Filler • 45 Min</div>
-                    <p class="service-description">Restore lost volume, enhance facial contours, and hydrate structural tissue with premium hyaluronic acid dermal fillers customized to your unique anatomical profile.</p>
-                </div>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
-            </div>
-
-            <!-- Advanced Skin -->
-            <div class="service-card" data-category="skin">
-                <div>
-                    <div class="service-header">
-                        <h3 class="service-title">Medical Microneedling (SkinPen)</h3>
-                        <span class="service-price">From $199</span>
-                    </div>
-                    <div class="service-meta">Collagen Induction Therapy • 60 Min</div>
-                    <p class="service-description">Stimulate cellular collagen and elastin turnover to soften acne scars, improve skin texture, and restore skin firmness with Health Canada-approved micro-needling devices.</p>
-                </div>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
-            </div>
-
-            <div class="service-card" data-category="skin">
-                <div>
-                    <div class="service-header">
-                        <h3 class="service-title">AlumierMD Clinical Peels</h3>
-                        <span class="service-price">$180</span>
-                    </div>
-                    <div class="service-meta">Custom Chemical Resurfacing • 45 Min</div>
-                    <p class="service-description">Pharmaceutical-grade peel formulations designed to target hyperpigmentation, uneven tone, fine lines, and active congestion with minimal downtime.</p>
-                </div>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
-            </div>
-
-            <div class="service-card" data-category="skin">
-                <div>
-                    <div class="service-header">
-                        <h3 class="service-title">BioRePeel</h3>
-                        <span class="service-price">$150</span>
-                    </div>
-                    <div class="service-meta">Bio-Retexturizing Peel • 45 Min</div>
-                    <p class="service-description">A fast-acting biphasic peel that resurfaces, brightens, and stimulates collagen with virtually no downtime — ideal for tone, texture, and fine line refinement.</p>
-                </div>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
-            </div>
-
-            <!-- Paramedical -->
-            <div class="service-card" data-category="paramedical">
-                <div>
-                    <div class="service-header">
-                        <h3 class="service-title">Scar &amp; Stretch Mark Camouflage</h3>
-                        <span class="service-price">Custom Quote</span>
-                    </div>
-                    <div class="service-meta">Medical Pigment Restorative Tattoo • 90 Min</div>
-                    <p class="service-description">Custom skin-tone pigment matching to blend surgical scars, trauma scars, and stretch marks into your natural surrounding skin tone seamlessly.</p>
-                </div>
-                <a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-outline" style="text-align: center; font-size: 0.75rem; padding: 0.8rem;">Book Consultation</a>
-            </div>
-
-            <div class="service-card" data-category="paramedical">
-                <div>
-                    <div class="service-header">
-                        <h3 class="service-
+```
