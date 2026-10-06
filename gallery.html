@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Clinical Gallery &amp; Results | Medi Spa Aesthetica | Fort Erie, ON</title>
+	<meta name="description" content="Explore real clinical results, treatment transformations, and our Fort Erie studio space at Medi Spa Aesthetica, directed by RN Rose Wheeler.">
+	
+	<!-- Fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+	<style>
+		/* ==========================================================================
+		   1. DESIGN TOKENS & ROOT VARIABLES
+		   ========================================================================== */
+		:root {
+			--obsidian: #121315;
+			--charcoal: #1e2024;
+			--taupe: #78716c;
+			--taupe-light: #a8a29e;
+			--sand: #f5f2eb;
+			--sand-light: #faf8f5;
+			--ivory: #faf7f2;
+			--gold: #c5a059;
+			--gold-light: #dfc285;
+			--gold-dark: #9a7b3b;
+			--border-light: rgba(197, 160, 89, 0.2);
+			--border-subtle: rgba(120, 113, 108, 0.15);
+			--shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+			--shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+			--shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.12);
+			--transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+			--font-serif: 'Cormorant Garamond', Georgia, serif;
+			--font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+		}
+
+		/* ==========================================================================
+		   2. BASE STYLES & RESET
+		   ========================================================================== */
+		*, *::before, *::after {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		html {
+			scroll-behavior: smooth;
+			font-size: 16px;
+		}
+
+		body {
+			font-family: var(--font-sans);
+			background-color: var(--ivory);
+			color: var(--obsidian);
+			line-height: 1.65;
+			-webkit-font-smoothing: antialiased;
+			overflow-x: hidden;
+		}
+
+		h1, h2, h3, h4 {
+			font-family: var(--font-serif);
+			font-weight: 400;
+			letter-spacing: 0.02em;
+			line-height: 1.2;
+		}
+
+		a {
+			color: inherit;
+			text-decoration: none;
+			transition: var(--transition-smooth);
+		}
+
+		img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			display: block;
+		}
+
+		.container {
+			width: 100%;
+			max-width: 1280px;
+			margin: 0 auto;
+			padding: 0 1.5rem;
+		}
+
+		.section-padding {
+			padding: 5rem 0 7rem 0;
+		}
+
+		.text-center { text-align: center; }
+
+		.section-subtitle {
+			display: inline-block;
+			font-family: var(--font-sans);
+			font-size: 0.8rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.2em;
+			color: var(--gold);
+			margin-bottom: 0.75rem;
+		}
+
+		.section-title {
+			font-size: clamp(2.2rem, 4vw, 3.2rem);
+			color: var(--obsidian);
+			margin-bottom: 1rem;
+		}
+
+		/* ==========================================================================
+		   3. BUTTONS & UI COMPONENTS
+		   ========================================================================== */
+		.btn {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 0.9rem 2rem;
+			font-family: var(--font-sans);
+			font-size: 0.85rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			border: 1px solid transparent;
+			cursor: pointer;
+			transition: var(--transition-smooth);
+			border-radius: 2px;
+		}
+
+		.btn-primary {
+			background-color: var(--obsidian);
+			color: var(--ivory);
+			border-color: var(--obsidian);
+		}
+
+		.btn-primary:hover {
+			background-color: var(--gold);
+			border-color: var(--gold);
+			color: var(--obsidian);
+		}
+
+		.btn-gold {
+			background-color: var(--gold);
+			color: var(--obsidian);
+			border-color: var(--gold);
+		}
+
+		.btn-gold:hover {
+			background-color: var(--gold-dark);
+			border-color: var(--gold-dark);
+			color: var(--ivory);
+		}
+
+		/* ==========================================================================
+		   4. HEADER & NAVIGATION
+		   ========================================================================== */
+		header {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			z-index: 1000;
+			background-color: rgba(250, 247, 242, 0.95);
+			backdrop-filter: blur(10px);
+			border-bottom: 1px solid var(--border-subtle);
+		}
+
+		.header-container {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			height: 80px;
+		}
+
+		.logo-text {
+			font-family: var(--font-serif);
+			font-size: 1.6rem;
+			font-weight: 600;
+			letter-spacing: 0.08em;
+			color: var(--obsidian);
+			display: flex;
+			flex-direction: column;
+		}
+
+		.logo-text span {
+			font-family: var(--font-sans);
+			font-size: 0.65rem;
+			font-weight: 500;
+			letter-spacing: 0.25em;
+			color: var(--taupe);
+			text-transform: uppercase;
+		}
+
+		nav ul {
+			display: flex;
+			list-style: none;
+			gap: 2rem;
+		}
+
+		nav a {
+			font-size: 0.85rem;
+			font-weight: 500;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--obsidian);
+		}
+
+		nav a:hover, nav a.active {
+			color: var(--gold);
+		}
+
+		.hamburger-btn {
+			display: none;
+			flex-direction: column;
+			justify-content: space-between;
+			width: 28px;
+			height: 18px;
+			background: none;
+			border: none;
+			cursor: pointer;
+		}
+
+		.hamburger-btn span {
+			width: 100%;
+			height: 2px;
+			background-color: var(--obsidian);
+		}
+
+		/* ==========================================================================
+		   5. GALLERY HERO & FILTERS
+		   ========================================================================== */
+		.gallery-hero {
+			padding-top: 150px;
+			padding-bottom: 3rem;
+			background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand) 100%);
+			text-align: center;
+			border-bottom: 1px solid var(--border-subtle);
+		}
+
+		.gallery-hero p {
+			color: var(--taupe);
+			max-width: 600px;
+			margin: 0 auto;
+			font-size: 1.05rem;
+		}
+
+		.filter-tabs {
+			display: flex;
+			justify-content: center;
+			gap: 0.75rem;
+			margin-bottom: 3.5rem;
+			flex-wrap: wrap;
+		}
+
+		.filter-btn {
+			padding: 0.65rem 1.4rem;
+			background: transparent;
+			border: 1px solid var(--border-subtle);
+			font-family: var(--font-sans);
+			font-size: 0.8rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.1em;
+			color: var(--obsidian);
+			cursor: pointer;
+			transition: var(--transition-smooth);
+		}
+
+		.filter-btn.active, .filter-btn:hover {
+			background-color: var(--obsidian);
+			color: var(--ivory);
+			border-color: var(--obsidian);
+		}
+
+		/* ==========================================================================
+		   6. GALLERY GRID & CARDS
+		   ========================================================================== */
+		.gallery-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+			gap: 2rem;
+		}
+
+		.gallery-card {
+			position: relative;
+			background-color: var(--charcoal);
+			border-radius: 2px;
+			overflow: hidden;
+			aspect-ratio: 4 / 3;
+			cursor: pointer;
+			box-shadow: var(--shadow-sm);
+			transition: var(--transition-smooth);
+		}
+
+		.gallery-card:hover {
+			box-shadow: var(--shadow-lg);
+			transform: translateY(-4px);
+		}
+
+		.gallery-card img {
+			transition: var(--transition-smooth);
+		}
+
+		.gallery-card:hover img {
+			transform: scale(1.05);
+			opacity: 0.85;
+		}
+
+		.gallery-card-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			padding: 1.5rem;
+			background: linear-gradient(to top, rgba(18, 19, 21, 0.9) 0%, rgba(18, 19, 21, 0) 100%);
+			color: var(--ivory);
+			display: flex;
+			flex-direction: column;
+			justify-content: flex-end;
+			transition: var(--transition-smooth);
+		}
+
+		.gallery-card-tag {
+			font-size: 0.7rem;
+			font-weight: 600;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: var(--gold-light);
+			margin-bottom: 0.25rem;
+		}
+
+		.gallery-card-title {
+			font-family: var(--font-serif);
+			font-size: 1.3rem;
+			color: var(--ivory);
+		}
+
+		/* ==========================================================================
+		   7. LIGHTBOX MODAL
+		   ========================================================================== */
+		.lightbox-modal {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(18, 19, 21, 0.95);
+			z-index: 2000;
+			display: none;
+			align-items: center;
+			justify-content: center;
+			padding: 2rem;
+			backdrop-filter: blur(8px);
+		}
+
+		.lightbox-modal.open {
+			display: flex;
+		}
+
+		.lightbox-content {
+			position: relative;
+			max-width: 900px;
+			width: 100%;
+			background-color: var(--charcoal);
+			border: 1px solid var(--border-light);
+			overflow: hidden;
+		}
+
+		.lightbox-img-wrapper {
+			width: 100%;
+			max-height: 70vh;
+			overflow: hidden;
+			background-color: #000;
+		}
+
+		.lightbox-img-wrapper img {
+			width: 100%;
+			height: 100%;
+			object-fit: contain;
+		}
+
+		.lightbox-details {
+			padding: 1.5rem 2rem;
+			background-color: var(--obsidian);
+			color: var(--ivory);
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.lightbox-close {
+			position: absolute;
+			top: 1rem;
+			right: 1.25rem;
+			background: rgba(0, 0, 0, 0.6);
+			border: 1px solid var(--border-light);
+			color: var(--ivory);
+			font-size: 1.5rem;
+			width: 40px;
+			height: 40px;
+			border-radius: 50%;
+			cursor: pointer;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			z-index: 10;
+		}
+
+		/* ==========================================================================
+		   8. FOOTER
+		   ========================================================================== */
+		footer {
+			background-color: var(--obsidian);
+			color: var(--ivory);
+			padding: 4rem 0 2rem 0;
+			border-top: 1px solid rgba(197, 160, 89, 0.2);
+		}
+
+		.footer-wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			gap: 2rem;
+			border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+			padding-bottom: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		.footer-copyright {
+			font-size: 0.8rem;
+			color: var(--taupe);
+			text-align: center;
+			width: 100%;
+		}
+
+		@media (max-width: 992px) {
+			.hamburger-btn { display: flex; }
+			nav {
+				position: absolute;
+				top: 80px;
+				left: 0;
+				width: 100%;
+				background-color: var(--ivory);
+				padding: 2rem;
+				border-bottom: 1px solid var(--border-subtle);
+				display: none;
+			}
+			nav.open { display: block; }
+			nav ul { flex-direction: column; gap: 1.25rem; }
+		}
+	</style>
+</head>
+<body>
+
+	<!-- Header Navigation -->
+	<header>
+		<div class="container header-container">
+			<a href="index.html" class="logo-text">
+				MEDI SPA AESTHETICA
+				<span>Direct RN Care &bull; Fort Erie</span>
+			</a>
+
+			<button class="hamburger-btn" id="hamburgerBtn" onclick="toggleNav()" aria-label="Toggle menu">
+				<span></span><span></span><span></span>
+			</button>
+
+			<nav id="mainNav">
+				<ul>
+					<li><a href="index.html#xerf" onclick="closeNav()">XERF™ RF Lift</a></li>
+					<li><a href="index.html#about" onclick="closeNav()">About RN Rose</a></li>
+					<li><a href="index.html#services" onclick="closeNav()">Services</a></li>
+					<li><a href="gallery.html" class="active" onclick="closeNav()">Gallery</a></li>
+					<li><a href="index.html#faq" onclick="closeNav()">FAQ</a></li>
+					<li><a href="index.html#contact" onclick="closeNav()">Contact</a></li>
+				</ul>
+			</nav>
+
+			<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="display: none; @media(min-width: 768px){display: inline-flex;}">Book Portal</a>
+		</div>
+	</header>
+
+	<!-- Gallery Hero -->
+	<section class="gallery-hero">
+		<div class="container">
+			<span class="section-subtitle">Visual Portfolio</span>
+			<h1 class="section-title">Clinical Results &amp; Studio Space</h1>
+			<p>Explore real treatment outcomes, non-surgical facial lifts, and our tranquil clinical studio in Fort Erie.</p>
+		</div>
+	</section>
+
+	<!-- Gallery Content -->
+	<section class="section-padding">
+		<div class="container">
+			<!-- Category Filter Tabs -->
+			<div class="filter-tabs">
+				<button class="filter-btn active" onclick="filterGallery('all', this)">All Showcase</button>
+				<button class="filter-btn" onclick="filterGallery('xerf', this)">XERF™ RF Lifting</button>
+				<button class="filter-btn" onclick="filterGallery('injectables', this)">Injectables</button>
+				<button class="filter-btn" onclick="filterGallery('skin', this)">Skin Health</button>
+				<button class="filter-btn" onclick="filterGallery('studio', this)">Clinic Studio</button>
+			</div>
+
+			<!-- Grid Items -->
+			<div class="gallery-grid">
+				<!-- Item 1 -->
+				<div class="gallery-card" data-category="xerf" onclick="openLightbox('medispalogo3.png', 'XERF™ Full Face Contour', 'Non-surgical monopolar RF tissue tightening')">
+					<img src="medispalogo3.png" alt="XERF RF Treatment" onerror="this.src='https://via.placeholder.com/600x450?text=XERF+RF+Contour'">
+					<div class="gallery-card-overlay">
+						<span class="gallery-card-tag">XERF™ Monopolar RF</span>
+						<h3 class="gallery-card-title">Lower Face &amp; Jawline Tightening</h3>
+					</div>
+				</div>
+
+				<!-- Item 2 -->
+				<div class="gallery-card" data-category="injectables" onclick="openLightbox('202602270537-main.cropped_1772145453.jpg', 'Precision Injectable Assessment', 'Targeted neuromodulators & dermal filler placement')">
+					<img src="202602270537-main.cropped_1772145453.jpg" alt="RN Rose Wheeler Assessment" onerror="this.src='https://via.placeholder.com/600x450?text=RN+Rose+Wheeler'">
+					<div class="gallery-card-overlay">
+						<span class="gallery-card-tag">Injectable Aesthetics</span>
+						<h3 class="gallery-card-title">Direct RN Clinical Consultation</h3>
+					</div>
+				</div>
+
+				<!-- Item 3 -->
+				<div class="gallery-card" data-category="studio" onclick="openLightbox('https://via.placeholder.com/900x600?text=Fort+Erie+Studio+Room', 'Fort Erie Clinic Suite', 'Private and serene environment for medical aesthetic treatments')">
+					<img src="https://via.placeholder.com/600x450?text=Fort+Erie+Studio+Room" alt="Clinic Studio">
+					<div class="gallery-card-overlay">
+						<span class="gallery-card-tag">Clinic Environment</span>
+						<h3 class="gallery-card-title">Treatment Suite &amp; Amenities</h3>
+					</div>
+				</div>
+
+				<!-- Item 4 -->
+				<div class="gallery-card" data-category="skin" onclick="openLightbox('https://via.placeholder.com/900x600?text=AlumierMD+Clinical+Peel', 'AlumierMD Resurfacing Peel', 'Custom chemical peel targeting texture and collagen stimulation')">
+					<img src="https://via.placeholder.com/600x450?text=AlumierMD+Clinical+Peel" alt="AlumierMD Treatment">
+					<div class="gallery-card-overlay">
+						<span class="gallery-card-tag">Skin Resurfacing</span>
+						<h3 class="gallery-card-title">AlumierMD Glow Peel Protocol</h3>
+					</div>
+				</div>
+
+				<!-- Item 5 -->
+				<div class="gallery-card" data-category="xerf" onclick="openLightbox('https://via.placeholder.com/900x600?text=Submental+Neck+Tightening', 'Submental & Neck Tightening', 'Focused RF energy restoring firm jawline contours')">
+					<img src="https://via.placeholder.com/600x450?text=Submental+Neck+Tightening" alt="Neck RF Lifting">
+					<div class="gallery-card-overlay">
+						<span class="gallery-card-tag">XERF™ Monopolar RF</span>
+						<h3 class="gallery-card-title">Submental &amp; Neck Restoration</h3>
+					</div>
+				</div>
+
+				<!-- Item 6 -->
+				<div class="gallery-card" data-category="injectables" onclick="openLightbox('https://via.placeholder.com/900x600?text=Lip+Volume+Definition', 'Subtle Lip Hydration & Definition', 'Hyaluronic acid filler focused on symmetry and softness')">
+					<img src="https://via.placeholder.com/600x450?text=Lip+Volume+Definition" alt="Dermal Filler Result">
+					<div class="gallery-card-overlay">
+						<span class="gallery-card-tag">Dermal Fillers</span>
+						<h3 class="gallery-card-title">Lip Symmetry &amp; Hydration</h3>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Lightbox Modal -->
+	<div class="lightbox-modal" id="lightboxModal">
+		<div class="lightbox-content">
+			<button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+			<div class="lightbox-img-wrapper">
+				<img id="lightboxImg" src="" alt="Full Preview">
+			</div>
+			<div class="lightbox-details">
+				<div>
+					<h3 id="lightboxTitle" style="font-size: 1.4rem; color: var(--gold-light);"></h3>
+					<p id="lightboxDesc" style="font-size: 0.85rem; color: var(--taupe-light); margin: 0;"></p>
+				</div>
+				<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-gold" style="font-size: 0.75rem; padding: 0.6rem 1.2rem;">Book Treatment</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer>
+		<div class="container footer-wrapper">
+			<div class="logo-text" style="color: var(--ivory);">
+				MEDI SPA AESTHETICA
+				<span style="color: var(--taupe);">Fort Erie, Ontario</span>
+			</div>
+			<div>
+				<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-gold">Book Portal</a>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			&copy; 2026 Medi Spa Aesthetica. All rights reserved. Directed by RN Rose Wheeler.
+		</div>
+	</footer>
+
+	<!-- JavaScript -->
+	<script>
+		function toggleNav() {
+			const nav = document.getElementById('mainNav');
+			if (nav) nav.classList.toggle('open');
+		}
+
+		function closeNav() {
+			const nav = document.getElementById('mainNav');
+			if (nav) nav.classList.remove('open');
+		}
+
+		function filterGallery(category, btnElement) {
+			const buttons = document.querySelectorAll('.filter-btn');
+			buttons.forEach(btn => btn.classList.remove('active'));
+			if (btnElement) btnElement.classList.add('active');
+
+			const cards = document.querySelectorAll('.gallery-card');
+			cards.forEach(card => {
+				if (category === 'all' || card.getAttribute('data-category') === category) {
+					card.style.display = 'block';
+				} else {
+					card.style.display = 'none';
+				}
+			});
+		}
+
+		function openLightbox(imgSrc, title, desc) {
+			const modal = document.getElementById('lightboxModal');
+			document.getElementById('lightboxImg').src = imgSrc;
+			document.getElementById('lightboxTitle').textContent = title;
+			document.getElementById('lightboxDesc').textContent = desc;
+			modal.classList.add('open');
+		}
+
+		function closeLightbox() {
+			document.getElementById('lightboxModal').classList.remove('open');
+		}
+
+		// Close modal when
