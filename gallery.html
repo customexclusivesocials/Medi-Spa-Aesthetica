@@ -450,6 +450,40 @@
 			nav.open { display: block; }
 			nav ul { flex-direction: column; gap: 1.25rem; }
 		}
+
+		/* ---- Mobile header + Shop nav update ---- */
+		:root { --header-h: 80px; }
+		html { scroll-padding-top: var(--header-h); }
+		.header-container { height: var(--header-h); gap: 1rem; }
+		.logo-text { white-space: nowrap; line-height: 1.15; }
+		nav ul { gap: 1.6rem; align-items: center; }
+		nav a { font-size: 0.78rem; white-space: nowrap; }
+		.nav-book { display: none; }
+		.hamburger-btn { width: 44px; height: 44px; padding: 13px 8px; flex-shrink: 0; }
+		.hamburger-btn span { transition: all 0.35s ease; }
+		.hamburger-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+		.hamburger-btn.open span:nth-child(2) { opacity: 0; }
+		.hamburger-btn.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+		.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+		.footer-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--taupe-light); }
+		.footer-links a:hover { color: var(--gold); }
+		@media (min-width: 1101px) { .header-book { display: inline-flex; } }
+		@media (max-width: 1100px) {
+			.header-book { display: none; }
+			.hamburger-btn { display: flex; }
+			nav { position: absolute; top: var(--header-h); left: 0; width: 100%; background-color: var(--ivory); padding: 0.5rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border-subtle); box-shadow: var(--shadow-md); display: none; max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
+			nav.open { display: block; }
+			nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+			nav li a { display: block; padding: 1.05rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--border-subtle); }
+			.nav-book { display: block; margin-top: 1.25rem; }
+			.nav-book a { border-bottom: none !important; padding: 0.95rem 1rem !important; text-align: center; }
+		}
+		@media (max-width: 600px) {
+			:root { --header-h: 68px; }
+			.logo-text { font-size: clamp(1rem, 4.6vw, 1.25rem); letter-spacing: 0.05em; }
+			.logo-text span { font-size: 0.55rem; letter-spacing: 0.16em; }
+			.gallery-hero { padding-top: 108px; }
+		}
 	</style>
 </head>
 <body>
@@ -462,7 +496,7 @@
 				<span>Direct RN Care &bull; Fort Erie</span>
 			</a>
 
-			<button class="hamburger-btn" id="hamburgerBtn" onclick="toggleNav()" aria-label="Toggle menu">
+			<button class="hamburger-btn" id="hamburgerBtn" onclick="toggleNav()" aria-label="Toggle menu" aria-expanded="false" aria-controls="mainNav">
 				<span></span><span></span><span></span>
 			</button>
 
@@ -471,13 +505,16 @@
 					<li><a href="index.html#xerf" onclick="closeNav()">XERF™ RF Lift</a></li>
 					<li><a href="index.html#about" onclick="closeNav()">About RN Rose</a></li>
 					<li><a href="index.html#services" onclick="closeNav()">Services</a></li>
+					<li><a href="index.html#wellness" onclick="closeNav()">Wellness Shots</a></li>
 					<li><a href="gallery.html" class="active" onclick="closeNav()">Gallery</a></li>
+					<li><a href="shop.html" onclick="closeNav()">Shop</a></li>
 					<li><a href="index.html#faq" onclick="closeNav()">FAQ</a></li>
 					<li><a href="index.html#contact" onclick="closeNav()">Contact</a></li>
+					<li class="nav-book"><a href="https://lush-studio-104295.square.site/" target="_blank" rel="noopener" class="btn btn-primary">Book Portal</a></li>
 				</ul>
 			</nav>
 
-			<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-primary" style="display: none; @media(min-width: 768px){display: inline-flex;}">Book Portal</a>
+			<a href="https://lush-studio-104295.square.site/" target="_blank" rel="noopener" class="btn btn-primary header-book">Book Portal</a>
 		</div>
 	</header>
 
@@ -585,8 +622,14 @@
 				MEDI SPA AESTHETICA
 				<span style="color: var(--taupe);">Fort Erie, Ontario</span>
 			</div>
+			<div class="footer-links">
+				<a href="index.html">Home</a>
+				<a href="shop.html">Shop</a>
+				<a href="https://theclinicashop.ca" target="_blank" rel="noopener">theclinicashop.ca</a>
+				<a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" rel="noopener">AlumierMD</a>
+			</div>
 			<div>
-				<a href="https://lush-studio-104295.square.site/" target="_blank" class="btn btn-gold">Book Portal</a>
+				<a href="https://lush-studio-104295.square.site/" target="_blank" rel="noopener" class="btn btn-gold">Book Portal</a>
 			</div>
 		</div>
 		<div class="footer-copyright">
@@ -598,13 +641,20 @@
 	<script>
 		function toggleNav() {
 			const nav = document.getElementById('mainNav');
-			if (nav) nav.classList.toggle('open');
+			const btn = document.getElementById('hamburgerBtn');
+			if (!nav) return;
+			const open = nav.classList.toggle('open');
+			if (btn) { btn.classList.toggle('open', open); btn.setAttribute('aria-expanded', open); }
 		}
 
 		function closeNav() {
 			const nav = document.getElementById('mainNav');
+			const btn = document.getElementById('hamburgerBtn');
 			if (nav) nav.classList.remove('open');
+			if (btn) { btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
 		}
+		window.addEventListener('resize', function () { if (window.innerWidth > 1100) closeNav(); });
+		document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
 
 		function filterGallery(category, btnElement) {
 			const buttons = document.querySelectorAll('.filter-btn');
