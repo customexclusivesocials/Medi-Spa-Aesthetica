@@ -3,152 +3,137 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Shop | Medi Spa Aesthetica | Fort Erie, ON</title>
-	<meta name="description" content="Shop the Medi Spa Aesthetica online store, plus AlumierMD clinical skincare through RN Rose Wheeler.">
+	<title>THECLINICASHOP.COM | Shop | Medi Spa Aesthetica | Fort Erie, ON</title>
+	<meta name="description" content="Shop THECLINICASHOP.COM and the Medi Spa Aesthetica online store, plus AlumierMD clinical skincare through RN Rose Wheeler.">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
 	<style>
 		:root {
-			--obsidian: #121315; --charcoal: #1e2024; --taupe: #78716c; --taupe-light: #a8a29e;
-			--sand: #f5f2eb; --sand-light: #faf8f5; --ivory: #faf7f2;
-			--gold: #c5a059; --gold-light: #dfc285; --gold-soft: #e8d7b5; --gold-dark: #9a7b3b;
-			--border-light: rgba(197,160,89,0.2); --border-subtle: rgba(120,113,108,0.15);
-			--shadow-sm: 0 4px 12px rgba(0,0,0,0.05); --shadow-md: 0 8px 24px rgba(0,0,0,0.08); --shadow-lg: 0 16px 40px rgba(0,0,0,0.12);
-			--transition-smooth: all 0.35s cubic-bezier(0.25,0.8,0.25,1);
+			--ivory: #fbf9f5;
+			--travertine: #f3ede4;
+			--sand: #e7dfd3;
+			--taupe-pill: #cbbba9;
+			--taupe-mid: #a89684;
+			--taupe-text: #786c61;
+			--espresso: #241f1b;
+			--espresso-soft: #3d352e;
+			--border-light: rgba(36, 31, 27, 0.12);
+			--border-taupe: rgba(168, 150, 132, 0.35);
+			--shadow-soft: 0 12px 32px rgba(36, 31, 27, 0.06);
+			--transition-smooth: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
 			--font-serif: 'Cormorant Garamond', Georgia, serif;
-			--font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+			--font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
 			--header-h: 80px;
 		}
 		*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 		html { scroll-behavior: smooth; font-size: 16px; scroll-padding-top: var(--header-h); }
-		body { font-family: var(--font-sans); background-color: var(--ivory); color: var(--obsidian); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-		h1,h2,h3,h4,h5,h6 { font-family: var(--font-serif); font-weight: 400; letter-spacing: 0.02em; line-height: 1.2; }
+		body { font-family: var(--font-sans); background-color: var(--ivory); color: var(--espresso); line-height: 1.65; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+		h1,h2,h3,h4,h5,h6 { font-family: var(--font-serif); font-weight: 400; letter-spacing: 0.01em; line-height: 1.15; color: var(--espresso); }
 		p { margin-bottom: 1rem; }
 		a { color: inherit; text-decoration: none; transition: var(--transition-smooth); }
 		img { max-width: 100%; height: auto; display: block; }
 		.container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
-		.section-padding { padding: 6rem 0; }
-		.text-center { text-align: center; } .text-left { text-align: left; } .text-right { text-align: right; }
-		.section-subtitle { display: inline-block; font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 0.75rem; }
-		.section-title { font-size: clamp(2.2rem, 4vw, 3.2rem); color: var(--obsidian); margin-bottom: 1.25rem; }
+		.section-padding { padding: 5.5rem 0; }
+		.text-center { text-align: center; }
+		.section-subtitle { display: inline-block; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.22em; color: var(--taupe-text); margin-bottom: 0.75rem; }
+		.section-title { font-size: clamp(2.25rem, 4.2vw, 3.35rem); color: var(--espresso); margin-bottom: 1.15rem; }
 
-		.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 2rem; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.15em; border: 1px solid transparent; cursor: pointer; transition: var(--transition-smooth); border-radius: 2px; }
-		.btn-primary { background-color: var(--obsidian); color: var(--ivory); border-color: var(--obsidian); }
-		.btn-primary:hover { background-color: var(--gold); border-color: var(--gold); color: var(--obsidian); }
-		.btn-gold { background-color: var(--gold); color: var(--obsidian); border-color: var(--gold); }
-		.btn-gold:hover { background-color: var(--gold-dark); border-color: var(--gold-dark); color: var(--ivory); }
-		.btn-outline { background-color: transparent; color: var(--obsidian); border-color: var(--obsidian); }
-		.btn-outline:hover { background-color: var(--obsidian); color: var(--ivory); }
+		.btn { display: inline-flex; align-items: center; justify-content: center; padding: 0.88rem 1.85rem; font-family: var(--font-sans); font-size: 0.72rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.16em; border: 1px solid transparent; cursor: pointer; transition: var(--transition-smooth); border-radius: 999px; }
+		.btn-primary { background-color: var(--espresso); color: var(--ivory); border-color: var(--espresso); }
+		.btn-primary:hover { background-color: var(--espresso-soft); border-color: var(--espresso-soft); }
+		.btn-gold { background-color: var(--taupe-pill); color: var(--espresso); border-color: var(--taupe-pill); }
+		.btn-gold:hover { background-color: var(--taupe-mid); border-color: var(--taupe-mid); color: var(--ivory); }
+		.btn-outline { background-color: transparent; color: var(--espresso); border-color: var(--espresso); }
+		.btn-outline:hover { background-color: var(--espresso); color: var(--ivory); }
 
 		/* HEADER & NAV */
-		header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background-color: rgba(250,247,242,0.97); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-subtle); }
+		header { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; background-color: rgba(251, 249, 245, 0.96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border-light); }
 		.header-container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: var(--header-h); }
-		.logo-text { font-family: var(--font-serif); font-size: 1.6rem; font-weight: 600; letter-spacing: 0.08em; color: var(--obsidian); display: flex; flex-direction: column; white-space: nowrap; line-height: 1.15; }
-		.logo-text span { font-family: var(--font-sans); font-size: 0.65rem; font-weight: 500; letter-spacing: 0.25em; color: var(--taupe); text-transform: uppercase; }
-		nav ul { display: flex; list-style: none; gap: 1.6rem; align-items: center; }
-		nav a { font-size: 0.78rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.1em; color: var(--obsidian); white-space: nowrap; }
-		nav a:hover, nav a.active { color: var(--gold); }
+		.logo-text { font-family: var(--font-serif); font-size: 1.55rem; font-weight: 400; letter-spacing: 0.08em; color: var(--espresso); display: flex; flex-direction: column; white-space: nowrap; line-height: 1.15; }
+		.logo-text span { font-family: var(--font-sans); font-size: 0.6rem; font-weight: 500; letter-spacing: 0.24em; color: var(--taupe-text); text-transform: uppercase; }
+		nav ul { display: flex; list-style: none; gap: 1.45rem; align-items: center; }
+		nav a { font-size: 0.68rem; font-weight: 500; text-transform: uppercase; letter-spacing: 0.13em; color: var(--espresso); white-space: nowrap; }
+		nav a:hover, nav a.active { color: var(--taupe-text); }
 		.nav-book { display: none; }
 		.hamburger-btn { display: none; flex-direction: column; justify-content: space-between; width: 44px; height: 44px; padding: 13px 8px; background: none; border: none; cursor: pointer; flex-shrink: 0; }
-		.hamburger-btn span { width: 100%; height: 2px; background-color: var(--obsidian); transition: var(--transition-smooth); }
+		.hamburger-btn span { width: 100%; height: 1.5px; background-color: var(--espresso); transition: var(--transition-smooth); }
 		.hamburger-btn.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
 		.hamburger-btn.open span:nth-child(2) { opacity: 0; }
 		.hamburger-btn.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
-		/* HERO */
-		.hero { padding-top: 140px; padding-bottom: 6rem; background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand) 100%); position: relative; }
-		.hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-		.hero-badge { display: inline-block; padding: 0.4rem 1rem; background-color: rgba(197,160,89,0.12); border: 1px solid var(--border-light); font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; color: var(--gold-dark); text-transform: uppercase; margin-bottom: 1.5rem; }
-		.hero-title { font-size: clamp(2.5rem, 5vw, 4.2rem); margin-bottom: 1.5rem; color: var(--obsidian); }
-		.hero-desc { font-size: 1.1rem; color: var(--taupe); margin-bottom: 2rem; max-width: 540px; }
-		.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+		/* SHOP HERO WITH EDITORIAL PHOTOGRAPHY */
+		.shop-hero { padding-top: calc(var(--header-h) + 3.5rem); padding-bottom: 5rem; background: linear-gradient(180deg, var(--travertine) 0%, var(--ivory) 100%); }
+		.shop-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; align-items: center; }
+		.brand-domain-pill { display: inline-block; padding: 0.45rem 1.2rem; background-color: var(--sand); border: 1px solid var(--border-taupe); border-radius: 999px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--espresso); margin-bottom: 1.25rem; }
+		.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.75rem; }
+		.editorial-photo-pair { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1.25rem; align-items: end; }
+		.photo-box { overflow: hidden; border-radius: 16px; background-color: var(--sand); border: 1px solid var(--border-light); box-shadow: var(--shadow-soft); }
+		.photo-box.tall { aspect-ratio: 4 / 5; }
+		.photo-box.offset { aspect-ratio: 1 / 1; margin-bottom: 2rem; }
+		.photo-box.wide { aspect-ratio: 4 / 3; }
+		.photo-box img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition-smooth); }
+		.photo-box:hover img { transform: scale(1.03); }
+		.photo-caption { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe-text); margin-top: 0.6rem; }
 
-		/* XERF */
-		.xerf-section { background-color: var(--obsidian); color: var(--ivory); }
-		.xerf-header { max-width: 800px; margin: 0 auto 4rem auto; text-align: center; }
-		.xerf-steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-		.xerf-step-card { background-color: var(--charcoal); padding: 2.5rem 2rem; border: 1px solid rgba(197,160,89,0.15); position: relative; }
-		.xerf-step-num { font-family: var(--font-serif); font-size: 3rem; color: var(--gold); opacity: 0.6; line-height: 1; margin-bottom: 1rem; }
-		.xerf-step-title { font-size: 1.4rem; margin-bottom: 0.75rem; color: var(--ivory); }
-		.xerf-promo-card { background: linear-gradient(145deg, var(--charcoal) 0%, #15171a 100%); border: 1px solid var(--gold); padding: 2.5rem; margin-bottom: 2.25rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; position: relative; }
-		.xerf-badge { position: absolute; top: -12px; left: 2rem; background-color: var(--gold); color: var(--obsidian); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; padding: 0.25rem 0.75rem; }
-		.xerf-price-was { font-size: 1.1rem; text-decoration: line-through; color: var(--taupe); text-align: right; }
-		.xerf-price-value { font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold-light); line-height: 1; }
-		.xerf-note { text-align: center; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-soft); margin-bottom: 1.5rem; }
+		/* FEATURED SHOPIFY CATALOG GRID (THECLINICASHOP.COM) */
+		.catalog-band { background-color: var(--travertine); }
+		.catalog-banner { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: 2.75rem; }
+		.product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(275px, 100%), 1fr)); gap: 1.75rem; }
+		.product-card { background-color: var(--ivory); border: 1px solid var(--border-light); border-radius: 14px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-smooth); }
+		.product-card:hover { box-shadow: var(--shadow-soft); border-color: var(--taupe-pill); transform: translateY(-2px); }
+		.product-media { position: relative; aspect-ratio: 4 / 3; background-color: var(--sand); overflow: hidden; display: flex; align-items: center; justify-content: center; }
+		.product-media img { width: 100%; height: 100%; object-fit: cover; }
+		.product-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; justify-content: space-between; gap: 1.25rem; }
+		.product-cat { font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.16em; color: var(--taupe-text); margin-bottom: 0.35rem; }
+		.product-name { font-size: 1.35rem; color: var(--espresso); margin-bottom: 0.5rem; }
+		.product-price-row { display: flex; align-items: baseline; gap: 0.65rem; flex-wrap: wrap; }
+		.product-price { font-family: var(--font-serif); font-size: 1.35rem; font-weight: 500; color: var(--espresso); }
+		.product-compare { font-size: 0.85rem; text-decoration: line-through; color: var(--taupe-text); }
 
-		/* ABOUT & SERVICES */
-		.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-		.menu-tabs { display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap; }
-		.tab-btn { padding: 0.75rem 1.5rem; background: none; border: 1px solid var(--border-subtle); font-family: var(--font-sans); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: var(--transition-smooth); }
-		.tab-btn.active, .tab-btn:hover { background-color: var(--obsidian); color: var(--ivory); border-color: var(--obsidian); }
-		.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(350px,100%), 1fr)); gap: 2rem; }
-		.service-card { background-color: var(--ivory); border: 1px solid var(--border-subtle); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; transition: var(--transition-smooth); }
-		.service-card:hover { box-shadow: var(--shadow-md); border-color: var(--border-light); }
-		.service-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; margin-bottom: 0.75rem; }
-		.service-title { font-size: 1.5rem; color: var(--obsidian); }
-		.service-price { font-family: var(--font-serif); font-size: 1.4rem; color: var(--gold-dark); font-weight: 600; white-space: nowrap; }
-		.service-meta { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--taupe); margin-bottom: 1rem; }
-		.service-description { font-size: 0.9rem; color: var(--taupe); margin-bottom: 1.5rem; }
+		/* EDITORIAL VISUAL STRIP */
+		.visual-story-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.75rem; margin-top: 2.5rem; }
 
-		/* WELLNESS, SHOP & FAQ */
-		.wellness-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr)); gap: 2rem; margin-top: 3rem; }
-		.wellness-card { background-color: var(--sand-light); border: 1px solid var(--border-subtle); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; }
-		.wellness-benefits { list-style: none; margin: 1rem 0 1.5rem 0; }
-		.wellness-benefits li { font-size: 0.85rem; color: var(--taupe); margin-bottom: 0.5rem; position: relative; padding-left: 1.25rem; }
-		.wellness-benefits li::before { content: "—"; position: absolute; left: 0; color: var(--gold); }
-		.faq-accordion { max-width: 800px; margin: 3rem auto 0 auto; }
-		.faq-item { border-bottom: 1px solid var(--border-subtle); }
-		.faq-question { width: 100%; padding: 1.5rem 0; background: none; border: none; text-align: left; font-family: var(--font-serif); font-size: 1.4rem; color: var(--obsidian); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-		.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s cubic-bezier(0,1,0,1); }
-		.faq-item.active .faq-answer { max-height: 1000px; padding-bottom: 1.5rem; transition: max-height 0.5s ease-in-out; }
-		.faq-answer p { font-size: 0.95rem; color: var(--taupe); }
-		.shop-hero { padding-top: 150px; padding-bottom: 5rem; background: linear-gradient(135deg, var(--sand-light) 0%, var(--sand) 100%); text-align: center; }
-		.shop-hero p { max-width: 620px; margin: 0 auto 2rem auto; color: var(--taupe); font-size: 1.1rem; }
+		/* PARTNER & CONSULTATION CARDS */
+		.wellness-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px,100%), 1fr)); gap: 2rem; margin-top: 0; }
+		.wellness-card { background-color: var(--travertine); border: 1px solid var(--border-light); border-radius: 14px; padding: 2rem; display: flex; flex-direction: column; justify-content: space-between; gap: 1.25rem; }
+		.wellness-card .card-thumb { border-radius: 10px; overflow: hidden; aspect-ratio: 16 / 10; background-color: var(--sand); margin-bottom: 1rem; }
+		.wellness-card .card-thumb img { width: 100%; height: 100%; object-fit: cover; }
+		.service-title { font-size: 1.55rem; color: var(--espresso); }
+		.service-meta { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.14em; color: var(--taupe-text); margin-bottom: 0.75rem; }
+		.service-description { font-size: 0.92rem; color: var(--taupe-text); margin-bottom: 0; }
 
-		/* CONTACT & FOOTER */
-		.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
-		.info-group { margin-bottom: 2rem; }
-		.info-group h4 { font-size: 1.2rem; margin-bottom: 0.5rem; }
-		.hours-list { list-style: none; }
-		.hours-list li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.4rem 0; border-bottom: 1px dashed var(--border-subtle); font-size: 0.85rem; }
-		footer { background-color: var(--obsidian); color: var(--ivory); padding: 4rem 0 2rem 0; border-top: 1px solid rgba(197,160,89,0.2); }
-		.footer-wrapper { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 2rem; margin-bottom: 2rem; }
+		/* FOOTER */
+		footer { background-color: var(--espresso); color: var(--ivory); padding: 4rem 0 2rem 0; border-top: 1px solid rgba(203, 187, 169, 0.25); }
+		.footer-wrapper { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; border-bottom: 1px solid rgba(251, 249, 245, 0.12); padding-bottom: 2rem; margin-bottom: 2rem; }
 		.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
-		.footer-links a { font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--taupe-light); }
-		.footer-links a:hover { color: var(--gold); }
-		.footer-copyright { font-size: 0.8rem; color: var(--taupe); text-align: center; width: 100%; }
+		.footer-links a { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--taupe-pill); }
+		.footer-links a:hover { color: var(--ivory); }
+		.footer-copyright { font-size: 0.8rem; color: var(--taupe-pill); opacity: 0.75; text-align: center; width: 100%; }
 
-		/* RESPONSIVE */
 		@media (min-width: 1101px) { .header-book { display: inline-flex; } }
 		@media (max-width: 1100px) {
 			.header-book { display: none; }
 			.hamburger-btn { display: flex; }
-			nav { position: absolute; top: var(--header-h); left: 0; width: 100%; background-color: var(--ivory); padding: 0.5rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border-subtle); box-shadow: var(--shadow-md); display: none; max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
+			nav { position: absolute; top: var(--header-h); left: 0; width: 100%; background-color: var(--ivory); padding: 0.5rem 1.5rem 1.5rem; border-bottom: 1px solid var(--border-light); box-shadow: var(--shadow-soft); display: none; max-height: calc(100vh - var(--header-h)); overflow-y: auto; }
 			nav.open { display: block; }
 			nav ul { flex-direction: column; align-items: stretch; gap: 0; }
-			nav li a { display: block; padding: 1.05rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--border-subtle); }
+			nav li a { display: block; padding: 1.05rem 0; font-size: 0.85rem; border-bottom: 1px solid var(--border-light); }
 			.nav-book { display: block; margin-top: 1.25rem; }
 			.nav-book a { border-bottom: none !important; padding: 0.95rem 1rem !important; text-align: center; }
 		}
 		@media (max-width: 992px) {
-			.hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
-			.xerf-promo-card { flex-direction: column; text-align: center; }
-			.xerf-price-was { text-align: center; }
+			.shop-hero-grid, .visual-story-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+			.photo-box.offset { margin-bottom: 0; }
 		}
 		@media (max-width: 600px) {
 			:root { --header-h: 68px; }
 			.logo-text { font-size: clamp(1rem, 4.6vw, 1.25rem); letter-spacing: 0.05em; }
 			.logo-text span { font-size: 0.55rem; letter-spacing: 0.16em; }
 			.section-padding { padding: 4rem 0; }
-			.hero { padding-top: 108px; padding-bottom: 3.5rem; }
-			.shop-hero { padding-top: 120px; }
+			.shop-hero { padding-top: 108px; padding-bottom: 3.5rem; }
 			.hero-actions .btn { width: 100%; }
-			.xerf-promo-card { padding: 2rem 1.25rem; }
-			.service-card, .wellness-card { padding: 1.5rem; }
-			.tab-btn { padding: 0.65rem 1rem; font-size: 0.72rem; }
-			.faq-question { font-size: 1.2rem; }
-			.hours-list li { font-size: 0.8rem; }
+			.wellness-card { padding: 1.5rem; }
 		}
 	</style>
 </head>
@@ -180,30 +165,240 @@
 		</div>
 	</header>
 
+	<!-- Hero with THECLINICASHOP.COM & Photography -->
 	<section class="shop-hero">
-		<div class="container">
-			<span class="section-subtitle">Online Store</span>
-			<h1 class="section-title">The Medi Spa Aesthetica Shop</h1>
-			<p>Take the clinic experience home. Our online store is powered by Shopify with secure checkout.</p>
-			<div class="hero-actions" style="justify-content:center;">
-				<a href="https://theclinicashop.com" target="_blank" rel="noopener" class="btn btn-primary">Enter the Shop</a>
+		<div class="container shop-hero-grid">
+			<div>
+				<span class="brand-domain-pill">THECLINICASHOP.COM</span>
+				<span class="section-subtitle" style="display:block;">Online Store</span>
+				<h1 class="section-title">THECLINICASHOP.COM &mdash; The Medi Spa Aesthetica Shop</h1>
+				<p style="color: var(--taupe-text); font-size: 1.05rem;">Take the clinic experience home. Shop directly on <strong>THECLINICASHOP.COM</strong>&mdash;our online store is powered by Shopify with secure checkout.</p>
+				<div class="hero-actions">
+					<a href="https://theclinicashop.com" target="_blank" rel="noopener" class="btn btn-primary">Shop THECLINICASHOP.COM</a>
+					<a href="https://theclinicashop.com/collections/all-products" target="_blank" rel="noopener" class="btn btn-outline">Browse All Products</a>
+				</div>
+			</div>
+			<div>
+				<div class="editorial-photo-pair">
+					<div>
+						<div class="photo-box tall">
+							<img src="202602270537-main.cropped_1772145453.jpg" alt="Medi Spa Aesthetica storefront and clinical skincare" onerror="this.style.display='none'">
+						</div>
+						<div class="photo-caption">THECLINICASHOP.COM &bull; Curated Home Care</div>
+					</div>
+					<div>
+						<div class="photo-box offset">
+							<img src="nurse rosie.jpg" alt="RN Rose Wheeler clinical care" onerror="this.style.display='none'">
+						</div>
+						<div class="photo-caption">Guided by RN Rose Wheeler</div>
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
 
+	<!-- Featured Products Listed on THECLINICASHOP.COM -->
+	<section class="section-padding catalog-band">
+		<div class="container">
+			<div class="catalog-banner">
+				<div>
+					<span class="section-subtitle">Featured Storefront Selection</span>
+					<h2 class="section-title" style="margin-bottom:0.5rem;">Featured on THECLINICASHOP.COM</h2>
+					<p style="color: var(--taupe-text); margin-bottom:0;">Curated skincare, devices, and wellness picks available through THECLINICASHOP.COM.</p>
+				</div>
+				<a href="https://theclinicashop.com" target="_blank" rel="noopener" class="btn btn-gold">Open THECLINICASHOP.COM</a>
+			</div>
+
+			<div class="product-grid">
+				<article class="product-card">
+					<div class="product-media">
+						<img src="shop-epicurtis.jpg" alt="Epicutis Luxury Skincare Set Discovery" onerror="this.style.display='none'">
+					</div>
+					<div class="product-body">
+						<div>
+							<div class="product-cat">Skincare &bull; THECLINICASHOP.COM</div>
+							<h3 class="product-name">Epicutis Luxury Skincare Set Discovery</h3>
+							<div class="product-price-row">
+								<span class="product-price">$69.00 CAD</span>
+								<span class="product-compare">$85.00 CAD</span>
+							</div>
+						</div>
+						<a href="https://theclinicashop.com/collections/all-products" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">View on THECLINICASHOP.COM</a>
+					</div>
+				</article>
+
+				<article class="product-card">
+					<div class="product-media">
+						<img src="shop-zo-sunscreen.jpg" alt="ZO Skin Health Sunscreen + Primer Broad-Spectrum SPF 30" onerror="this.style.display='none'">
+					</div>
+					<div class="product-body">
+						<div>
+							<div class="product-cat">Sun Protection &bull; THECLINICASHOP.COM</div>
+							<h3 class="product-name">ZO Skin Health Sunscreen + Primer Broad-Spectrum SPF 30</h3>
+							<div class="product-price-row">
+								<span class="product-price">$78.00 CAD</span>
+							</div>
+						</div>
+						<a href="https://theclinicashop.com/collections/all-products" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">View on THECLINICASHOP.COM</a>
+					</div>
+				</article>
+
+				<article class="product-card">
+					<div class="product-media">
+						<img src="shop-alastin.jpg" alt="Alastin Ultra Nourishing Moisturizer with TriHex Technology" onerror="this.style.display='none'">
+					</div>
+					<div class="product-body">
+						<div>
+							<div class="product-cat">Medical Grade &bull; THECLINICASHOP.COM</div>
+							<h3 class="product-name">Alastin Ultra Nourishing Moisturizer with TriHex Technology&trade;</h3>
+							<div class="product-price-row">
+								<span class="product-price">$109.00 CAD</span>
+							</div>
+						</div>
+						<a href="https://theclinicashop.com/collections/all-products" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">View on THECLINICASHOP.COM</a>
+					</div>
+				</article>
+
+				<article class="product-card">
+					<div class="product-media">
+						<img src="shop-alastin-balm.jpg" alt="Alastin Soothe + Protect Recovery Balm" onerror="this.style.display='none'">
+					</div>
+					<div class="product-body">
+						<div>
+							<div class="product-cat">Recovery Care &bull; THECLINICASHOP.COM</div>
+							<h3 class="product-name">Alastin Soothe + Protect Recovery Balm</h3>
+							<div class="product-price-row">
+								<span class="product-price">$63.00 CAD</span>
+							</div>
+						</div>
+						<a href="https://theclinicashop.com/collections/all-products" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">View on THECLINICASHOP.COM</a>
+					</div>
+				</article>
+
+				<article class="product-card">
+					<div class="product-media">
+						<img src="shop-babor.jpg" alt="BABOR Best of Biogen Regeneration Routine Set" onerror="this.style.display='none'">
+					</div>
+					<div class="product-body">
+						<div>
+							<div class="product-cat">Limited Edition Set &bull; THECLINICASHOP.COM</div>
+							<h3 class="product-name">BABOR Best of Biogen Regeneration Routine Set (Limited Edition)</h3>
+							<div class="product-price-row">
+								<span class="product-price">$185.00 CAD</span>
+							</div>
+						</div>
+						<a href="https://theclinicashop.com/collections/all" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">View on THECLINICASHOP.COM</a>
+					</div>
+				</article>
+
+				<article class="product-card">
+					<div class="product-media">
+						<img src="shop-rhode.jpg" alt="Rhode Peptide Lip Tint Nourishing Glaze" onerror="this.style.display='none'">
+					</div>
+					<div class="product-body">
+						<div>
+							<div class="product-cat">Lip Care &bull; THECLINICASHOP.COM</div>
+							<h3 class="product-name">Rhode Peptide Lip Tint Nourishing Glaze</h3>
+							<div class="product-price-row">
+								<span class="product-price">$26.00 CAD</span>
+							</div>
+						</div>
+						<a href="https://theclinicashop.com/collections/all-products" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">View on THECLINICASHOP.COM</a>
+					</div>
+				</article>
+
+				<article class="product-card">
+					<div class="product-media">
+						<img src="shop-age-r.jpg" alt="7 Colour Age-R Booster Pro EMS Microcurrent Device" onerror="this.style.display='none'">
+					</div>
+					<div class="product-body">
+						<div>
+							<div class="product-cat">Beauty Devices &bull; THECLINICASHOP.COM</div>
+							<h3 class="product-name">7 Colour Age-R Booster Pro EMS Microcurrent Device</h3>
+							<div class="product-price-row">
+								<span class="product-price">$82.71 CAD</span>
+								<span class="product-compare">$199.99 CAD</span>
+							</div>
+						</div>
+						<a href="https://theclinicashop.com/collections/all-products" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">View on THECLINICASHOP.COM</a>
+					</div>
+				</article>
+
+				<article class="product-card">
+					<div class="product-media">
+						<img src="shop-massage-gun.jpg" alt="30 Level Massage Gun - 6 piece set" onerror="this.style.display='none'">
+					</div>
+					<div class="product-body">
+						<div>
+							<div class="product-cat">Wellness &amp; Recovery &bull; THECLINICASHOP.COM</div>
+							<h3 class="product-name">30 Level Massage Gun - 6 piece set</h3>
+							<div class="product-price-row">
+								<span class="product-price">$150.00 CAD</span>
+							</div>
+						</div>
+						<a href="https://theclinicashop.com/collections/all-products" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%;">View on THECLINICASHOP.COM</a>
+					</div>
+				</article>
+			</div>
+
+			<div class="text-center" style="margin-top: 2.75rem;">
+				<a href="https://theclinicashop.com" target="_blank" rel="noopener" class="btn btn-primary">Explore Full Catalog at THECLINICASHOP.COM</a>
+			</div>
+			<!-- To show products directly on this page later, paste your Shopify Buy Button embed code here. -->
+		</div>
+	</section>
+
+	<!-- Editorial Visual Gallery Strip -->
 	<section class="section-padding">
 		<div class="container">
-			<div class="wellness-grid" style="margin-top:0;">
+			<div class="text-center" style="max-width: 720px; margin: 0 auto;">
+				<span class="section-subtitle">Visual Journal</span>
+				<h2 class="section-title">Inside Medi Spa Aesthetica</h2>
+				<p style="color: var(--taupe-text);">Explore our Fort Erie clinical aesthetic environment, treatment philosophy, and curated home-care offerings on THECLINICASHOP.COM.</p>
+			</div>
+			<div class="visual-story-grid">
+				<div>
+					<div class="photo-box wide">
+						<img src="202602270537-main.cropped_1772145453.jpg" alt="Medi Spa Aesthetica feature photo" onerror="this.style.display='none'">
+					</div>
+					<div class="photo-caption">Aesthetic Precision &bull; Fort Erie, ON</div>
+				</div>
+				<div>
+					<div class="photo-box wide">
+						<img src="nurse rosie.jpg" alt="RN Rose Wheeler" onerror="this.style.display='none'">
+					</div>
+					<div class="photo-caption">RN Rose Wheeler &bull; Direct Medical Care</div>
+				</div>
+				<div>
+					<div class="photo-box wide">
+						<img src="shop-featured-clinic.jpg" alt="THECLINICASHOP.COM featured storefront" onerror="this.style.display='none'">
+					</div>
+					<div class="photo-caption">THECLINICASHOP.COM &bull; Shopify Storefront</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Shop Options, AlumierMD & Consultation -->
+	<section class="section-padding" style="padding-top: 1rem;">
+		<div class="container">
+			<div class="wellness-grid">
 				<div class="wellness-card">
 					<div>
-						<h3 class="service-title">Our Online Shop</h3>
+						<div class="card-thumb">
+							<img src="202602270537-main.cropped_1772145453.jpg" alt="THECLINICASHOP.COM Online Store" onerror="this.style.display='none'">
+						</div>
+						<h3 class="service-title">Our Online Shop &mdash; THECLINICASHOP.COM</h3>
 						<div class="service-meta" style="margin-top:0.5rem;">Secure Shopify Checkout</div>
-						<p class="service-description">Browse the full Medi Spa Aesthetica online store and check out securely.</p>
+						<p class="service-description">Browse the full Medi Spa Aesthetica online store at THECLINICASHOP.COM and check out securely.</p>
 					</div>
-					<a href="https://theclinicashop.com" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; text-align:center;">Shop Now</a>
+					<a href="https://theclinicashop.com" target="_blank" rel="noopener" class="btn btn-primary" style="width:100%; text-align:center;">Shop THECLINICASHOP.COM</a>
 				</div>
 				<div class="wellness-card">
 					<div>
+						<div class="card-thumb">
+							<img src="shop-alumiermd.jpg" alt="AlumierMD Skincare" onerror="this.style.display='none'">
+						</div>
 						<h3 class="service-title">AlumierMD Skincare</h3>
 						<div class="service-meta" style="margin-top:0.5rem;">Official Supplier Partner</div>
 						<p class="service-description">Clinical skincare matched to your skin and your treatment plan, through RN Rose Wheeler.</p>
@@ -212,6 +407,9 @@
 				</div>
 				<div class="wellness-card">
 					<div>
+						<div class="card-thumb">
+							<img src="nurse rosie.jpg" alt="Guidance From RN Rose" onerror="this.style.display='none'">
+						</div>
 						<h3 class="service-title">Not Sure What to Choose?</h3>
 						<div class="service-meta" style="margin-top:0.5rem;">Guidance From RN Rose</div>
 						<p class="service-description">Book a consultation and we will build a routine around your skin and goals.</p>
@@ -219,28 +417,29 @@
 					<a href="https://lush-studio-104295.square.site/" target="_blank" rel="noopener" class="btn btn-outline" style="width:100%; text-align:center;">Book Consultation</a>
 				</div>
 			</div>
-			<!-- To show products directly on this page later, paste your Shopify Buy Button embed code here. -->
 		</div>
 	</section>
 
 	<footer>
-		<div class="container footer-wrapper">
-			<div class="logo-text" style="color: var(--ivory);">
-				MEDI SPA AESTHETICA
-				<span style="color: var(--taupe);">Fort Erie, Ontario</span>
+		<div class="container">
+			<div class="footer-wrapper">
+				<div class="logo-text" style="color: var(--ivory);">
+					MEDI SPA AESTHETICA CLINIC
+					<span style="color: var(--taupe-pill);">3700 Hershey Street, Ridgeway, Ontario &bull; THECLINICASHOP.COM</span>
+				</div>
+				<div class="footer-links">
+					<a href="gallery.html">Gallery</a>
+					<a href="shop.html">Shop</a>
+					<a href="https://theclinicashop.com" target="_blank" rel="noopener">THECLINICASHOP.COM</a>
+					<a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" rel="noopener">AlumierMD</a>
+				</div>
+				<div>
+					<a href="https://lush-studio-104295.square.site/" target="_blank" rel="noopener" class="btn btn-gold">Book Portal</a>
+				</div>
 			</div>
-			<div class="footer-links">
-				<a href="gallery.html">Gallery</a>
-				<a href="shop.html">Shop</a>
-				<a href="https://theclinicashop.com" target="_blank" rel="noopener">Online Shop</a>
-				<a href="https://ca.alumiermd.com?code=9RHJ9P3W" target="_blank" rel="noopener">AlumierMD</a>
+			<div class="footer-copyright">
+				&copy; 2026 Medi Spa Aesthetica. All rights reserved. Directed by RN Rose Wheeler.
 			</div>
-			<div>
-				<a href="https://lush-studio-104295.square.site/" target="_blank" rel="noopener" class="btn btn-gold">Book Portal</a>
-			</div>
-		</div>
-		<div class="footer-copyright">
-			&copy; 2026 Medi Spa Aesthetica. All rights reserved. Directed by RN Rose Wheeler.
 		</div>
 	</footer>
 
@@ -260,14 +459,6 @@
 		}
 		window.addEventListener('resize', function () { if (window.innerWidth > 1100) closeNav(); });
 		document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeNav(); });
-		function filterServices(category, btnElement) {
-			document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-			if (btnElement) btnElement.classList.add('active');
-			document.querySelectorAll('.service-card').forEach(card => {
-				card.style.display = (category === 'all' || card.getAttribute('data-category') === category) ? 'flex' : 'none';
-			});
-		}
-		function toggleFaq(btn) { btn.parentElement.classList.toggle('active'); }
 	</script>
 </body>
 </html>
