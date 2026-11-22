@@ -72,18 +72,24 @@
 		.hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
 		.hero-img { width: 100%; border-radius: 16px; box-shadow: var(--shadow-soft); }
 
-		/* XERF (WARM ESPRESSO / TRAVERTINE EDITORIAL CONTRAST) */
-		.xerf-section { background-color: var(--espresso); color: var(--ivory); }
-		.xerf-header { max-width: 800px; margin: 0 auto 4rem auto; text-align: center; }
+		/* XERF (WARM TRAVERTINE & SAND EDITORIAL) */
+		.xerf-section { background: linear-gradient(180deg, var(--travertine) 0%, var(--ivory) 100%); color: var(--espresso); }
+		.xerf-split-top { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; align-items: center; margin-bottom: 4.5rem; }
+		.xerf-visual-frame { overflow: hidden; border-radius: 16px; background-color: var(--sand); border: 1px solid var(--border-light); box-shadow: var(--shadow-soft); aspect-ratio: 4 / 3; }
+		.xerf-visual-frame img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--transition-smooth); }
+		.xerf-visual-frame:hover img { transform: scale(1.03); }
 		.xerf-steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-bottom: 4rem; }
-		.xerf-step-card { background-color: var(--espresso-soft); padding: 2.5rem 2rem; border: 1px solid rgba(203, 187, 169, 0.22); border-radius: 12px; position: relative; }
-		.xerf-step-num { font-family: var(--font-serif); font-size: 3rem; font-style: italic; color: var(--taupe-pill); opacity: 0.75; line-height: 1; margin-bottom: 1rem; }
-		.xerf-step-title { font-size: 1.5rem; margin-bottom: 0.75rem; color: var(--ivory); }
-		.xerf-promo-card { background-color: var(--espresso-soft); border: 1px solid rgba(203, 187, 169, 0.45); border-radius: 14px; padding: 2.5rem; margin-bottom: 2.25rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; position: relative; }
-		.xerf-badge { position: absolute; top: -12px; left: 2rem; background-color: var(--taupe-pill); color: var(--espresso); font-size: 0.66rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; padding: 0.28rem 0.85rem; border-radius: 999px; }
-		.xerf-price-was { font-size: 1.05rem; text-decoration: line-through; color: var(--taupe-pill); opacity: 0.65; text-align: right; }
-		.xerf-price-value { font-family: var(--font-serif); font-size: 2.6rem; color: var(--ivory); line-height: 1; }
-		.xerf-note { text-align: center; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--taupe-pill); margin-bottom: 1.5rem; }
+		.xerf-step-card { background-color: var(--ivory); padding: 2.5rem 2rem; border: 1px solid var(--border-light); border-radius: 14px; position: relative; box-shadow: var(--shadow-soft); }
+		.xerf-step-num { font-family: var(--font-serif); font-size: 3rem; font-style: italic; color: var(--taupe-mid); line-height: 1; margin-bottom: 1rem; }
+		.xerf-step-title { font-size: 1.55rem; margin-bottom: 0.75rem; color: var(--espresso); }
+		.xerf-promo-card { background-color: var(--sand); border: 1px solid var(--border-taupe); border-radius: 14px; padding: 2.5rem; margin-bottom: 2.25rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; position: relative; }
+		.xerf-badge { position: absolute; top: -12px; left: 2rem; background-color: var(--taupe-pill); color: var(--espresso); font-size: 0.66rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; padding: 0.28rem 0.9rem; border-radius: 999px; border: 1px solid var(--border-taupe); }
+		.xerf-price-was { font-size: 1.05rem; text-decoration: line-through; color: var(--taupe-text); opacity: 0.7; text-align: right; }
+		.xerf-price-value { font-family: var(--font-serif); font-size: 2.6rem; color: var(--espresso); line-height: 1; }
+		.xerf-note { text-align: center; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--taupe-text); margin-bottom: 1.5rem; }
+
+		@media (max-width: 992px) {
+			.xerf-split-top { grid-template-columns: 1fr; gap: 2.5rem; }
 
 		/* ABOUT & SERVICES */
 		.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
@@ -211,27 +217,32 @@
 	<!-- XERF -->
 	<section id="xerf" class="section-padding xerf-section">
 		<div class="container">
-			<div class="xerf-header">
-				<span class="section-subtitle" style="color: var(--taupe-pill);">Advanced Non-Surgical Lifting</span>
-				<h2 class="section-title" style="color: var(--ivory);">XERF&trade; Monopolar Radiofrequency</h2>
-				<p style="color: rgba(251, 249, 245, 0.82);">XERF&trade; utilizes dual-depth monopolar RF energy to stimulate collagen remodeling across dermal and subdermal layers without needles or recovery downtime.</p>
+			<div class="xerf-split-top">
+				<div>
+					<span class="section-subtitle">Advanced Non-Surgical Lifting</span>
+					<h2 class="section-title">XERF&trade; Monopolar Radiofrequency</h2>
+					<p style="color: var(--taupe-text); font-size: 1.02rem; margin-bottom: 0;">XERF&trade; utilizes dual-depth monopolar RF energy to stimulate collagen remodeling across dermal and subdermal layers without needles or recovery downtime.</p>
+				</div>
+				<div class="xerf-visual-frame">
+					<img src="202602270537-main.cropped_1772145453.jpg" alt="XERF Monopolar Radiofrequency at Medi Spa Aesthetica" onerror="this.style.display='none'">
+				</div>
 			</div>
 
 			<div class="xerf-steps-grid">
 				<div class="xerf-step-card">
 					<div class="xerf-step-num">01</div>
 					<h3 class="xerf-step-title">Clinical Assessment</h3>
-					<p style="color: var(--taupe-pill); font-size: 0.9rem;">Targeted facial tissue assessment by RN Rose Wheeler to define precise anatomical vectors for tightening.</p>
+					<p style="color: var(--taupe-text); font-size: 0.92rem; margin-bottom: 0;">Targeted facial tissue assessment by RN Rose Wheeler to define precise anatomical vectors for tightening.</p>
 				</div>
 				<div class="xerf-step-card">
 					<div class="xerf-step-num">02</div>
 					<h3 class="xerf-step-title">Dual-Depth RF Heating</h3>
-					<p style="color: var(--taupe-pill); font-size: 0.9rem;">Simultaneous thermal energy target layers to contract stretched collagen fibers instantly.</p>
+					<p style="color: var(--taupe-text); font-size: 0.92rem; margin-bottom: 0;">Simultaneous thermal energy target layers to contract stretched collagen fibers instantly.</p>
 				</div>
 				<div class="xerf-step-card">
 					<div class="xerf-step-num">03</div>
 					<h3 class="xerf-step-title">Neocollagenesis</h3>
-					<p style="color: var(--taupe-pill); font-size: 0.9rem;">Long-term collagen fiber synthesis builds continuous firmness over the following 3 to 6 months.</p>
+					<p style="color: var(--taupe-text); font-size: 0.92rem; margin-bottom: 0;">Long-term collagen fiber synthesis builds continuous firmness over the following 3 to 6 months.</p>
 				</div>
 			</div>
 
@@ -240,8 +251,8 @@
 				<div class="xerf-promo-card">
 					<span class="xerf-badge">Featured Package</span>
 					<div>
-						<h3 style="font-size: 1.8rem; color: var(--ivory); margin-bottom: 0.5rem;">Full Face &amp; Submental Tightening</h3>
-						<p style="color: rgba(251, 249, 245, 0.78); font-size: 0.9rem; margin-bottom:0;">Comprehensive dual-layer treatment for lower face, cheek contours, jowls, and upper neck area.</p>
+						<h3 style="font-size: 1.8rem; color: var(--espresso); margin-bottom: 0.5rem;">Full Face &amp; Submental Tightening</h3>
+						<p style="color: var(--taupe-text); font-size: 0.92rem; margin-bottom:0;">Comprehensive dual-layer treatment for lower face, cheek contours, jowls, and upper neck area.</p>
 					</div>
 					<div>
 						<div class="xerf-price-was">$4,000</div>
@@ -251,8 +262,8 @@
 				<div class="xerf-promo-card">
 					<span class="xerf-badge">Launch Offer</span>
 					<div>
-						<h3 style="font-size: 1.8rem; color: var(--ivory); margin-bottom: 0.5rem;">Lower Face &amp; Neck Lift</h3>
-						<p style="color: rgba(251, 249, 245, 0.78); font-size: 0.9rem; margin-bottom:0;">Targeted tightening along the jawline, marionette areas, and jowl laxity.</p>
+						<h3 style="font-size: 1.8rem; color: var(--espresso); margin-bottom: 0.5rem;">Lower Face &amp; Neck Lift</h3>
+						<p style="color: var(--taupe-text); font-size: 0.92rem; margin-bottom:0;">Targeted tightening along the jawline, marionette areas, and jowl laxity.</p>
 					</div>
 					<div>
 						<div class="xerf-price-was">$3,000</div>
@@ -265,7 +276,6 @@
 			</div>
 		</div>
 	</section>
-
 	<!-- Practitioner -->
 	<section id="about" class="section-padding">
 		<div class="container about-grid">
